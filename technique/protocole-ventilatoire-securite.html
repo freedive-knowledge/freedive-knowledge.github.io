@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protocole ventilatoire de sécurité · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/technique/index.html">Technique</a></p>
+
+<h1>Protocole ventilatoire de sécurité</h1>
+<p class="meta">
+  <span class="classe">Technique</span>
+  <code>protocole-ventilatoire-securite</code>
+  
+  · créé 2026-09-28
+  · alias : PVS, ventilation de sortie d&#39;apnée
+</p>
+<p class="chapeau">À la sortie d&#39;une apnée longue ou profonde : inspirer beaucoup et souffler peu, pour recharger en O2 au plus vite. Contre-intuitif, il s&#39;entraîne sur toutes les apnées.</p>
+
+
+<div class="fiche">
+  <div class="principal">
+    
+    <section>
+      <h2>Assertions</h2>
+      <dl class="triples">
+      
+        <dt title="Pièce justificative. REQUIS sur le nœud dès lors qu&#39;un triple y porte `verification: verifie` : contrainte contrôlée par le linter, qui empêche l&#39;indicateur de devenir déclaratif.">source</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/source/apnee-attitude-ventilation-v3-1.html" title="Source">Apnée Attitude — Améliorer son apnée grâce à la ventilation (V.3.1, débutants)</a></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Réduit ou annule le risque. Pendant de favorise.">previent</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-probable verif-verifie" data-verif="verifie"
+    title="verifie · probable">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/risque/syncope.html" title="Risque">Syncope hypoxique</a></span>
+</li>
+        
+          
+          <li class="triple conf-probable verif-verifie" data-verif="verifie"
+    title="verifie · probable">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/risque/perte-controle-moteur.html" title="Risque">Perte de contrôle moteur</a></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Mécanisme physiologique ou physique en jeu pendant l&#39;exécution.">mobilise</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-probable verif-verifie" data-verif="verifie"
+    title="verifie · probable">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/concept/poumons-pleins.html" title="Concept">Poumons pleins</a></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Usage rendu possible. Traduit en triples les mentions saillantes de la doctrine d&#39;emploi rédigée dans le corps de la note.">permet</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-probable verif-verifie" data-verif="verifie"
+    title="verifie · probable">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/competence/appliquer-protocole-ventilatoire-securite.html" title="Compétence">Savoir appliquer le protocole ventilatoire de sécurité</a></span>
+</li>
+        
+        </ul></dd>
+      
+      </dl>
+    </section>
+    
+    
+    <section class="corps"><h2>Le réflexe naturel, à inverser</h2>
+<p>À la sortie d'une apnée longue ou profonde, l'urgence ressentie par le cerveau
+est d'évacuer le CO2 : on souffle beaucoup et on inspire peu. Deux
+inconvénients :</p>
+<ol>
+<li>on rejette l'air encore chargé d'O2 présent dans les poumons ;</li>
+<li>on ventile sur les volumes neutre et vide.</li>
+</ol>
+<h2>Le protocole</h2>
+<p>La vraie urgence est de <strong>recharger en oxygène</strong> : inspirer beaucoup, souffler
+peu.</p>
+<ol>
+<li>On garde l'air contenant encore de l'O2.</li>
+<li>On ventile sur les volumes neutre et plein.</li>
+</ol>
+<p>On agit ainsi directement sur la chute de la pression partielle d'O2 à
+l'émersion (voir <a class="noeud" href="/concept/hypoxie-remontee.html" title="Concept">Hypoxie de remontée</a> pour la profondeur), en renouvelant plus
+vite l'air des poumons. Objectif : <strong>recycler le plus rapidement possible le
+plus grand volume d'air pulmonaire possible.</strong></p>
+<h2>Pourquoi s'y entraîner partout</h2>
+<p>La plupart des <a class="noeud" href="/risque/syncope.html" title="Risque">Syncope hypoxique</a>s et des <a class="noeud" href="/risque/perte-controle-moteur.html" title="Risque">PCM</a> surviennent en
+surface, avant ou après la reprise ventilatoire. En sortie d'apnée difficile,
+on ventile machinalement : le protocole doit s'entraîner <strong>sur toutes les
+apnées</strong>, difficiles ou non, pour modifier la mécanique corporelle.</p>
+<h2>Pédagogie — apprendre à ventiler contre nature</h2>
+<p>Certains élèves en saisissent vite l'intérêt ; d'autres résistent, parce que
+cela bouscule leurs habitudes : il faut expliquer.</p>
+<ol>
+<li>D'abord : en sortie d'apnée, <strong>3 rétentions d'air de 2 s</strong>.</li>
+<li>Ensuite : en sortie d'apnée, <strong>3 inspirations le plus vite possible</strong>, en
+   fermant la bouche entre chaque prise d'air.</li>
+</ol></section>
+    
+  </div>
+  <aside>
+    <section>
+      <h2>Voisinage
+        <span class="profondeur">
+          <label><input type="radio" name="prof" value="1" checked> 1</label>
+          <label><input type="radio" name="prof" value="2"> 2 sauts</label>
+        </span>
+      </h2>
+      <div id="mini-graphe" data-id="protocole-ventilatoire-securite"></div>
+    </section>
+    <section>
+      <h2>Liens entrants</h2>
+      <p class="vide">Aucun nœud ne pointe vers celui-ci.</p>
+    </section>
+  </aside>
+</div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+<script src="/static/vendor/cytoscape.min.js"></script>
+<script src="/static/graphe.js"></script>
+<script>
+if (document.querySelector("pre.mermaid")) {
+  const s = document.createElement("script");
+  s.src = "/static/vendor/mermaid.min.js";
+  s.onload = () => { mermaid.initialize({ startOnLoad: false, theme: "neutral" }); mermaid.run(); };
+  document.head.appendChild(s);
+}
+if (document.querySelector("div.math")) {
+  const css = document.createElement("link");
+  css.rel = "stylesheet";
+  css.href = "/static/vendor/katex/katex.min.css";
+  document.head.appendChild(css);
+  const s = document.createElement("script");
+  s.src = "/static/vendor/katex/katex.min.js";
+  s.onload = () => document.querySelectorAll("div.math").forEach(el =>
+    katex.render(el.textContent, el, { displayMode: true, throwOnError: false }));
+  document.head.appendChild(s);
+}
+</script>
+
+</body>
+</html>

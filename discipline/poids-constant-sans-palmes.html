@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poids constant sans palmes · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/discipline/index.html">Discipline</a></p>
+
+<h1>Poids constant sans palmes</h1>
+<p class="meta">
+  <span class="classe">Discipline</span>
+  <code>poids-constant-sans-palmes</code>
+  
+  · créé 2026-09-24 · modifié 2026-09-25
+  · alias : CNF
+</p>
+<p class="chapeau">Descente et remontée à la seule force musculaire, sans propulsion ni aide du bout.</p>
+
+
+<div class="fiche">
+  <div class="principal">
+    
+    <section>
+      <h2>Assertions</h2>
+      <dl class="triples">
+      
+        <dt title="Pièce justificative. REQUIS sur le nœud dès lors qu&#39;un triple y porte `verification: verifie` : contrainte contrôlée par le linter, qui empêche l&#39;indicateur de devenir déclaratif.">source</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/source/apnee-attitude-livret-aeel-2020.html" title="Source">Apnée Attitude — De l&#39;Apnéiste à l&#39;Apnéiste Expert Eau Libre (2020)</a></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Subsomption : épine dorsale de l&#39;ontologie. Donne l&#39;héritage, donc la possibilité d&#39;interroger le graphe à plusieurs niveaux de granularité. Sujet et cible doivent être de la MÊME classe.">sorte-de</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-probable verif-verifie" data-verif="verifie"
+    title="verifie · probable">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/discipline/poids-constant.html" title="Discipline">Poids constant</a></span>
+</li>
+        
+        </ul></dd>
+      
+      </dl>
+    </section>
+    
+    
+    <section class="corps"><h2>Description</h2>
+<p>La plus exigeante : coordination entre propulsion, compensation, technique et flottabilité (livret, p.59). Longe à la ceinture, seule fixation possible (p.68).</p></section>
+    
+  </div>
+  <aside>
+    <section>
+      <h2>Voisinage
+        <span class="profondeur">
+          <label><input type="radio" name="prof" value="1" checked> 1</label>
+          <label><input type="radio" name="prof" value="2"> 2 sauts</label>
+        </span>
+      </h2>
+      <div id="mini-graphe" data-id="poids-constant-sans-palmes"></div>
+    </section>
+    <section>
+      <h2>Liens entrants</h2>
+      <p class="vide">Aucun nœud ne pointe vers celui-ci.</p>
+    </section>
+  </aside>
+</div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+<script src="/static/vendor/cytoscape.min.js"></script>
+<script src="/static/graphe.js"></script>
+<script>
+if (document.querySelector("pre.mermaid")) {
+  const s = document.createElement("script");
+  s.src = "/static/vendor/mermaid.min.js";
+  s.onload = () => { mermaid.initialize({ startOnLoad: false, theme: "neutral" }); mermaid.run(); };
+  document.head.appendChild(s);
+}
+if (document.querySelector("div.math")) {
+  const css = document.createElement("link");
+  css.rel = "stylesheet";
+  css.href = "/static/vendor/katex/katex.min.css";
+  document.head.appendChild(css);
+  const s = document.createElement("script");
+  s.src = "/static/vendor/katex/katex.min.js";
+  s.onload = () => document.querySelectorAll("div.math").forEach(el =>
+    katex.render(el.textContent, el, { displayMode: true, throwOnError: false }));
+  document.head.appendChild(s);
+}
+</script>
+
+</body>
+</html>

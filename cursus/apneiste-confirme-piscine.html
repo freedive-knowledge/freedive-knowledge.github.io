@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACP — Apnéiste Confirmé Piscine · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/cursus/index.html">Cursus</a></p>
+
+<h1>ACP — Apnéiste Confirmé Piscine</h1>
+<p class="meta">
+  <span class="classe">Cursus</span>
+  <code>apneiste-confirme-piscine</code>
+  
+  · créé 2026-09-24 · modifié 2026-09-29
+  · alias : ACP, Indoor Freediver 2** CMAS
+</p>
+<p class="chapeau">Brevet apnée de la FFESSM, délivré par la CNA.</p>
+
+
+<div class="fiche">
+  <div class="principal">
+    
+    <section>
+      <h2>Assertions</h2>
+      <dl class="triples">
+      
+        <dt title="Pièce justificative. REQUIS sur le nœud dès lors qu&#39;un triple y porte `verification: verifie` : contrainte contrôlée par le linter, qui empêche l&#39;indicateur de devenir déclaratif.">source</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/source/mfa-generalites-2026-07.html" title="Source">MFA Généralités — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/source/apnee-attitude-livret-aeel-2020.html" title="Source">Apnée Attitude — De l&#39;Apnéiste à l&#39;Apnéiste Expert Eau Libre (2020)</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/source/wiki-veille-apnee-2026-09.html" title="Source">Wiki de veille — section Apnée (état 2026-09-28)</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Profondeur maximale ouverte par le brevet, qualifiée par deux attributs du triple : `cadre` (autonomie-relative, autonomie-complete, encadrement), toujours requis, et `milieu` (naturel, artificiel), omis quand la valeur vaut pour les deux milieux. Rend comparable &#34;qui peut évoluer, ou encadrer, à 15m ?&#34;, ce qu&#39;un `autorise` en texte ne sait pas faire.">profondeur-max</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><span class="litteral">6m</span></span>
+  <span class="attribut">cadre : <span class="litteral">autonomie-relative</span></span>
+  <span class="attribut">milieu : <span class="litteral">artificiel</span></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><span class="litteral">6m</span></span>
+  <span class="attribut">cadre : <span class="litteral">autonomie-complete</span></span>
+  <span class="attribut">milieu : <span class="litteral">artificiel</span></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Âge minimum requis à la date de l&#39;examen, en années révolues. Seuil comparable : permet de répondre à &#34;quels brevets sont accessibles à 16 ans ?&#34;, ce qu&#39;un `requiert` en prose ne saurait pas faire.">age-minimum</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><span class="litteral">16ans</span></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Les PRÉREQUIS. Ce qu&#39;il faut déjà savoir faire, ou déjà détenir, pour aborder le nœud. Une cible `cursus` exprime un brevet prérequis, ce qui rend le graphe de progression fédéral interrogeable ; une cible `titre` exprime une pièce conditionnant l&#39;accès.">requiert</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/cursus/apneiste-piscine.html" title="Cursus">AP — Apnéiste Piscine</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/cursus/rifa-apnee.html" title="Cursus">RIFA Apnée</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Prérogative ouverte par le cursus ou le rôle.">autorise</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><span class="litteral texte">pratiquer l&#39;apnée sous toutes ses formes avec un encadrant d&#39;apnée qualifié, qui détermine l&#39;organisation et les limites de l&#39;activité</span></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><span class="litteral texte">pratiquer l&#39;apnée sous toutes ses formes en autonomie, selon les règles du MFA généralités et des Recommandations pour la pratique</span></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+        </ul></dd>
+      
+        <dt title="Composition. L&#39;ORDRE DE LA LISTE est signifiant pour une séance : il est l&#39;ordre de déroulement. Aucun index numérique n&#39;est stocké.">comporte</dt>
+        <dd><ul>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/competence/utiliser-son-materiel-acp.html" title="Compétence">Utiliser son matériel (ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/competence/se-ventiler-se-relacher-acp.html" title="Compétence">Se ventiler, se relâcher (ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/competence/se-deplacer-acp.html" title="Compétence">Se déplacer (ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/competence/compenser-ses-volumes-acp.html" title="Compétence">Compenser ses volumes (ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/competence/assister-son-binome-acp.html" title="Compétence">Assister son binôme (ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/competence/evoluer-en-autonomie-acp.html" title="Compétence">Évoluer en autonomie (ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/competence/performer-acp.html" title="Compétence">Performer (ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/exercice/examen-acp-statique.html" title="Exercice">Statique 3 mn (épreuve ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/exercice/examen-acp-dynamique-75m.html" title="Exercice">Dynamique 75 m (épreuve ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+          
+          <li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/exercice/examen-acp-4x50.html" title="Exercice">4×50 m départ 2 mn (épreuve ACP)</a></span>
+  <span class="attribut">source : <a class="noeud" href="/source/mfa-acp-2026-07.html" title="Source">MFA Apnéiste Confirmé Piscine — version juillet 2026</a></span>
+</li>
+        
+        </ul></dd>
+      
+      </dl>
+    </section>
+    
+    
+    <section class="corps"><h2>Description</h2>
+<p>Brevet de pratique en piscine (Indoor Freediver 2** CMAS). Sept compétences
+(MFA ACP, juillet 2026, p. 3) : <a class="noeud" href="/competence/utiliser-son-materiel-acp.html" title="Compétence">Utiliser son matériel (ACP)</a>,
+<a class="noeud" href="/competence/se-ventiler-se-relacher-acp.html" title="Compétence">Se ventiler, se relâcher (ACP)</a>, <a class="noeud" href="/competence/se-deplacer-acp.html" title="Compétence">Se déplacer (ACP)</a>,
+<a class="noeud" href="/competence/compenser-ses-volumes-acp.html" title="Compétence">Compenser ses volumes (ACP)</a>, <a class="noeud" href="/competence/assister-son-binome-acp.html" title="Compétence">Assister son binôme (ACP)</a>,
+<a class="noeud" href="/competence/evoluer-en-autonomie-acp.html" title="Compétence">Évoluer en autonomie (ACP)</a>, <a class="noeud" href="/competence/performer-acp.html" title="Compétence">Performer (ACP)</a>. Chaque compétence est signée
+par un IE2 a minima ou un BPJEPS plongée, licenciés ; le brevet est délivré par
+le club ou la SCA sous la signature du Président ou de l'exploitant.</p>
+<h2>Épreuves</h2>
+<p>Compétence <a class="noeud" href="/competence/performer-acp.html" title="Compétence">Performer (ACP)</a> : <a class="noeud" href="/exercice/examen-acp-statique.html" title="Exercice">Statique 3 mn (épreuve ACP)</a> (3 mn, lest proscrit),
+<a class="noeud" href="/exercice/examen-acp-dynamique-75m.html" title="Exercice">Dynamique 75 m (épreuve ACP)</a>, <a class="noeud" href="/exercice/examen-acp-4x50.html" title="Exercice">4×50 m départ 2 mn (épreuve ACP)</a> (départ toutes les 2 mn).</p>
+<h2>Théorie</h2>
+<p>Évaluée au choix du jury, à l'oral ou à l'écrit, ponctuellement ou tout au
+long de la formation (p. 11) : notions de physique, d'anatomie et de
+physiologie ; prévention des accidents pour soi et son binôme —
+<a class="noeud" href="/risque/barotraumatisme.html" title="Risque">Barotraumatisme</a>, <a class="noeud" href="/risque/syncope.html" title="Risque">Syncope hypoxique</a>, <a class="noeud" href="/risque/perte-controle-moteur.html" title="Risque">PCM</a>,
+<a class="noeud" href="/risque/oedeme-pulmonaire.html" title="Risque">OPI</a> — causes, symptômes et conduites à tenir ;
+prérogatives et responsabilités en autonomie complète, organisation club et
+fédérale ; bases de l'entraînement personnel ; organisation de la sécurité en
+binôme ; écogestes et connaissance des espèces communes.</p>
+<h2>Conditions d'accès</h2>
+<p>Le MFA ACP (p. 2) accepte en entrée la carte d'Apnéiste Piscine <strong>ou</strong> celle
+d'Apnéiste Confirmé en Eau Libre ; seule la première est portée en triple,
+faute de disjonction dans le vocabulaire. Aucune clause d'équivalence ne
+dispense un IE1 de tout ou partie de la formation.</p>
+<h2>Formation au Neptune Club de Brunoy</h2>
+<p>Saison 2026-2027 : 2 cours théoriques de 45 mn prévus, le lundi de 20h30 à
+21h15 dans la salle de cours de la <a class="noeud" href="/lieu/piscine-brunoy.html" title="Lieu">Piscine de Brunoy</a>. Objectifs
+intermédiaires et contenu des séances à construire par le formateur à partir
+du MFA. Calendrier : <a class="noeud" href="/source/calendrier-cours-theoriques-2026-2027.html" title="Source">Cours théoriques apnée 2026-2027 — proposition de calendrier</a>.</p></section>
+    
+  </div>
+  <aside>
+    <section>
+      <h2>Voisinage
+        <span class="profondeur">
+          <label><input type="radio" name="prof" value="1" checked> 1</label>
+          <label><input type="radio" name="prof" value="2"> 2 sauts</label>
+        </span>
+      </h2>
+      <div id="mini-graphe" data-id="apneiste-confirme-piscine"></div>
+    </section>
+    <section>
+      <h2>Liens entrants</h2>
+      
+      <dl class="triples">
+      
+        <dt>← destine-a</dt>
+        <dd><ul><li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/exercice/examen-acp-4x50.html" title="Exercice">4×50 m départ 2 mn (épreuve ACP)</a></span>
+</li><li class="triple conf-probable verif-verifie" data-verif="verifie"
+    title="verifie · probable">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/exercice/50m-pv.html" title="Exercice">50 m poumons vides</a></span>
+</li><li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/exercice/examen-acp-dynamique-75m.html" title="Exercice">Dynamique 75 m (épreuve ACP)</a></span>
+</li><li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/exercice/examen-acp-statique.html" title="Exercice">Statique 3 mn (épreuve ACP)</a></span>
+</li></ul></dd>
+      
+        <dt>← delivre</dt>
+        <dd><ul><li class="triple conf-certain verif-verifie" data-verif="verifie"
+    title="verifie · certain">
+  <span class="icone verif-verifie">✓</span>
+  <span class="cible"><a class="noeud" href="/organisation/cna.html" title="Organisation">CNA — Commission Nationale Apnée</a></span>
+</li></ul></dd>
+      
+      </dl>
+      
+    </section>
+  </aside>
+</div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+<script src="/static/vendor/cytoscape.min.js"></script>
+<script src="/static/graphe.js"></script>
+<script>
+if (document.querySelector("pre.mermaid")) {
+  const s = document.createElement("script");
+  s.src = "/static/vendor/mermaid.min.js";
+  s.onload = () => { mermaid.initialize({ startOnLoad: false, theme: "neutral" }); mermaid.run(); };
+  document.head.appendChild(s);
+}
+if (document.querySelector("div.math")) {
+  const css = document.createElement("link");
+  css.rel = "stylesheet";
+  css.href = "/static/vendor/katex/katex.min.css";
+  document.head.appendChild(css);
+  const s = document.createElement("script");
+  s.src = "/static/vendor/katex/katex.min.js";
+  s.onload = () => document.querySelectorAll("div.math").forEach(el =>
+    katex.render(el.textContent, el, { displayMode: true, throwOnError: false }));
+  document.head.appendChild(s);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les lois physiques en apnée et leurs conséquences · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/cours/index.html">Cours</a></p>
+<h1>Les lois physiques en apnée et leurs conséquences</h1>
+<p class="chapeau">Cours théorique AP — Neptune Club de Brunoy — 45 mn.</p>
+<p class="telechargements">
+  <a href="/cours/ap-lois-physiques/ap-lois-physiques.pdf" download>Support PDF</a> · <a href="/cours/ap-lois-physiques/ap-lois-physiques.pptx" download>Support PPTX</a> · 
+  <a href="/cours/ap-lois-physiques/cours.md">Source Markdown</a>
+</p>
+<div class="corps cours"><p>Ce fichier porte le <strong>fond</strong> du cours : plan, texte de chaque slide, notes du
+présentateur, minutage, quiz. La mise en forme vit dans le deck Google Slides
+généré à partir de lui ; le PDF et le tableur Kahoot en sont des exports.</p>
+<h2>Cadre</h2>
+<ul>
+<li><strong>Public</strong> : candidats Apnéiste Piscine (<a class="noeud" href="/cursus/apneiste-piscine.html" title="Cursus">AP — Apnéiste Piscine</a>), 0-6 m en bassin.</li>
+<li><strong>Référentiel</strong> : MFA AP juillet 2026 (<a class="noeud" href="/source/mfa-ap-2026-07.html" title="Source">MFA Apnéiste Piscine — version juillet 2026</a>) — « notions simples
+  de physique permettant de comprendre les effets du milieu et les accidents »,
+  « variations de pression liées à la profondeur pour comprendre la
+  compensation », « réglage du lestage en fonction du milieu et de sa
+  combinaison ».</li>
+<li><strong>Position</strong> : après le cours ventilation / physiologie. Poumons et volumes
+  pulmonaires sont supposés connus.</li>
+<li><strong>Périmètre</strong> : vision, son, chaleur, pression, Boyle-Mariotte, Dalton,
+  Archimède. Dalton est limité à l'oxygène et à l'hypoxie de remontée ;
+  l'azote et la narcose sont hors périmètre.</li>
+<li><strong>Parti pris</strong> : chiffres et schémas, trois formules (P × V = constante,
+  Pp = P × %, poids apparent). Pour chaque loi, le
+  mécanisme puis le geste pratique. Les accidents sont nommés, leurs symptômes
+  et la conduite à tenir sont renvoyés au cours accidents.</li>
+<li><strong>Forme</strong> : slides épurées aux couleurs du club, une slide « à retenir » par
+  thème, aucune démonstration.</li>
+</ul>
+<h2>Objectifs</h2>
+<p>À la fin du cours, le participant sait :</p>
+<ol>
+<li>dire pourquoi on voit, on entend et on se refroidit autrement sous l'eau ;</li>
+<li>donner la pression à une profondeur simple (surface, 6 m, 10 m) ;</li>
+<li>expliquer pourquoi l'air de son corps se comprime en descendant, et citer
+   les gestes qui en découlent (compenser, souffler dans le masque) ;</li>
+<li>expliquer pourquoi l'oxygène manque à la remontée, et pourquoi le binôme
+   surveille jusqu'après la sortie de l'eau ;</li>
+<li>expliquer pourquoi il flotte ou coule, et comment régler son lest.</li>
+</ol>
+<h2>Minutage</h2>
+<table>
+<thead>
+<tr>
+<th>Bloc</th>
+<th>Slides</th>
+<th>Durée</th>
+<th>Cumul</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ouverture et plan</td>
+<td>1-3</td>
+<td>1 mn</td>
+<td>1 mn</td>
+</tr>
+<tr>
+<td>Quiz d'ouverture + sensations</td>
+<td>4-11</td>
+<td>10 mn</td>
+<td>11 mn</td>
+</tr>
+<tr>
+<td>Pression</td>
+<td>12-14</td>
+<td>5 mn</td>
+<td>16 mn</td>
+</tr>
+<tr>
+<td>Boyle-Mariotte</td>
+<td>15-22</td>
+<td>10 mn</td>
+<td>26 mn</td>
+</tr>
+<tr>
+<td>Dalton</td>
+<td>23-25</td>
+<td>4 mn</td>
+<td>30 mn</td>
+</tr>
+<tr>
+<td>Archimède</td>
+<td>26-32</td>
+<td>7 mn</td>
+<td>37 mn</td>
+</tr>
+<tr>
+<td>Quiz final et clôture</td>
+<td>33-48</td>
+<td>8 mn</td>
+<td>45 mn</td>
+</tr>
+</tbody>
+</table>
+<h2>Charte</h2>
+<p>Couleurs relevées sur le site du club (neptune-club-brunoy.fr) :</p>
+<table>
+<thead>
+<tr>
+<th>Rôle</th>
+<th>Couleur</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fond</td>
+<td><code>#f4f7f8</code></td>
+</tr>
+<tr>
+<td>Titres</td>
+<td><code>#24454d</code></td>
+</tr>
+<tr>
+<td>Dominante (vague gauche du logo)</td>
+<td><code>#3d6e79</code></td>
+</tr>
+<tr>
+<td>Accent clair (vague droite du logo)</td>
+<td><code>#94cec8</code></td>
+</tr>
+<tr>
+<td>Texte (trident)</td>
+<td><code>#242021</code></td>
+</tr>
+<tr>
+<td>Chiffres clés et bonnes réponses</td>
+<td><code>#F08237</code></td>
+</tr>
+</tbody>
+</table>
+<p>Logo en bas à droite de chaque slide, sauf les slides de titre et de remerciement, où il est centré.</p>
+<hr />
+<h2>Slides</h2>
+<h3>1. Titre</h3>
+<p><strong>Écran</strong> — Les lois physiques en apnée… et ce qu'elles changent pour vous.
+Cours théorique Apnéiste Piscine. Logo du club.</p>
+<p><strong>Notes</strong> — Accueil. Annoncer : 45 mn, deux quiz, pas de calcul compliqué.</p>
+<h3>2. Pourquoi de la physique ?</h3>
+<p><strong>Écran</strong> — Sous l'eau, tout change : ce que je vois, ce que j'entends, ma
+température, l'air dans mon corps, mon poids. Comprendre, c'est savoir quoi
+faire.</p>
+<p><strong>Notes</strong> — Lien avec le cours précédent : on a vu comment le corps respire ;
+aujourd'hui, ce que l'eau fait à ce corps. On commence par un quiz : sortez vos
+téléphones (ou préparez-vous à lever la main).</p>
+<h3>3. Au programme</h3>
+<p><strong>Écran</strong> — Six lignes numérotées, avec leur durée à droite :
+1. Quiz d'ouverture et sensations : vision, son, chaleur — 10 mn ;
+2. La pression — 5 mn ;
+3. Boyle-Mariotte : l'air se comprime — 10 mn ;
+4. Dalton : l'oxygène à la remontée — 4 mn ;
+5. Archimède : flotter ou couler — 7 mn ;
+6. Quiz final — 8 mn.</p>
+<p><strong>Notes</strong> — Annoncer le chemin : d'abord ce qu'on sent dès la surface, puis ce
+qui change en descendant (la pression, l'air qui se comprime, la
+oxygène, flottabilité). Deux quiz encadrent le cours : le même au début et à la fin,
+pour mesurer ce qui a changé.</p>
+<h3>4. Quiz d'ouverture — question 1</h3>
+<p><strong>Écran</strong> — Sous l'eau, avec un masque, un objet posé au fond paraît…
+A. plus gros et plus proche · B. plus petit et plus loin · C. plus gros et plus
+loin · D. identique.</p>
+<p><strong>Notes</strong> — 20 secondes. Ne pas donner la réponse tout de suite : faire voter,
+constater les désaccords.</p>
+<h3>5. La vision : plus gros, plus près</h3>
+<p><strong>Écran</strong> — Illustration <code>vision-refraction.jpg</code> : un apnéiste masqué
+regarde un petit poisson au loin (« la réalité ») et le voit plus gros et plus
+près (« ce que je vois », silhouette en pointillés). Chiffres clés : <strong>1/3 plus
+gros</strong>, <strong>1/4 plus près</strong>.</p>
+<figure class="illustration"><img src="/cours/ap-lois-physiques/img/vision-refraction.jpg" alt="vision-refraction.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Réponse A. La lumière change de direction en passant de l'eau à
+l'air du masque : c'est la réfraction. Un objet à 4 m semble à 3 m. Sans
+masque, on voit flou : l'œil est réglé pour l'air, il lui faut une couche d'air
+devant lui. Les couleurs s'éteignent aussi avec la profondeur, le rouge en
+premier, mais c'est peu sensible à 6 m.
+Source : <a class="noeud" href="/concept/vision-subaquatique.html" title="Concept">Vision sous l&#39;eau</a>.</p>
+<p><strong>Geste</strong> — Porter un masque ; tendre le bras plus loin qu'on ne croit pour
+saisir un objet ou le bord ; se méfier des distances en apnée dynamique à
+l'approche du mur.</p>
+<h3>6. Quiz d'ouverture — question 2</h3>
+<p><strong>Écran</strong> — Sous l'eau, vous entendez un bruit métallique. Pouvez-vous dire d'où il vient ?
+A. Oui, aussi facilement que dans l'air · B. Très difficilement : il semble venir de partout ·
+C. Non, car on n'entend rien sous l'eau · D. Oui, encore mieux que dans l'air.</p>
+<p><strong>Notes</strong> — 20 secondes.</p>
+<h3>7. Le son : plus vite, direction incertaine</h3>
+<p><strong>Écran</strong> — Deux flèches : air <strong>340 m/s</strong>, eau <strong>1 500 m/s</strong>. « Plus de 4 fois
+plus vite. »</p>
+<p><strong>Notes</strong> — Réponse B. Notre cerveau situe un son grâce au minuscule décalage
+entre les deux oreilles. Dans l'eau, le son va plus de 4 fois plus vite : le
+décalage devient trop court, le son semble venir de partout. On entend très
+bien et de loin, mais on situe mal d'où il vient ; tourner la tête aide un peu.
+Et on ne peut pas parler.
+Source : <a class="noeud" href="/concept/propagation-son.html" title="Concept">Le son sous l&#39;eau</a>.</p>
+<p><strong>Geste</strong> — Communiquer par signes ; garder son binôme <strong>à vue</strong>, jamais « à
+l'oreille » ; un bruit convenu (taper sur l'échelle) sert à alerter, pas à
+indiquer où.</p>
+<h3>8. Quiz d'ouverture — question 3</h3>
+<p><strong>Écran</strong> — Immobile dans une eau à 28 °C, sans combinaison, votre corps…
+A. se réchauffe · B. garde sa température · C. se refroidit · D. ne se
+refroidit que sous 20 °C.</p>
+<p><strong>Notes</strong> — 20 secondes.</p>
+<h3>9. La chaleur : l'eau nous refroidit</h3>
+<p><strong>Écran</strong> — Thermomètre à deux graduations : confortable immobile à <strong>au
+moins 21 °C dans l'air</strong>, <strong>au moins 33 °C dans l'eau</strong>. « L'eau conduit la chaleur plus de
+<strong>20 fois</strong> mieux que l'air. »</p>
+<p><strong>Notes</strong> — Réponse C. À 28 °C on a une sensation agréable en entrant, mais
+l'eau est plus froide que la peau et elle conduit très bien la chaleur. Tant
+qu'on nage, les muscles compensent ; immobile (statique, attente au bord,
+sécurité), on se refroidit vite.
+Sources : <a class="noeud" href="/concept/conduction-thermique.html" title="Concept">Conduction thermique de l&#39;eau</a> ; neutralité thermique, <a class="noeud" href="/risque/hypothermie.html" title="Risque">Hypothermie</a>.</p>
+<h3>10. Le froid : ce que ça change</h3>
+<p><strong>Écran</strong> — Froid → frissons → oxygène consommé → apnée plus courte, moins de
+relâchement.</p>
+<p><strong>Notes</strong> — Le froid n'est pas qu'un inconfort : frissonner, c'est faire
+travailler les muscles, donc brûler de l'oxygène. Il gêne aussi le relâchement
+vu au cours précédent. L'hypothermie proprement dite sera vue au cours
+accidents.</p>
+<p><strong>Geste</strong> — Choisir avant la séance une combinaison adaptée à ce qu'on va
+faire (plus épaisse si on reste immobile, en statique par exemple) ; sortir de
+l'eau si on frissonne ; ne pas enchaîner une séance quand on a déjà froid.</p>
+<h3>11. À retenir — les sensations</h3>
+<p><strong>Écran</strong> — Trois lignes, trois pictogrammes :
+- <strong>Vision</strong> : 1/3 plus gros, 1/4 plus près → un masque, et méfiance sur les
+  distances.
+- <strong>Son</strong> : on entend bien, on situe mal → signes, binôme à vue.
+- <strong>Chaleur</strong> : l'eau conduit la chaleur plus de 20 fois mieux que l'air → une
+  combinaison adaptée à la séance.</p>
+<p><strong>Notes</strong> — Transition : ces trois effets, on les sent dès la surface. Les
+suivants apparaissent quand on descend.</p>
+<h3>12. La pression : le poids de ce qu'il y a au-dessus</h3>
+<p><strong>Écran</strong> — Illustration <code>pression-apneiste.jpg</code> : un apnéiste sous la
+surface, entouré de fines flèches qui pointent vers lui (la pression s'exerce de
+tous les côtés), surmonté de deux flèches, « le poids de l'air » puis « le poids
+de l'eau ». Chiffres clés : <strong>1 bar</strong> en surface, <strong>+ 1 bar</strong> pour 10 m d'eau.</p>
+<figure class="illustration"><img src="/cours/ap-lois-physiques/img/pression-apneiste.jpg" alt="pression-apneiste.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — En surface, toute l'atmosphère pèse sur nous : 1 bar, on ne le sent
+pas parce qu'on y vit. Dans l'eau s'ajoute le poids de l'eau au-dessus. L'eau
+est lourde : 10 m d'eau pèsent autant que toute l'atmosphère.</p>
+<h3>13. +1 bar tous les 10 m</h3>
+<p><strong>Écran</strong> — Schéma air / eau avec une échelle graduée depuis la surface :
+profondeur en mètres à gauche de l'échelle, pression en bar à droite, valeurs à
+3 m et 10 m en orange, repères « fond de nos bassins » à 3 m et « limite de
+l'AP » à 6 m, « fosse de 10 m » et « fosse de 20 m ». Les libellés de la surface sont au-dessus de la ligne d'eau.
+Données :</p>
+<table>
+<thead>
+<tr>
+<th>Profondeur</th>
+<th>Pression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surface</td>
+<td>1 bar</td>
+</tr>
+<tr>
+<td>3 m</td>
+<td>1,3 bar</td>
+</tr>
+<tr>
+<td>6 m</td>
+<td>1,6 bar</td>
+</tr>
+<tr>
+<td>10 m</td>
+<td>2 bar</td>
+</tr>
+<tr>
+<td>20 m</td>
+<td>3 bar</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes</strong> — Règle unique à retenir : on part de 1 bar et on ajoute 1 bar tous
+les 10 m, soit 0,1 bar par mètre. Faire trouver 3 m à la salle : le fond de
+nos bassins, c'est déjà 30 % de pression en plus. À 6 m, limite de l'AP, c'est
+60 %.</p>
+<h3>14. À retenir — la pression</h3>
+<p><strong>Écran</strong> — « 1 bar en surface, +1 bar tous les 10 m. » En petit : entre 0 et
+10 m, la pression <strong>double</strong>.</p>
+<p><strong>Notes</strong> — Insister sur « double » : de 10 à 20 m elle n'est multipliée que
+par 1,5. C'est donc près de la surface que tout change le plus vite — et c'est
+là qu'on pratique. Transition : qu'est-ce que cette pression fait à l'air ?</p>
+<h3>15. Un ballon qui descend</h3>
+<p><strong>Écran</strong> — Schéma à l'échelle : un ballon de plage (<code>ballon.png</code>) posé sur
+l'eau puis descendu le long d'une échelle de profondeur graduée, de plus en
+plus petit et entouré de flèches de pression de plus en plus nombreuses. La
+surface de chaque disque est proportionnelle au volume : <strong>6 L</strong> en surface, <strong>4,6 L</strong> à 3 m (nos bassins), <strong>3,75 L</strong> à 6 m
+(limite AP), <strong>3 L</strong> à 10 m (fosse).
+Sous le titre, un lien cliquable : « ▶ En vidéo : 1 L d'air à 55 m,
+réduit à 154 mL » (<a href="https://www.youtube.com/watch?v=X7roaf8kckM">https://www.youtube.com/watch?v=X7roaf8kckM</a>).</p>
+<figure class="illustration"><img src="/cours/ap-lois-physiques/img/ballon.png" alt="ballon.png" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — L'eau ne se comprime pas, l'air si. Un ballon fermé qu'on descend
+rétrécit ; il reprend sa taille en remontant. Rien ne sort, rien n'entre :
+c'est le même air, plus serré.
+Pour aller plus loin, vidéo liée à l'écran, à montrer ou à partager après le cours : « What happens to the
+lungs of a freediver during a deep dive, Boyle's law in action »
+(<a href="https://www.youtube.com/watch?v=X7roaf8kckM">https://www.youtube.com/watch?v=X7roaf8kckM</a>). Un verre doseur ouvert, retourné, descendu à
+55 m avec 1 L d'air : l'eau comprime l'air jusqu'à 154 mL au fond (6,5 bar),
+puis il reprend 1 L en remontant.</p>
+<h3>16. La loi de Boyle-Mariotte</h3>
+<p><strong>Écran</strong> — Tableau, puis la formule en dessous :</p>
+<table>
+<thead>
+<tr>
+<th>Profondeur</th>
+<th>Pression</th>
+<th>Volume</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surface</td>
+<td>1 bar</td>
+<td>6 L</td>
+</tr>
+<tr>
+<td>3 m</td>
+<td>1,3 bar</td>
+<td>4,6 L</td>
+</tr>
+<tr>
+<td>6 m</td>
+<td>1,6 bar</td>
+<td>3,75 L</td>
+</tr>
+<tr>
+<td>10 m</td>
+<td>2 bar</td>
+<td>3 L</td>
+</tr>
+<tr>
+<td>20 m</td>
+<td>3 bar</td>
+<td>2 L</td>
+</tr>
+</tbody>
+</table>
+<p><strong>P × V = constante</strong></p>
+<p><strong>Notes</strong> — Faire remarquer que pression × volume donne toujours 6. Quand la
+pression double, le volume est divisé par deux. C'est la seule formule du
+cours. 6 L, c'est l'ordre de grandeur de poumons pleins.</p>
+<h3>17. Le plus fort près de la surface</h3>
+<p><strong>Écran</strong> — Courbe volume / profondeur <code>boyle-mariotte-6l.svg</code>, adaptée du
+schéma du nœud <a class="noeud" href="/concept/loi-boyle-mariotte.html" title="Concept">Loi de Boyle-Mariotte</a> : ballon de 6 L, profondeur de 0 à 20 m,
+points à la surface, 3 m (nos bassins), 6 m (limite AP), 10 m et 20 m (fosses),
+zone 0-10 m surlignée : « la moitié du volume perdue ».</p>
+<figure class="illustration"><img src="/cours/ap-lois-physiques/img/boyle-mariotte-6l.svg" alt="boyle-mariotte-6l.svg" loading="lazy"></figure>
+
+<p><strong>Notes</strong> — À 3 m, au fond de nos bassins, on a déjà perdu près d'un quart du volume ; à 6 m, plus du tiers ; à 10 m, la moitié. Conséquence
+directe : c'est dans les premiers mètres qu'il faut agir, pas au fond.</p>
+<h3>18. Où y a-t-il de l'air dans mon corps ?</h3>
+<p><strong>Écran</strong> — Coupe de profil <code>coupe-espaces-air.jpg</code> à gauche, avec des
+pastilles reliées aux zones ; légende à droite.
+Image générée par Gemini puis retouchée : la trompe d'Eustache, dessinée comme
+un tuyau qui traversait l'air jusqu'au voile du palais, est remplacée par un
+tunnel percé dans l'os, ouvert sur l'arrière de la cavité nasale ; les poumons
+sont prolongés jusqu'au bas de la coupe.
+Les espaces d'air : 1 sinus (dans les os du visage), 2 cavité nasale, 3 cavité
+buccale, 4 oreille moyenne (derrière le tympan), 5 trachée et poumons, plus le
+masque (ajouté par le matériel).
+Les portes entre ces espaces, en orange : A trompe d'Eustache (oreille moyenne ↔
+nez), B voile du palais (nez ↔ bouche), C glotte (cordes vocales).</p>
+<figure class="illustration"><img src="/cours/ap-lois-physiques/img/coupe-espaces-air.jpg" alt="coupe-espaces-air.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Le corps est fait surtout d'eau, donc il ne se comprime pas. Seuls les espaces remplis d'air subissent Boyle-Mariotte : l'oreille moyenne, les sinus, la cavité nasale, la cavité buccale, les poumons, et le masque, espace d'air ajouté par le matériel. Ces espaces communiquent par trois « portes » : les trompes d'Eustache, le voile du palais et la glotte. Compenser, c'est faire passer de l'air d'un espace à l'autre en ouvrant ces portes. On les retrouvera en pratique, avec les méthodes de compensation.
+Source des trois « portes » : <a class="noeud" href="/source/apnee-attitude-compensation-0-30m-2026.html" title="Source">Apnée Attitude — La compensation, zone des 0 – 30 m (2026-01-06)</a>, via
+<a class="noeud" href="/concept/trompe-eustache.html" title="Concept">Trompe d&#39;Eustache</a>.</p>
+<h3>19. L'oreille moyenne : compenser</h3>
+<p><strong>Écran</strong> — Coupe de face de l'oreille <code>oreille-moyenne.jpg</code> (Gemini) : eau
+dans le conduit auditif, tympan, oreille moyenne, trompe d'Eustache en tunnel
+jusqu'à l'arrière du nez. Par-dessus : légendes, flèches de l'eau qui pousse
+sur le tympan, flèche orange de l'air qui remonte par la trompe. À droite :
+« Compenser : renvoyer de l'air par la trompe d'Eustache. » et « Tôt, souvent,
+sans jamais forcer. »</p>
+<figure class="illustration"><img src="/cours/ap-lois-physiques/img/oreille-moyenne.jpg" alt="oreille-moyenne.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Derrière le tympan, dans l'oreille moyenne, il y a de l'air. En descendant il se comprime,
+le tympan est poussé vers l'intérieur : gêne, puis douleur. Compenser, c'est
+renvoyer de l'air dans l'oreille moyenne, par la trompe d'Eustache, pour
+rétablir l'équilibre. Les méthodes
+(Valsalva, Frenzel, BTV) seront vues en pratique. Si on force ou si on insiste
+malgré la douleur, on se blesse : c'est le barotraumatisme, détaillé au cours
+accidents.</p>
+<p><strong>Geste</strong> — Compenser dès la surface et régulièrement sur les premiers mètres ;
+si ça ne passe pas, renoncer à la descente.</p>
+<p><strong>Écran (bandeau)</strong> — « Compenser dès la surface et régulièrement sur les premiers mètres. Si ça ne passe pas : renoncer. »</p>
+<h3>20. Le masque et les sinus</h3>
+<p><strong>Écran</strong> — Deux vignettes : masque plaqué sur le visage ; sinus bouchés.</p>
+<p><strong>Notes</strong> — Masque : l'air y diminue, le masque se plaque et fait ventouse
+(placage de masque). Sinus : cavités d'air dans les os du visage, reliées au
+nez par de petits canaux ; un rhume les bouche et l'air ne peut plus
+s'équilibrer.</p>
+<p><strong>Geste</strong> — Souffler un peu d'air par le nez dans le masque en descendant ; ne
+pas plonger enrhumé ; jamais de bouchons d'oreilles ; jamais de lunettes de
+piscine en profondeur : elles ne couvrent pas le nez, on ne peut pas y renvoyer
+d'air, et elles se plaquent sur les yeux comme un masque qu'on ne compenserait
+pas.</p>
+<p><strong>Écran (bas de slide)</strong> — « Jamais de bouchons d'oreilles, ni de lunettes de
+piscine en profondeur. »</p>
+<h3>21. Les poumons, et la remontée</h3>
+<p><strong>Écran</strong> — Poumons qui rétrécissent à la descente, reprennent leur volume à
+la remontée. Encadré orange : « Jamais d'air pris au fond : ni sur un
+détendeur, ni dans une poche d'air. » En bas : « De l'air ajouté au fond gonfle
+à la remontée : c'est la surpression pulmonaire, possible dès 1 m. »</p>
+<p><strong>Notes</strong> — À 3 m les poumons passent à environ 77 % de leur volume, à 6 m à un peu moins des deux tiers (3,75 L sur 6) : sans
+danger, le thorax est souple. À la remontée, l'air reprend exactement sa place
+de départ, puisqu'on n'en a pas ajouté. Exception grave : si on respire au fond
+l'air d'un plongeur bouteille puis qu'on remonte en apnée, cet air gonfle et
+les poumons ne peuvent pas le contenir : c'est la surpression pulmonaire,
+détaillée au cours accidents. Une seule inspiration suffit, et l'accident est
+possible dès 1 m. En piscine partagée avec les plongeurs, la règle est absolue.
+Même piège avec une poche d'air sous-marine (sous un plafond de grotte ou
+d'épave, dans une cloche, sous un objet retourné au fond) : cet air est à la
+pression de la profondeur, le respirer puis remonter en apnée revient au même.
+Source : <a class="noeud" href="/risque/surpression-pulmonaire.html" title="Risque">Surpression pulmonaire</a> (livret p.51 ; manuel MSD : une seule
+inspiration, dès 1 m).</p>
+<h3>22. À retenir — Boyle-Mariotte</h3>
+<p><strong>Écran</strong> —
+- Quand la pression monte, le volume d'air diminue : <strong>P × V = constante</strong>.
+- L'effet est le plus fort dans les premiers mètres.
+- Oreilles : compenser tôt, souvent, sans forcer.
+- Masque : souffler par le nez. Rhume : pas de plongée.
+- Jamais d'air pris au fond : ni détendeur, ni poche d'air.</p>
+<p><strong>Notes</strong> — Transition : l'air de mes poumons se comprime. Et l'oxygène qu'il
+contient ? C'est la loi de Dalton.</p>
+<h3>23. L'air est un mélange</h3>
+<p><strong>Écran</strong> — Deux pastilles : <strong>21 %</strong> d'oxygène, <strong>79 %</strong> d'azote. Formule :
+<strong>Pp(O2) = P × 21 %</strong>. À droite, tableau :</p>
+<table>
+<thead>
+<tr>
+<th>Profondeur</th>
+<th>Pression</th>
+<th>Pp(O2)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surface</td>
+<td>1 bar</td>
+<td>0,21 bar</td>
+</tr>
+<tr>
+<td>3 m</td>
+<td>1,3 bar</td>
+<td>0,27 bar</td>
+</tr>
+<tr>
+<td>6 m</td>
+<td>1,6 bar</td>
+<td>0,34 bar</td>
+</tr>
+<tr>
+<td>10 m</td>
+<td>2 bar</td>
+<td>0,42 bar</td>
+</tr>
+</tbody>
+</table>
+<p>En bas : « Chaque gaz a sa part de la pression : c'est sa pression partielle. »</p>
+<p><strong>Notes</strong> — L'air est un mélange : environ 21 % d'oxygène et 79 % d'azote.
+Chaque gaz porte sa part de la pression totale : c'est sa pression partielle,
+Pp = P × %. C'est la loi de Dalton. C'est la pression partielle d'oxygène qui
+compte pour le corps. En descendant, la pression augmente, donc la Pp(O2) aussi :
+à 10 m, elle double. On ne parle pas de l'azote ici : ses effets (narcose)
+concernent la grande profondeur.
+Sources : <a class="noeud" href="/concept/loi-dalton.html" title="Concept">Loi de Dalton</a> (0,21 bar en surface, 0,42 bar à 10 m) ; 3 m et 6 m
+calculés (0,21 × 1,3 et 0,21 × 1,6).</p>
+<h3>24. Le piège de la remontée</h3>
+<p><strong>Écran</strong> — Trois étapes, de haut en bas : « Au fond : les poumons sont
+comprimés, la Pp(O2) reste haute — je me sens bien » ; « En remontant : la
+pression baisse, la Pp(O2) s'effondre » ; « Derniers mètres : hypoxie de
+remontée, perte de connaissance possible ». Encadré orange : « Le danger est à
+la remontée, pas au fond. »</p>
+<p><strong>Notes</strong> — Pendant l'apnée, on consomme de l'oxygène. Au fond, la compression
+des poumons maintient une Pp(O2) élevée : on se sent bien, et ce bien-être
+trompe. En remontant, la pression baisse, l'air des poumons se détend, et la
+Pp(O2) s'effondre, d'autant plus qu'on en a consommé. C'est l'hypoxie de
+remontée, principale cause de perte de connaissance chez les apnéistes ; la
+zone critique est entre 10 m et la surface. Les signes et la conduite à tenir
+seront vus au cours accidents. Le risque ne s'arrête pas à la surface :
+l'oxygène continue de baisser une vingtaine de secondes après la sortie.
+Sources : <a class="noeud" href="/concept/loi-dalton.html" title="Concept">Loi de Dalton</a>, <a class="noeud" href="/concept/hypoxie-remontee.html" title="Concept">Hypoxie de remontée</a> (livret p.57-58, p.70 ; un
+temps statique au fond aggrave le phénomène, p.59), <a class="noeud" href="/concept/hypoxie-post-emersion.html" title="Concept">Hypoxie post-émersion</a>.</p>
+<p><strong>Geste</strong> — Ne pas prolonger l'apnée au fond ; le binôme surveille toute la
+remontée et jusqu'après la sortie de l'eau.</p>
+<h3>25. À retenir — Dalton</h3>
+<p><strong>Écran</strong> —
+- L'air contient 21 % d'oxygène : <strong>Pp = P × %</strong>.
+- En descendant, la Pp(O2) monte : au fond, on se sent bien.
+- En remontant, elle s'effondre : c'est l'hypoxie de remontée.
+- Le binôme surveille toute la remontée, et après la sortie.</p>
+<p><strong>Notes</strong> — Transition : si l'air de mon corps rétrécit, mon corps prend moins
+de place. Et ça change ma façon de flotter.</p>
+<h3>26. Archimède : deux forces</h3>
+<p><strong>Écran</strong> — Image <code>archimede-flottabilite.jpg</code> (Gemini, recadrée) : le même
+apnéiste à la surface, entre deux eaux, puis plus bas. Pour chacun, deux
+flèches tracées dans le PPT : la <strong>poussée</strong> de l'eau vers le haut (bleu-vert) et
+le <strong>poids</strong> vers le bas (orange) ; poussée plus longue pour « Je flotte »,
+égales pour « Équilibre », poids plus long pour « Je coule ». À droite : légende
+des flèches et « L'eau pousse vers le haut tout ce qu'on y plonge. »</p>
+<figure class="illustration"><img src="/cours/ap-lois-physiques/img/archimede-flottabilite.jpg" alt="archimede-flottabilite.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — L'eau pousse vers le haut tout ce qu'on y plonge, d'autant plus
+fort que l'objet prend de la place. Si la poussée dépasse le poids, on flotte ;
+si elle est égale, on reste entre deux eaux ; sinon on coule. Ce qui compte,
+c'est le rapport entre le poids et le volume.</p>
+<h3>27. Le principe d'Archimède</h3>
+<p><strong>Écran</strong> — Énoncé, en grand : « Tout corps plongé dans l'eau reçoit une
+poussée verticale, vers le haut, égale au poids du volume d'eau qu'il
+déplace. » Puis, en orange : <strong>Poids apparent = poids réel − poussée
+d'Archimède.</strong> En bas : « Dans l'eau, je ne sens pas mon poids réel, mais mon
+poids apparent. »</p>
+<p><strong>Notes</strong> — Le principe d'Archimède : tout corps plongé dans l'eau reçoit une
+poussée verticale, vers le haut, égale au poids du volume d'eau qu'il déplace.
+Ce que l'on ressent dans l'eau, ce n'est pas son poids réel mais son poids
+apparent : poids réel moins poussée. Un litre d'eau douce pèse environ 1 kg :
+un corps de 80 L reçoit donc une poussée d'environ 80 kg.
+Sources : <a class="noeud" href="/concept/poussee-archimede.html" title="Concept">Poussée d&#39;Archimède</a> ; livret <a class="noeud" href="/source/apnee-attitude-livret-aeel-2020.html" title="Source">Apnée Attitude — De l&#39;Apnéiste à l&#39;Apnéiste Expert Eau Libre (2020)</a>
+p.29.</p>
+<h3>28. Un exemple : 78 kg</h3>
+<p><strong>Écran</strong> — « Un apnéiste de 78 kg. Son poids ne change pas ; son volume, si :
+l'air de ses poumons se comprime en descendant. » Trois cartes : − 2 kg (en
+surface : 80 L, je flotte), 0 kg (vers 5 m : 78 L, équilibre), + 1 kg (vers
+10 m : 77 L, je coule). En bas : « Flottabilité = l'opposé du poids apparent :
+positive, je flotte ; nulle, équilibre ; négative, je coule. »</p>
+<p><strong>Notes</strong> — Exemple, sur la base du livret Apnée Attitude (p.29 : un corps de
+80 L déplace 80 L d'eau douce, soit une poussée d'environ 80 kg) : un apnéiste
+de 78 kg. Son poids ne change pas, mais son volume diminue en descendant, car
+l'air de ses poumons se comprime. En surface, 80 L : poussée de 80 kg, poids
+apparent de −2 kg, il flotte. Vers 5 m, 78 L : poids apparent nul, équilibre.
+Vers 10 m, 77 L : +1 kg, il coule. Le détail du calcul est sur la slide 30.
+Deux leviers en découlent : le lest augmente le poids réel ; les poumons pleins
+et la combinaison augmentent le volume, donc la poussée.
+Sources : <a class="noeud" href="/concept/poussee-archimede.html" title="Concept">Poussée d&#39;Archimède</a>, exemple du livret
+<a class="noeud" href="/source/apnee-attitude-livret-aeel-2020.html" title="Source">Apnée Attitude — De l&#39;Apnéiste à l&#39;Apnéiste Expert Eau Libre (2020)</a> p.29.</p>
+<h3>29. Ce qui me fait flotter</h3>
+<p><strong>Écran</strong> — Deux leviers : <strong>les poumons</strong> (pleins : je flotte ; vides : je
+coule) et <strong>la combinaison</strong> (pleine de petites bulles de gaz).</p>
+<p>En bas : « À ressentir dans l'eau : flotter poumons pleins, souffler, couler. »</p>
+<p><strong>Notes</strong> — Poumons pleins, on prend plusieurs litres de volume en plus sans
+prendre de poids : chaque litre d'air, c'est environ 1 kg de poussée. La
+combinaison en néoprène est une mousse remplie de bulles : elle fait flotter,
+d'autant plus qu'elle est épaisse. À faire ressentir à la prochaine séance :
+flotter poumons pleins, souffler, couler.</p>
+<h3>30. La flottabilité change avec la profondeur</h3>
+<p><strong>Écran</strong> — Tableau, avec le corps de la slide 28 (80 L, 78 kg), en ne comptant
+que les poumons :</p>
+<table>
+<thead>
+<tr>
+<th>Profondeur</th>
+<th>Poumons</th>
+<th>Poids apparent</th>
+<th>Flottabilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surface</td>
+<td>6 L</td>
+<td>− 2 kg</td>
+<td>positive</td>
+</tr>
+<tr>
+<td>3 m</td>
+<td>4,6 L</td>
+<td>− 0,6 kg</td>
+<td>positive</td>
+</tr>
+<tr>
+<td>5 m</td>
+<td>4 L</td>
+<td>0 kg</td>
+<td>neutre</td>
+</tr>
+<tr>
+<td>6 m</td>
+<td>3,75 L</td>
+<td>+ 0,25 kg</td>
+<td>négative</td>
+</tr>
+<tr>
+<td>10 m</td>
+<td>3 L</td>
+<td>+ 1 kg</td>
+<td>négative</td>
+</tr>
+</tbody>
+</table>
+<p>À droite, la chaîne : je descends → mes poumons se compriment → la poussée
+diminue → mon poids apparent augmente → ma flottabilité diminue. En bas :
+« Ici vers 5 m, mais la flottabilité neutre varie d'une personne à
+l'autre. »</p>
+<p><strong>Notes</strong> — C'est Boyle-Mariotte appliqué à Archimède. Reprenons le corps de la slide 28 : 80 L, 78 kg, poids apparent de −2 kg en surface. En descendant, les poumons (6 L en surface) se compriment : ils perdent 1,4 L à 3 m, 2 L à 5 m, 3 L à 10 m. Chaque litre perdu, c'est environ 1 kg de poussée en moins, donc 1 kg de poids apparent en plus. Le poids apparent passe de −2 kg en surface à −0,6 kg à 3 m, 0 vers 5 m, puis devient positif : c'est la profondeur de flottabilité neutre. La flottabilité, c'est l'opposé du poids apparent : positive, on remonte ; nulle, on reste entre deux eaux ; négative, on coule. Le calcul ne compte que les poumons : la combinaison se comprime aussi et accentue l'effet. La profondeur de flottabilité neutre varie d'une personne à l'autre (corpulence, volume pulmonaire, combinaison, lest) : 5 m n'est qu'un exemple. Les premiers mètres d'une descente sont donc les plus durs, et plus bas on coule sans effort ; à la remontée c'est l'inverse, si on n'est pas trop lesté.
+Source : <a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a> (opposé du poids apparent, positive en surface,
+neutre puis négative).</p>
+<h3>31. Régler son lest</h3>
+<p><strong>Écran</strong> — Balance : d'un côté combinaison épaisse et eau de mer (« plus de
+lest »), de l'autre maillot et eau douce (« moins de lest »). Encadré orange :
+« Trop lesté = danger. »</p>
+<p><strong>Notes</strong> — Le lest sert à compenser ce qui me fait flotter, les poumons
+pleins et la combinaison, pour nager à l'équilibre, pas à couler. Bien réglé,
+il améliore la sécurité, la performance et le confort : la poussée est
+compensée, la posture reste droite et hydrodynamique, on nage avec moins
+d'effort et l'envie de respirer arrive plus tard. Il dépend de la combinaison
+(plus épaisse, plus de lest) et du milieu (l'eau de mer porte mieux que l'eau
+douce, donc plus de lest en mer). En dynamique, on cherche l'équilibre à la
+profondeur de nage : ni remonter, ni racler le fond. Trop lesté, on lutte pour
+remonter et, en cas de malaise, on coule au lieu de remonter.
+Sources : <a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a>, section « En dynamique » — règle d'encadrement d'un MEF2,
+responsable de formation IE, rapportée oralement ; <a class="noeud" href="/source/apnee-attitude-notions-entrainement-2024.html" title="Source">Apnée Attitude — Notions d&#39;entrainement (IE, V.1.2024)</a>
+v.20 pour la performance ; <a class="noeud" href="/technique/reglage-lest.html" title="Technique">Réglage du lest</a> (poumon ballast) ; <a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a>
+(livret p.69-70 : « pas trop lesté pour ne pas […] avoir à trop lutter contre
+la flottabilité négative ») et <a class="noeud" href="/concept/surlestage.html" title="Concept">Surlestage</a> pour le danger du surlestage.</p>
+<p><strong>Geste</strong> — Régler son lest à chaque changement de combinaison ou de milieu ;
+le tester en début de séance ; dans le doute, moins de lest.</p>
+<h3>32. À retenir — Archimède</h3>
+<p><strong>Écran</strong> —
+- Poids apparent = poids réel − poussée. La flottabilité en est l'opposé.
+- Poumons pleins et combinaison me font flotter.
+- Plus je descends, plus mon volume diminue : mon poids apparent augmente, je
+  flotte moins.
+- Le lest se règle selon la combinaison et le milieu. Jamais trop.</p>
+<p><strong>Notes</strong> — Transition vers le quiz final : on reprend les trois questions du
+début, puis six nouvelles.</p>
+<h3>33-35. Quiz final — les trois questions d'ouverture</h3>
+<p><strong>Écran</strong> — Les questions 1, 2 et 3 à l'identique, une par slide, la bonne
+réponse en orange (A, B, C).</p>
+<p><strong>Notes</strong> — Rythme rapide, 30 secondes chacune : vérifier que les réponses ont
+changé depuis le début. Faire redire le geste par un participant.</p>
+<h3>36-37. Quiz final — question 4</h3>
+<p><strong>Écran (question)</strong> — Quelle est la pression à 10 m de profondeur ?
+A. 1 bar · B. 2 bar · C. 10 bar · D. 11 bar.</p>
+<p><strong>Écran (réponse)</strong> — <strong>B. 2 bar</strong> : 1 bar d'air + 1 bar d'eau.</p>
+<p><strong>Notes</strong> — Le piège est d'oublier la pression de l'air en surface.</p>
+<h3>38-39. Quiz final — question 5</h3>
+<p><strong>Écran (question)</strong> — Un ballon de 6 L en surface est descendu à 10 m. Quel
+est son volume ?
+A. 12 L · B. 6 L · C. 3 L · D. 0,6 L.</p>
+<p><strong>Écran (réponse)</strong> — <strong>C. 3 L</strong> : la pression double, le volume est divisé par
+deux.</p>
+<p><strong>Notes</strong> — Rappeler P × V = constante.</p>
+<h3>40-41. Quiz final — question 6</h3>
+<p><strong>Écran (question)</strong> — Entre quelles profondeurs le volume d'air change-t-il le
+plus ?
+A. De 0 à 10 m · B. De 10 à 20 m · C. De 20 à 30 m · D. C'est partout pareil.</p>
+<p><strong>Écran (réponse)</strong> — <strong>A. De 0 à 10 m</strong> : la moitié du volume y est perdue.</p>
+<p><strong>Notes</strong> — D'où : compenser dès le premier mètre.</p>
+<h3>42-43. Quiz final — question 7</h3>
+<p><strong>Écran (question)</strong> — En descendant, votre masque se plaque sur le visage. Que
+faites-vous ?
+A. Je serre la sangle · B. Je souffle un peu d'air par le nez · C. Je retiens
+mon souffle plus fort · D. J'attends que ça passe.</p>
+<p><strong>Écran (réponse)</strong> — <strong>B. Je souffle un peu d'air par le nez</strong> : je remets de
+l'air là où il s'est comprimé.</p>
+<p><strong>Notes</strong> — Même logique que pour les oreilles : rééquilibrer un espace d'air.</p>
+<h3>44-45. Quiz final — question 8</h3>
+<p><strong>Écran (question)</strong> — Vous passez d'un maillot à une combinaison de 3 mm. Que
+devient votre lest ?
+A. J'en ajoute · B. J'en retire · C. Je ne change rien · D. Je n'en mets
+jamais.</p>
+<p><strong>Écran (réponse)</strong> — <strong>A. J'en ajoute</strong> : la combinaison fait flotter… mais
+juste ce qu'il faut, jamais trop.</p>
+<p><strong>Notes</strong> — Rappeler : le lest se règle à chaque changement de combinaison, et
+jamais trop.</p>
+<h3>46-47. Quiz final — question 9</h3>
+<p><strong>Écran (question)</strong> — Où un apnéiste risque-t-il le plus de perdre
+connaissance ?
+A. Au fond · B. Dans les derniers mètres de la remontée · C. Au début de la
+descente · D. En surface, avant de plonger.</p>
+<p><strong>Écran (réponse)</strong> — <strong>B. Dans les derniers mètres de la remontée</strong> : la
+pression baisse, la Pp(O2) s'effondre.</p>
+<p><strong>Notes</strong> — D'où la surveillance du binôme jusqu'après la sortie de l'eau.</p>
+<h3>48. Merci</h3>
+<p><strong>Écran</strong> — Logo du club centré, comme la slide de titre. « Merci ! » puis « À
+sentir dans l'eau à la prochaine séance ». En petit : « La distance au mur ·
+le son difficile à situer · flotter puis couler en soufflant ».</p>
+<p><strong>Notes</strong> — Clôture. Annoncer le cours suivant. Proposer d'observer en bassin :
+la distance au mur, le son difficile à situer, flotter puis couler en soufflant.</p>
+<hr />
+<h2>Quiz — import Kahoot</h2>
+<p>20 secondes par question. Les questions 1 à 3 sont jouées deux fois (ouverture
+et final) : prévoir deux Kahoot, « ouverture » (1-3) et « final » (1-9).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>Bonne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Sous l'eau, avec un masque, un objet posé au fond paraît…</td>
+<td>plus gros et plus proche</td>
+<td>plus petit et plus loin</td>
+<td>plus gros et plus loin</td>
+<td>identique</td>
+<td>A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Sous l'eau, vous entendez un bruit métallique. Pouvez-vous dire d'où il vient ?</td>
+<td>Oui, aussi facilement que dans l'air</td>
+<td>Très difficilement : il semble venir de partout</td>
+<td>Non, car on n'entend rien sous l'eau</td>
+<td>Oui, encore mieux que dans l'air</td>
+<td>B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Immobile dans une eau à 28 °C, sans combinaison, votre corps…</td>
+<td>se réchauffe</td>
+<td>garde sa température</td>
+<td>se refroidit</td>
+<td>ne se refroidit que sous 20 °C</td>
+<td>C</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Quelle est la pression à 10 m de profondeur ?</td>
+<td>1 bar</td>
+<td>2 bar</td>
+<td>10 bar</td>
+<td>11 bar</td>
+<td>B</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Un ballon de 6 L en surface est descendu à 10 m. Quel est son volume ?</td>
+<td>12 L</td>
+<td>6 L</td>
+<td>3 L</td>
+<td>0,6 L</td>
+<td>C</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Entre quelles profondeurs le volume d'air change-t-il le plus ?</td>
+<td>De 0 à 10 m</td>
+<td>De 10 à 20 m</td>
+<td>De 20 à 30 m</td>
+<td>C'est partout pareil</td>
+<td>A</td>
+</tr>
+<tr>
+<td>7</td>
+<td>En descendant, votre masque se plaque sur le visage. Que faites-vous ?</td>
+<td>Je serre la sangle</td>
+<td>Je souffle un peu d'air par le nez</td>
+<td>Je retiens mon souffle plus fort</td>
+<td>J'attends que ça passe</td>
+<td>B</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Vous passez d'un maillot à une combinaison de 3 mm. Que devient votre lest ?</td>
+<td>J'en ajoute</td>
+<td>J'en retire</td>
+<td>Je ne change rien</td>
+<td>Je n'en mets jamais</td>
+<td>A</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Où un apnéiste risque-t-il le plus de perdre connaissance ?</td>
+<td>Au fond</td>
+<td>Dans les derniers mètres de la remontée</td>
+<td>Au début de la descente</td>
+<td>En surface, avant de plonger</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<h2>Sources des affirmations ajoutées</h2>
+<p>Trois niveaux : le livret Apnée Attitude (<a class="noeud" href="/source/apnee-attitude-livret-aeel-2020.html" title="Source">Apnée Attitude — De l&#39;Apnéiste à l&#39;Apnéiste Expert Eau Libre (2020)</a>),
+qui couvre une partie des thèmes ajoutés <strong>en mots, sans chiffres</strong> ; Wikipédia,
+consultée le 2026-10-13, pour les chiffres. Depuis le 2026-10-14, ces passages
+sont dans le graphe : <a class="noeud" href="/concept/vision-subaquatique.html" title="Concept">Vision sous l&#39;eau</a>, <a class="noeud" href="/concept/propagation-son.html" title="Concept">Le son sous l&#39;eau</a>,
+<a class="noeud" href="/concept/conduction-thermique.html" title="Concept">Conduction thermique de l&#39;eau</a> (source <a class="noeud" href="/source/wikipedia-physique-milieu-2026-10.html" title="Source">Wikipédia — vision, son et chaleur sous l&#39;eau (octobre 2026)</a>,
+révisions figées ; livret p.49 et p.73). Seul le rouge « vers 5 m » et la page
+fr <em>Conductivité thermique</em> n'y sont pas repris. La neutralité thermique est
+listée plus bas parmi les affirmations déjà sourcées.</p>
+<table>
+<thead>
+<tr>
+<th>Affirmation</th>
+<th>Slide</th>
+<th>Livret Apnée Attitude</th>
+<th>Wikipédia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Objets vus 1/3 plus gros et 1/4 plus près</td>
+<td>5</td>
+<td>absent</td>
+<td><em>Underwater vision</em> (en) : « objects underwater will appear 33% bigger (34% bigger in salt water) or 25% closer than they actually are »</td>
+</tr>
+<tr>
+<td>Flou sans masque</td>
+<td>5 (notes)</td>
+<td>absent</td>
+<td><em>Diving physics</em> (en) : l'indice de l'eau est proche de celui de la cornée, d'où l'impossibilité de voir net sans masque</td>
+</tr>
+<tr>
+<td>Le rouge s'éteint en premier</td>
+<td>5 (notes)</td>
+<td>« l'eau absorbe la lumière de manière progressive avec la profondeur », p.18</td>
+<td><em>Underwater vision</em> (en) : « Water preferentially absorbs red light » ; rouge absorbé vers 5 m (tableau signalé « référence nécessaire »)</td>
+</tr>
+<tr>
+<td>Son : 340 m/s dans l'air, 1 500 m/s dans l'eau</td>
+<td>7</td>
+<td>« la propagation du son [est] bien meilleure sous l'eau », p.73</td>
+<td><em>Vitesse du son</em> (fr) : ≈ 340 m/s dans l'air à 15 °C ; 1 482 m/s dans l'eau pure à 20 °C ; ≈ 1 500 m/s dans l'eau de mer</td>
+</tr>
+<tr>
+<td>Direction du son difficile à situer</td>
+<td>7</td>
+<td>« la localisation reste néanmoins imprécise », p.73</td>
+<td><em>Plongée sous-marine</em> (fr) : « plus de quatre fois plus vite que dans l'air » ; certains signaux restent « repérables », « tourner la tête facilite ce repérage »</td>
+</tr>
+<tr>
+<td>L'eau conduit la chaleur plus de 20 fois mieux que l'air</td>
+<td>9</td>
+<td>« la densité de l'eau, 800 fois plus grande que l'air, […] accélère les échanges thermiques », p.49</td>
+<td><em>Conductivité thermique</em> (fr) : air 0,026 et eau 0,6 W·m⁻¹·K⁻¹, soit un rapport de 23 ; <em>Diving physics</em> (en) : « water conducts heat 20 times more than air »</td>
+</tr>
+<tr>
+<td>Vidéo : 1 L d'air réduit à 154 mL à 55 m</td>
+<td>15 (notes)</td>
+<td>—</td>
+<td>— ; vidéo YouTube <a href="https://www.youtube.com/watch?v=X7roaf8kckM">https://www.youtube.com/watch?v=X7roaf8kckM</a>, chiffre recalculé : 1 000 mL / 6,5 bar ≈ 154 mL</td>
+</tr>
+<tr>
+<td>1 L de volume ≈ 1 kg de poussée</td>
+<td>29</td>
+<td>« 80 dm3 d'eau douce à 20 °C pèse environ 80 kg », p.29</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Plus de lest en mer qu'en eau douce</td>
+<td>31</td>
+<td>densité de « l'eau de mer encore plus que l'eau douce », p.18 ; « lestage adapté au milieu (salinité, profondeur) », p.29</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>Deux formulations ont été ajustées après vérification :</p>
+<ul>
+<li><strong>Chaleur</strong> : « plus de 20 fois » remplace « environ 25 fois ». Le chiffre 25
+  circule dans les supports de plongée, mais les conductivités publiées donnent
+  23 et Wikipédia écrit 20. Le « 800 fois » du livret mesure la densité, pas le
+  transfert de chaleur.</li>
+<li><strong>Son</strong> : « très difficile à situer » remplace « impossible ». Le livret dit
+  « imprécise » et Wikipédia note que certains signaux restent repérables.</li>
+</ul>
+<p>Déjà sourcés dans le graphe : neutralité thermique à partir de 21 °C dans l'air et
+au-delà de 33 °C dans l'eau (<a class="noeud" href="/risque/hypothermie.html" title="Risque">Hypothermie</a>, diaporama
+<a class="noeud" href="/source/apnee-attitude-physiopathologie-2025.html" title="Source">Apnée Attitude — L&#39;apnée : physiologie et physiopathologie (ind. 03, 2025)</a>, vue 21) ; +1 bar tous les 10 m (<a class="noeud" href="/concept/pression-hydrostatique.html" title="Concept">Pression hydrostatique</a>) ;
+P × V = constante et la courbe de volume (<a class="noeud" href="/concept/loi-boyle-mariotte.html" title="Concept">Loi de Boyle-Mariotte</a>) ; placage de
+masque (<a class="noeud" href="/risque/placage-masque.html" title="Risque">Placage du masque</a>) ; pression partielle d'oxygène et hypoxie de
+remontée (<a class="noeud" href="/concept/loi-dalton.html" title="Concept">Loi de Dalton</a>, <a class="noeud" href="/concept/hypoxie-remontee.html" title="Concept">Hypoxie de remontée</a>, <a class="noeud" href="/concept/hypoxie-post-emersion.html" title="Concept">Hypoxie post-émersion</a>) ;
+flottabilité décroissante avec la profondeur
+(<a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a>) ; danger du surlestage, on coule au lieu de remonter
+(<a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a>, livret p.69-70).</p>
+<p>Rapporté, à vérifier dans le graphe : le lest bien réglé améliore sécurité,
+performance et confort (<a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a>, règle orale d'un MEF2, responsable de
+formation IE ; appuis écrits partiels : livret p.69 pour la sécurité et le
+confort en profondeur, <a class="noeud" href="/source/apnee-attitude-notions-entrainement-2024.html" title="Source">Apnée Attitude — Notions d&#39;entrainement (IE, V.1.2024)</a> v.20 pour
+la performance) ; surlestage, noyade, syncope et hypoxie de remontée
+(<a class="noeud" href="/concept/surlestage.html" title="Concept">Surlestage</a>).</p></div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+</body>
+</html>

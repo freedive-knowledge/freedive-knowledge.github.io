@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L&#39;IA au service de nos cours : retour d&#39;expérience · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/cours/index.html">Cours</a></p>
+<h1>L&#39;IA au service de nos cours : retour d&#39;expérience</h1>
+<p class="chapeau">Présentation aux encadrants — Neptune Club de Brunoy — 45 mn.</p>
+<p class="telechargements">
+  <a href="/cours/rex-ia/rex-ia.pdf" download>Support PDF</a> · <a href="/cours/rex-ia/rex-ia.pptx" download>Support PPTX</a> · 
+  <a href="/cours/rex-ia/cours.md">Source Markdown</a>
+</p>
+<div class="corps cours"><p>Ce fichier porte le <strong>fond</strong> de la présentation : plan, texte de chaque slide,
+notes du présentateur, minutage, quiz. La mise en forme vit dans le deck généré
+par <code>build.js</code> ; le PDF et le tableur Kahoot en sont des exports.</p>
+<p>Origine : cadrage par <code>/interroge</code> le 03/11/2026
+(<a class="noeud" href="/source/transcript-2026-11-03-elaboration-rex-ia-encadrants.html" title="Source">Élaboration — cadrage du REX IA pour les encadrants (03/11/2026)</a>). L'anecdote
+d'ouverture vient de l'article LinkedIn d'octobre 2026
+(<code>article/2026-10-linkedin-claude-code-apnee/</code>).</p>
+<h2>Cadre</h2>
+<ul>
+<li><strong>Public</strong> : encadrants apnée du club (IE1, IE2, MEF1). Aucune compétence en
+  informatique ; ils utilisent l'IA uniquement par une interface de chat
+  (ChatGPT, Mistral, Claude).</li>
+<li><strong>Ce qu'ils doivent retenir</strong> : des principes applicables <strong>dès demain dans
+  leur chat</strong> (cœur de la présentation). La méthode du dépôt est montrée
+  rapidement, comme une marche qu'on peut franchir pour aller plus loin, et
+  comme prérequis à l'appel à contribution final.</li>
+<li><strong>Parti pris</strong> : raconter la genèse dans l'ordre, échec compris. Les séances
+  générées restent décevantes, et c'est une leçon. Aucun jargon :
+  « bronze / silver / gold » devient « brut / à vérifier / validé ».</li>
+<li><strong>Forme</strong> : charte des cours du club, Kahoot d'ouverture, une démo en direct
+  (avec captures de secours), révélation finale : ce deck a été produit comme
+  les cours.</li>
+<li><strong>Durée</strong> : 30 mn de présentation, 15 mn d'échanges.</li>
+</ul>
+<h2>Objectifs</h2>
+<p>À la fin, l'encadrant sait :</p>
+<ol>
+<li>reconnaître qu'une réponse d'IA peut être fausse sans en avoir l'air, et la
+   relire en expert ;</li>
+<li>donner ses sources au chat et exiger qu'il s'y tienne ;</li>
+<li>se faire interroger par l'IA avant de lui faire produire quoi que ce soit ;</li>
+<li>ne pas coller de données personnelles dans un chat ;</li>
+<li>contribuer à la base du club : envoyer une source, relire un cours.</li>
+</ol>
+<h2>Minutage</h2>
+<table>
+<thead>
+<tr>
+<th>Bloc</th>
+<th>Slides</th>
+<th>Durée</th>
+<th>Cumul</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Titre, Kahoot d'ouverture</td>
+<td>1-4</td>
+<td>4 mn</td>
+<td>4 mn</td>
+</tr>
+<tr>
+<td>Le point de départ : générer des séances</td>
+<td>5-7</td>
+<td>4 mn</td>
+<td>8 mn</td>
+</tr>
+<tr>
+<td>Donner un savoir vérifié à l'IA</td>
+<td>8-10</td>
+<td>4 mn</td>
+<td>12 mn</td>
+</tr>
+<tr>
+<td>Démo : le lestage, avec et sans source</td>
+<td>11-12</td>
+<td>5 mn</td>
+<td>17 mn</td>
+</tr>
+<tr>
+<td>Séances décevantes, cours réussis</td>
+<td>13-14</td>
+<td>3 mn</td>
+<td>20 mn</td>
+</tr>
+<tr>
+<td>Ce que vous pouvez faire dès demain</td>
+<td>15-17</td>
+<td>4 mn</td>
+<td>24 mn</td>
+</tr>
+<tr>
+<td>Pour aller plus loin : les coulisses</td>
+<td>18-19</td>
+<td>3 mn</td>
+<td>27 mn</td>
+</tr>
+<tr>
+<td>Contribuer, révélation, merci</td>
+<td>20-22</td>
+<td>3 mn</td>
+<td>30 mn</td>
+</tr>
+<tr>
+<td>Échanges</td>
+<td>—</td>
+<td>15 mn</td>
+<td>45 mn</td>
+</tr>
+</tbody>
+</table>
+<h2>Charte</h2>
+<p>Celle des cours du club, fournie par <code>_commun/charte.js</code>.</p>
+<hr />
+<h2>Slides</h2>
+<h3>1. Titre</h3>
+<p><strong>Écran</strong> — L'IA au service de nos cours. Retour d'expérience. Logo du club.</p>
+<p><strong>Notes</strong> — Annoncer : 30 mn puis échanges, un Kahoot pour commencer, aucune
+compétence informatique requise.</p>
+<h3>2-4. Kahoot d'ouverture — questions 1 à 3</h3>
+<p><strong>Écran</strong> — Questions 1 à 3 du quiz (section Quiz).</p>
+<p><strong>Notes</strong> — La question 2 est le cœur : projeter l'extrait de séance générée
+avec l'exercice des longueurs les yeux fermés et laisser la salle trouver
+le problème. Ne rien expliquer avant le résultat. Phrase de sortie : « vous
+l'avez vu en 20 secondes ; l'IA, elle, ne l'a pas signalé ».</p>
+<h3>5. Le point de départ</h3>
+<p><strong>Écran</strong> — « Je voulais que l'IA m'aide à préparer mes séances. » Trois logos
+de chat : ChatGPT, Mistral, Claude.</p>
+<p><strong>Notes</strong> — Raconter l'envie de départ. Trois outils essayés, aucun n'a produit
+une séance vraiment intéressante.</p>
+<h3>6. Ce que donne un chat sans contexte</h3>
+<p><strong>Écran</strong> — Capture d'une séance générée : structure soignée, blocs bien
+nommés, consignes de sécurité… et l'exercice des yeux fermés surligné.</p>
+<p><strong>Notes</strong> — Le soin de la forme inspire confiance. Plusieurs exercices sont
+bons, certains sont déjà au programme du club. C'est ce qui rend l'erreur
+dangereuse.</p>
+<h3>7. À retenir</h3>
+<p><strong>Écran</strong> — <strong>L'IA ne se trompe pas de façon visible.</strong> Vous êtes l'expert :
+relisez comme un encadrant relit un stagiaire.</p>
+<p><strong>Notes</strong> — Premier principe. Faire le parallèle avec la validation de
+compétences : l'IA propose, on vérifie.</p>
+<h3>8. L'idée : lui donner notre savoir</h3>
+<p><strong>Écran</strong> — Au lieu de laisser l'IA puiser dans « Internet », lui fournir ce
+que nous savons et pouvons vérifier : manuels de formation, supports du club,
+notes de séance.</p>
+<p><strong>Notes</strong> — Évoquer sans jargon le « second brain » : un carnet de
+connaissances relié, où chaque affirmation dit d'où elle vient.</p>
+<h3>9. Six semaines plus tard</h3>
+<p><strong>Écran</strong> — Depuis le 23 septembre : 46 sources, 63 exercices, plus de 1 000
+liens entre notions. Une base de connaissances et un catalogue d'exercices.</p>
+<p><strong>Notes</strong> — Les sources : manuels IE et ACP, livret Apnée Attitude, cours du
+club, notes de séance. Chiffres au 03/11/2026, à actualiser avant la séance.</p>
+<h3>10. Rien n'entre sans être vérifié</h3>
+<p><strong>Écran</strong> — Trois étages : <strong>brut</strong> (la source telle quelle), <strong>à vérifier</strong>
+(ce que l'IA en extrait), <strong>validé</strong> (ce qu'un humain a accepté).</p>
+<p><strong>Notes</strong> — Deuxième et troisième principes en préparation. L'IA lit et
+propose ; je valide une à une les affirmations. Ce qui n'est pas validé reste
+marqué « à vérifier ».</p>
+<h3>11. Démo : le lestage, sans source</h3>
+<p><strong>Écran</strong> — Chat en direct. Question : « Comment un apnéiste débutant doit-il
+régler son lest en piscine, en statique et en dynamique ? »</p>
+<p><strong>Notes</strong> — Faire lire la réponse à la salle. Repérer ce qui est générique ou
+emprunté à la plongée bouteille. Capture de secours prête si le réseau ou le
+modèle fait défaut.</p>
+<h3>12. Démo : le lestage, avec notre cours</h3>
+<p><strong>Écran</strong> — Même chat, nouvelle conversation. Coller l'extrait du cours
+lestage du club, puis : « Réponds uniquement d'après ce document et cite le
+passage qui justifie chaque point. »</p>
+<p><strong>Notes</strong> — Ce cours a été relu et validé par des encadrants du club, dont des
+MEF1. Comparer les deux réponses. Principe : <strong>donnez-lui vos sources.</strong></p>
+<h3>13. Les séances : mieux, mais pas encore ça</h3>
+<p><strong>Écran</strong> — Les séances générées avec la base sont meilleures… sans être
+vraiment intéressantes.</p>
+<p><strong>Notes</strong> — Assumer l'échec partiel. Une séance demande un jugement
+pédagogique : ce groupe, ce jour, cette fatigue. L'IA n'y est pas.</p>
+<h3>14. Le retournement : les cours</h3>
+<p><strong>Écran</strong> — « Il faut refaire les slides des cours du club. » La base sert à
+ça, et ça marche. Vignettes des decks lestage et lois physiques.</p>
+<p><strong>Notes</strong> — Un cours restitue un savoir établi ; c'est exactement ce que la
+base contient. Principe : <strong>l'IA met mieux en forme un savoir établi qu'elle
+n'invente une séance.</strong></p>
+<h3>15. Dès demain dans votre chat (1/2)</h3>
+<p><strong>Écran</strong> — 1. Relisez en expert. 2. Donnez-lui vos sources : « réponds
+uniquement d'après ce document, cite le passage ». 3. L'IA propose,
+l'encadrant valide : rien ne part au bord du bassin sans relecture.</p>
+<p><strong>Notes</strong> — Récapituler les trois principes déjà vus.</p>
+<h3>16. Dès demain dans votre chat (2/2)</h3>
+<p><strong>Écran</strong> — 4. Faites-vous interroger avant de faire produire : « pose-moi
+tes questions une par une, avec ta recommandation, avant de proposer quoi que
+ce soit ». Une conversation par sujet. 5. Pas de données personnelles : ni
+noms d'élèves, ni certificats médicaux.</p>
+<p><strong>Notes</strong> — Montrer une ou deux questions de la session qui a préparé cette
+présentation (« Que doivent retenir les encadrants en sortant ? »). Une
+conversation courte et cadrée vaut mieux qu'un long fil qui dérive.</p>
+<h3>17. À retenir</h3>
+<p><strong>Écran</strong> — Relire en expert · Donner ses sources · Valider · Se faire
+interroger · Protéger les données.</p>
+<p><strong>Notes</strong> — Slide à laisser affichée pendant les échanges.</p>
+<h3>18. Pour aller plus loin : les coulisses</h3>
+<p><strong>Écran</strong> — Capture de Claude Code : « ça ressemble à un chat, mais il
+travaille dans des fichiers ». Le circuit : source → à vérifier → validé →
+cours.</p>
+<p><strong>Notes</strong> — Rester rapide : montrer qu'une marche existe, pas l'enseigner.
+Proposer d'en parler individuellement à qui veut la franchir.</p>
+<h3>19. Le site de la base</h3>
+<p><strong>Écran</strong> — Capture du site : un exercice, les compétences qu'il vise, sa
+source.</p>
+<p><strong>Notes</strong> — Le lien a déjà été partagé. Expliquer la navigation : chaque page
+dit d'où vient chaque affirmation et si elle est vérifiée.</p>
+<h3>20. Contribuer</h3>
+<p><strong>Écran</strong> — Prochain chantier : <strong>le cours Organisation et réglementation</strong> (ACP),
+à relire. Trois façons d'aider : WhatsApp, m'envoyer directement une source
+ou une remarque, le formulaire « Signaler une erreur » sur le site.</p>
+<p><strong>Notes</strong> — Le cours lestage a été validé de cette façon par des encadrants
+du club. Ce qu'on cherche : des sources (fiches, supports de stage) et des
+relectures.</p>
+<h3>21. Révélation</h3>
+<p><strong>Écran</strong> — Cette présentation a été préparée comme nos cours : cadrée par
+l'IA qui m'a interrogé, puis générée avec la charte du club.</p>
+<p><strong>Notes</strong> — Boucler sur le principe 4.</p>
+<h3>22. Merci — questions</h3>
+<p><strong>Écran</strong> — Merci. Questions ? Logo du club.</p>
+<p><strong>Notes</strong> — Ouvrir les échanges, laisser la slide 17 à portée.</p>
+<h2>Quiz — import Kahoot</h2>
+<p>20 secondes par question. Kahoot « ouverture » seulement (1-3).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>Bonne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Avez-vous déjà utilisé une IA pour préparer une séance ou un cours ?</td>
+<td>Jamais</td>
+<td>Une fois ou deux</td>
+<td>Souvent</td>
+<td>Je n'ose pas</td>
+<td>A</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Cette séance a été générée par une IA. Quel exercice ne feriez-vous jamais faire ?</td>
+<td>L'échauffement en surface</td>
+<td>Les longueurs en apnée yeux fermés en comptant</td>
+<td>Le 4×25 m tranquille</td>
+<td>La statique en binôme</td>
+<td>B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Une réponse d'IA bien présentée et sûre d'elle est…</td>
+<td>forcément juste</td>
+<td>juste si elle cite la sécurité</td>
+<td>à relire comme le travail d'un stagiaire</td>
+<td>à ignorer</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<p>La question 1 est un sondage : toute réponse est bonne. Kahoot impose une
+bonne réponse ; régler la question en « sondage » dans Kahoot, ou annoncer
+qu'elle ne compte pas.</p>
+<h2>Sources</h2>
+<table>
+<thead>
+<tr>
+<th>Affirmation</th>
+<th>Slide</th>
+<th>Origine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Exercice des longueurs yeux fermés proposé sans avertissement</td>
+<td>2-6</td>
+<td>article LinkedIn octobre 2026 ; <a class="noeud provisoire" href="/exercice/longueurs-apnee-yeux-fermes.html" title="Exercice">Longueurs en apnée yeux fermés (contre-exemple)</a></td>
+</tr>
+<tr>
+<td>Essais ChatGPT, Mistral, Claude ; séances meilleures mais pas intéressantes ; cours concluants</td>
+<td>5, 13, 14</td>
+<td><a class="noeud" href="/source/transcript-2026-11-03-elaboration-rex-ia-encadrants.html" title="Source">Élaboration — cadrage du REX IA pour les encadrants (03/11/2026)</a></td>
+</tr>
+<tr>
+<td>Cours lestage validé par des encadrants du club dont des MEF1</td>
+<td>12, 20</td>
+<td><a class="noeud" href="/source/transcript-2026-11-03-elaboration-rex-ia-encadrants.html" title="Source">Élaboration — cadrage du REX IA pour les encadrants (03/11/2026)</a> ; relecture à capturer en observation</td>
+</tr>
+<tr>
+<td>Image de la séance générée : <strong>reconstitution</strong> (titre, cadre et noms d'exercices), pas une capture</td>
+<td>6</td>
+<td><code>article/2026-10-linkedin-claude-code-apnee/contexte.md</code>, « La séance ludique »</td>
+</tr>
+<tr>
+<td>Image Claude Code : extrait de la session du 03/11/2026, redessiné</td>
+<td>18</td>
+<td><a class="noeud" href="/source/transcript-2026-11-03-elaboration-rex-ia-encadrants.html" title="Source">Élaboration — cadrage du REX IA pour les encadrants (03/11/2026)</a></td>
+</tr>
+<tr>
+<td>46 sources, 63 exercices, plus de 1 000 triples, début le 23/09/2026</td>
+<td>9</td>
+<td>dépôt au 03/11/2026, à actualiser</td>
+</tr>
+</tbody>
+</table>
+<h2>À préparer avant la séance</h2>
+<ul>
+<li>Modèles d'issue GitHub « Proposer une source » et « Signaler une erreur »,
+  et lien « Signaler une erreur » sur chaque page du site (slide 20).</li>
+<li>Captures de secours des deux réponses de la démo (slides 11-12) et extrait
+  du cours lestage prêt à coller.</li>
+<li>Capture de la séance générée avec l'exercice surligné (slides 2-6).</li>
+<li>Captures de Claude Code et du site (slides 18-19).</li>
+<li>Chiffres de la slide 9 actualisés.</li>
+</ul></div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+# Graphe de connaissance — apnée de loisir
+
+> Graphe d'ontologie sur l'apnée de loisir, à quatre échelles : savoir scientifique, FFESSM, CODEP 91 et un club (niveau intermédiaire, préparation de l'ACP). 291 nœuds, plus des cours théoriques. Contenu sous CC BY-SA 4.0, « François Sarradin et contributeurs ».
+
+AVERTISSEMENT : graphe de travail personnel. Il ne remplace ni le Manuel de formation apnée (MFA) de la FFESSM ni l'encadrement par un moniteur. Ne présentez pas son contenu comme établi sans lire son état épistémique.
+
+Comment lire un nœud (fichier Markdown à frontmatter YAML) :
+- le sujet de chaque triple est implicitement le nœud du fichier ; `[[id]]` désigne un autre nœud ;
+- `verification` : `verifie` (source lue), `intrinseque` (vrai par définition), `a-verifier` (non vérifié, valeur par défaut), `infirme` (réfuté, conservé pour mémoire) ;
+- `confidence` : `certain`, `probable`, `plausible`, `incertain` — orthogonale à `verification` ;
+- `statut: provisoire` : contenu non consolidé, à ne pas enseigner.
+
+## Données
+
+- [Graphe complet en un fichier](https://freedive-knowledge.github.io/llms-full.txt) : ce texte suivi de tous les nœuds
+- [graph.json](https://freedive-knowledge.github.io/graph.json) : `nodes` (id, title, type, url, statut) et `edges` (source, target, verb, verification, confidence)
+
+## Concept
+
+Savoir scientifique ou théorique : physiologie, physique, mécanisme. Inclut les contraintes pulmonaires (poumon-vide, poumon-neutre, poumons-pleins).
+
+- [Arythmie cardiaque](https://freedive-knowledge.github.io/concept/arythmie-cardiaque.md) : Trouble du rythme cardiaque, souvent favorisé par une cardiopathie préexistante.
+- [Blood shift](https://freedive-knowledge.github.io/concept/blood-shift.md) : Afflux de sang vers la circulation pulmonaire quand le volume résiduel est dépassé, protégeant les poumons de l’écrasement.
+- [Bradycardie](https://freedive-knowledge.github.io/concept/bradycardie.md) : Ralentissement du rythme cardiaque à l’immersion du visage.
+- [Conduction thermique de l'eau](https://freedive-knowledge.github.io/concept/conduction-thermique.md) : L'eau conduit la chaleur environ 20 fois mieux que l'air : le corps s'y refroidit bien plus vite qu'à l'air à même température.
+- [Contraction splénique](https://freedive-knowledge.github.io/concept/contraction-splenique.md) : Contraction de la rate pendant l'apnée, qui libère dans le sang une réserve de globules rouges.
+- [Espace mort](https://freedive-knowledge.github.io/concept/espace-mort.md) : Volume d’air des voies aériennes (≈150 ml) qui ne participe pas aux échanges gazeux.
+- [Filière anaérobie alactique](https://freedive-knowledge.github.io/concept/filiere-anaerobie-alactique.md) : Mobilisation du stock d'ATP déjà présent au repos : immédiate et très brève.
+- [Filière anaérobie lactique](https://freedive-knowledge.github.io/concept/filiere-anaerobie-lactique.md) : Production d'ATP sans O2 par dégradation des glucides, rapide à démarrer mais productrice d'acide lactique.
+- [Filière aérobie](https://freedive-knowledge.github.io/concept/filiere-aerobie.md) : Production d'ATP par oxydation des glucides, qui consomme de l'O2 ; lente à démarrer, soutient un effort modéré et long.
+- [Flottabilité](https://freedive-knowledge.github.io/concept/flottabilite.md) : Résultante du poids et de la poussée d'Archimède, soit l'opposé du poids apparent. Elle diminue avec la profondeur, à mesure que l'air et la combinaison se compriment.
+- [Foramen ovale perméable](https://freedive-knowledge.github.io/concept/foramen-ovale-permeable.md) : Communication persistante entre les deux oreillettes, présente chez une partie de la population.
+- [Glotte](https://freedive-knowledge.github.io/concept/glotte.md) : Orifice du larynx entre les cordes vocales ; « porte » entre les poumons et les voies aériennes supérieures, fermée pendant le Frenzel.
+- [Hypercapnie](https://freedive-knowledge.github.io/concept/hypercapnie.md) : Élévation du CO2 sanguin, qui déclenche l’envie de respirer et cause le plus souvent la rupture de l’apnée.
+- [Hyperventilation](https://freedive-knowledge.github.io/concept/hyperventilation.md) : Ventilation forcée avant l’apnée : n’augmente pas la réserve d’O2 et abaisse le CO2, donc retarde le signal d’alerte.
+- [Hypocapnie](https://freedive-knowledge.github.io/concept/hypocapnie.md) : Taux de CO2 sanguin abaissé, typiquement par hyperventilation : le signal de l'envie de ventiler arrive trop tard, la syncope devient prématurée.
+- [Hypoxie](https://freedive-knowledge.github.io/concept/hypoxie.md) : Chute du taux d’oxygène sanguin ; sous le seuil hypoxique, elle provoque PCM puis syncope.
+- [Hypoxie de remontée](https://freedive-knowledge.github.io/concept/hypoxie-remontee.md) : Chute brutale de la PaO2 à la remontée, par décompression et consommation : principale cause de perte de connaissance en profondeur.
+- [Hypoxie post-émersion](https://freedive-knowledge.github.io/concept/hypoxie-post-emersion.md) : Poursuite de la baisse de l'O2 sanguin pendant une vingtaine de secondes après la sortie de l'eau et la reprise ventilatoire.
+- [Intervalle de surface court](https://freedive-knowledge.github.io/concept/intervalle-surface-court.md) : Enchaînement de plongées avec des récupérations en surface trop brèves pour éliminer l'azote accumulé.
+- [Le son sous l'eau](https://freedive-knowledge.github.io/concept/propagation-son.md) : Le son va plus de quatre fois plus vite dans l'eau que dans l'air : on entend bien et de loin, mais on situe mal la source.
+- [Loi de Boyle-Mariotte](https://freedive-knowledge.github.io/concept/loi-boyle-mariotte.md) : À température constante, P × V reste constant : les volumes gazeux diminuent à mesure que la pression augmente.
+- [Loi de Dalton](https://freedive-knowledge.github.io/concept/loi-dalton.md) : La pression d'un mélange gazeux est la somme des pressions partielles de ses constituants : Pp = P_abs × fraction du gaz.
+- [Poumon neutre](https://freedive-knowledge.github.io/concept/poumon-neutre.md) : Position pulmonaire neutre, avec un minimum de tension dans les muscles respiratoires.
+- [Poumon vide](https://freedive-knowledge.github.io/concept/poumon-vide.md) : Apnée entamée après expiration, volume pulmonaire réduit au volume résiduel. Raccourcit fortement la phase de confort et accélère la montée de CO2.
+- [Poumons pleins](https://freedive-knowledge.github.io/concept/poumons-pleins.md) : Apnée entamée après inspiration maximale.
+- [Poussée d'Archimède](https://freedive-knowledge.github.io/concept/poussee-archimede.md) : Force verticale ascendante égale au poids du volume de fluide déplacé. Concept à connaître dès l’AP.
+- [Pression hydrostatique](https://freedive-knowledge.github.io/concept/pression-hydrostatique.md) : Pression exercée par la colonne d’eau : +1 bar tous les 10 m, qui s’ajoute à la pression atmosphérique.
+- [Relaxation](https://freedive-knowledge.github.io/concept/relaxation.md) : Réduction du tonus musculaire et de la consommation d'oxygène de repos.
+- [Réflexe d'immersion](https://freedive-knowledge.github.io/concept/reflexe-immersion.md) : Ensemble de réponses physiologiques à l'immersion du visage en eau froide : bradycardie, vasoconstriction périphérique, contraction splénique.
+- [Réflexe ventilatoire](https://freedive-knowledge.github.io/concept/reflexe-ventilatoire.md) : Commande involontaire de reprise de la ventilation, déclenchée par la hausse de la PpCO2 : c'est elle qui rompt l'apnée.
+- [Signes annonciateurs de la syncope](https://freedive-knowledge.github.io/concept/signes-syncope.md) : Ensemble des signes, ressentis sur soi ou observés chez autrui, qui annoncent une PCM ou une syncope. S’enseignent ensemble.
+- [Surcompensation](https://freedive-knowledge.github.io/concept/surcompensation.md) : Phase où, après travail et récupération, le potentiel dépasse le niveau de départ.
+- [Surlestage](https://freedive-knowledge.github.io/concept/surlestage.md) : Excès de lest : l'apnéiste en syncope coule plus profondément et est plus exposé à la noyade.
+- [Travail d'hypercapnie](https://freedive-knowledge.github.io/concept/travail-hypercapnie.md) : Sollicitation volontaire de l'accumulation de CO2, par récupération incomplète entre les répétitions.
+- [Travail d'hypoxie](https://freedive-knowledge.github.io/concept/travail-hypoxie.md) : Sollicitation volontaire de la baisse d'O2 par des apnées longues, lentes ou profondes, avec une récupération longue.
+- [Trompe d'Eustache](https://freedive-knowledge.github.io/concept/trompe-eustache.md) : Conduit reliant l'oreille moyenne au rhinopharynx ; toute technique de compensation consiste à l'ouvrir pour y faire entrer de l'air.
+- [Vasoconstriction périphérique](https://freedive-knowledge.github.io/concept/vasoconstriction-peripherique.md) : Réduction du débit sanguin des extrémités au profit des organes nobles, sous l’effet de la pression et du froid.
+- [Vision sous l'eau](https://freedive-knowledge.github.io/concept/vision-subaquatique.md) : Sans couche d'air devant l'œil, la vision est floue ; avec un masque, les objets paraissent un tiers plus gros et un quart plus proches.
+- [Volume résiduel](https://freedive-knowledge.github.io/concept/volume-residuel.md) : Volume d’air restant dans les poumons à la fin d’une expiration maximale.
+
+## Discipline
+
+Famille d'épreuve ou de travail structurant la description d'un exercice. Admet des entrées qui ne sont pas des épreuves codifiées (échauffement, secourisme).
+
+- [Dynamique](https://freedive-knowledge.github.io/discipline/dynamique.md) : Apnée en déplacement horizontal, mesurée en distance parcourue.
+- [Immersion libre](https://freedive-knowledge.github.io/discipline/immersion-libre.md) : Descente et remontée en se hissant le long du bout, sans propulsion.
+- [No limit](https://freedive-knowledge.github.io/discipline/no-limit.md) : Descente à la gueuse, remontée par le moyen de son choix (ballon, combinaison gonflable…).
+- [Poids constant](https://freedive-knowledge.github.io/discipline/poids-constant.md) : Descente et remontée avec palmes ou monopalme, sans tirer sur le bout ni changer de lest.
+- [Poids constant sans palmes](https://freedive-knowledge.github.io/discipline/poids-constant-sans-palmes.md) : Descente et remontée à la seule force musculaire, sans propulsion ni aide du bout.
+- [Poids variable](https://freedive-knowledge.github.io/discipline/poids-variable.md) : Descente lestée par une gueuse, remontée à la force musculaire.
+- [Profondeur](https://freedive-knowledge.github.io/discipline/profondeur.md) : Apnée en déplacement vertical, mesurée en profondeur atteinte.
+- [Secourisme](https://freedive-knowledge.github.io/discipline/secourisme.md) : Famille de travail du sauvetage et de l'assistance à un apnéiste en difficulté.
+- [Statique](https://freedive-knowledge.github.io/discipline/statique.md) : Apnée sans déplacement, mesurée en durée.
+
+## Technique
+
+Geste ou méthode exécutable, qui s'enseigne.
+
+- [Béance tubaire volontaire](https://freedive-knowledge.github.io/technique/btv.md) : Maintien des trompes d’Eustache ouvertes par les muscles péristaphylins : la pression s’équilibre d’elle-même.
+- [Compensation du masque](https://freedive-knowledge.github.io/technique/compensation-masque.md) : Renvoyer de l’air dans le masque par de légères expirations nasales, dès le début de la descente.
+- [Contrepoids](https://freedive-knowledge.github.io/technique/contrepoids.md) : Dispositif de sécurité remontant rapidement un apnéiste longé, à la manière du contrepoids d’un ascenseur.
+- [Dernière inspiration](https://freedive-knowledge.github.io/technique/derniere-inspiration.md) : Inspiration finale avant l'apnée : remplir les trois étages de la pyramide ventilatoire (ventre, cage thoracique, sous-claviculaire) sans crispation.
+- [Frenzel](https://freedive-knowledge.github.io/technique/frenzel.md) : Compensation des oreilles avec la langue comme piston, sur l’air de la bouche et de l’arrière-gorge, glotte fermée.
+- [Frenzel mouthfill](https://freedive-knowledge.github.io/technique/frenzel-mouthfill.md) : Frenzel sur une grosse charge d'air stockée dans la bouche avant le mur des 30 m, pour compenser aux grandes profondeurs.
+- [Insufflation glossopharyngée](https://freedive-knowledge.github.io/technique/insufflation-glossopharyngee.md) : Surgonflage des poumons au-delà de la capacité pulmonaire totale par déglutitions d'air successives, glotte fermée.
+- [Manœuvre de Toynbee](https://freedive-knowledge.github.io/technique/toynbee.md) : Compensation par déglutition, nez pincé ; méthode inverse des autres, surtout utile à la remontée.
+- [Oxygénothérapie](https://freedive-knowledge.github.io/technique/oxygenotherapie.md) : Administration d’oxygène à une victime, au bord, avec le kit d’oxygénothérapie.
+- [Protocole ventilatoire de sécurité](https://freedive-knowledge.github.io/technique/protocole-ventilatoire-securite.md) : À la sortie d'une apnée longue ou profonde : inspirer beaucoup et souffler peu, pour recharger en O2 au plus vite. Contre-intuitif, il s'entraîne sur toutes les apnées.
+- [Réglage du lest](https://freedive-knowledge.github.io/technique/reglage-lest.md) : Ajuster son lest pour rester stable en profondeur, presque immobile ; se teste au mieux en DNF.
+- [Sortie tête hors de l'eau](https://freedive-knowledge.github.io/technique/sortie-tete-hors-eau.md) : Premier geste face à une syncope : maintenir les voies aériennes hors de l'eau.
+- [Valsalva](https://freedive-knowledge.github.io/technique/valsalva.md) : Compensation des oreilles par poussée de l’air pulmonaire, nez pincé, sous l’effort du diaphragme, des intercostaux et des abdominaux.
+- [Ventilation calmante](https://freedive-knowledge.github.io/technique/ventilation-calmante.md) : Inspirations brèves et profondes, expirations lentes et intenses, pour faire baisser la fréquence cardiaque avant une apnée.
+- [Ventilation de récupération](https://freedive-knowledge.github.io/technique/ventilation-recuperation.md) : Quelques cycles ventilatoires exagérés en amplitude et en fréquence, juste après un effort ou une apnée, pour évacuer le CO2. De l'hyperventilation par définition.
+
+## Exercice
+
+Unité d'entraînement concrète et réutilisable. Porte le champ `execution`. Brique du catalogue d'exercices.
+
+- [100 m + mannequin, 4 mn max (examen IE)](https://freedive-knowledge.github.io/exercice/examen-ie-mannequin.md) : Épreuve de l'examen Initiateur-Entraîneur : 100 m sans équipement, remontée d'un mannequin de 2 à 6 m de fond, puis remorquage 1 mn, le tout en 4 mn maximum.
+- [16 × 25 m chronométré](https://freedive-knowledge.github.io/exercice/16x25-chronometre.md) : Seize 25 m enchaînés sous le chronomètre, récupération au choix de l'apnéiste : la plus courte et la plus efficace possible.
+- [16 × 25 m, récupération 20 s](https://freedive-knowledge.github.io/exercice/16x25-recup-20s.md) : Seize 25 m en dynamique, palmettes et lest, 20 s de récupération.
+- [2 × (25 m + 25 m bulle), récup 30 s](https://freedive-knowledge.github.io/exercice/2x25-25-bulle-recup-30s.md) : Deux fois un 25 m en dynamique suivi d'un 25 m en expirant sur toute la longueur, 30 s de récupération.
+- [2 × 25 m + 1 × 37,5 m départ mi-bassin](https://freedive-knowledge.github.io/exercice/2x25-1x37-5-depart-mi-bassin.md) : Deux 25 m puis un 37,5 m en dynamique partant du milieu du bassin, pour placer un virage dans chaque apnée.
+- [2 × 37,5 m + retour au bord, récup 1 mn](https://freedive-knowledge.github.io/exercice/2x37-5-retour-bord.md) : Deux 37,5 m en dynamique, retour au bord en surface, puis 1 mn de récupération.
+- [2 × 50 m, départ toutes les 2 mn](https://freedive-knowledge.github.io/exercice/2x50-depart-2mn.md) : Deux 50 m en dynamique, départ toutes les 2 mn.
+- [2 × 50 m, récup 2 mn](https://freedive-knowledge.github.io/exercice/2x50-recup-2mn.md) : Deux 50 m en dynamique, 2 mn de récupération entre les deux.
+- [25 m sprint en surface + 25 m apnée](https://freedive-knowledge.github.io/exercice/25-sprint-surface-25-apnee.md) : Amorce de 25 m en sprint à la surface, enchaînée sans pause sur 25 m d'apnée à allure de croisière.
+- [3 × (25 m planche de travers + 25 m planche à plat), palmettes](https://freedive-knowledge.github.io/exercice/3x-planche-travers-plat-palmettes.md) : Palmage en surface avec planche, alternant planche en travers (freinante) et à plat, en petites palmes.
+- [3 × (37,5 m + 3 inspirations + 12,5 m), récup 1 mn](https://freedive-knowledge.github.io/exercice/3x37-5-recup-3inspi-12-5-recup-1mn.md) : Trois 50 m en dynamique coupés aux 37,5 m par une récupération de 3 inspirations, 1 mn de récupération entre les répétitions.
+- [3 × 100 m, récupération 7 mn](https://freedive-knowledge.github.io/exercice/3x100-recup-7mn.md) : Trois 100 m en dynamique avec 7 mn de récupération : série hypoxique à récupérations longues.
+- [3 × 30 s récup active 30 s, palmettes](https://freedive-knowledge.github.io/exercice/3x30s-recup-active-palmettes.md) : Trois apnées de 30 s en dynamique à allure de croisière, aux palmettes, séparées de 30 s de récupération active.
+- [3 × 30 s récup passive 30 s, palmettes](https://freedive-knowledge.github.io/exercice/3x30s-recup-passive-palmettes.md) : Trois apnées de 30 s en dynamique à allure de croisière, aux palmettes, séparées de 30 s de récupération passive.
+- [3 × 37,5 m + 12,5 m récup active, récup 1 mn](https://freedive-knowledge.github.io/exercice/3x37-5-recup-active-recup-1mn.md) : Trois 37,5 m en dynamique, 12,5 m de récupération active pour finir la longueur, puis 1 mn de récupération.
+- [3 × sprint au mur + statique dégressive](https://freedive-knowledge.github.io/exercice/3x-sprint-mur-statique-degressif.md) : Contre le mur, sprint de palmage tête hors de l'eau pendant 20 à 30 s, puis statique de 20 s, 15 s, puis 10 s.
+- [37,5 m + 1 inspiration + 12,5 m](https://freedive-knowledge.github.io/exercice/37-5-recup-1inspi-12-5.md) : Un 50 m en dynamique coupé aux 37,5 m par une récupération de 1 inspiration.
+- [37,5 m + 3 inspirations + 12,5 m](https://freedive-knowledge.github.io/exercice/37-5-recup-3inspi-12-5.md) : Un 50 m en dynamique coupé aux 37,5 m par une récupération de 3 inspirations.
+- [3×50 m dynamique, départ 1'45 (examen IE)](https://freedive-knowledge.github.io/exercice/examen-ie-3x50-dynamique.md) : Épreuve de l'examen Initiateur-Entraîneur : trois 50 m en apnée dynamique avec palmes, départ toutes les 1 mn 45 s.
+- [4 × 25 m DNF sans les jambes, récupération 30 s](https://freedive-knowledge.github.io/exercice/4x25-dnf-sans-jambes-recup-30s.md) : Quatre 25 m en dynamique sans palmes, propulsion par les bras seuls, 30 s de récupération : contrainte physique.
+- [4 × 25 m départ mi-bassin](https://freedive-knowledge.github.io/exercice/4x25-depart-mi-bassin.md) : Quatre 25 m en dynamique partant du milieu du bassin, pour placer un virage dans chaque apnée.
+- [4 × 25 m récup 30 s](https://freedive-knowledge.github.io/exercice/4x25-recup-30s.md) : Quatre 25 m en dynamique à allure de croisière, 30 s de récupération.
+- [4 × 25 m sans lest, récupération 15 s](https://freedive-knowledge.github.io/exercice/4x25-sans-lest-recup-15s.md) : Quatre 25 m en dynamique sans lest, 15 s de récupération : contrainte matérielle.
+- [4 × 25 m, récup 10 s](https://freedive-knowledge.github.io/exercice/4x25-recup-10s.md) : Quatre 25 m en dynamique avec 10 s de récupération : travail de la ventilation de récupération.
+- [4 × 25 m, récup 3 inspirations](https://freedive-knowledge.github.io/exercice/4x25-recup-3inspi.md) : Quatre 25 m en dynamique avec 3 inspirations de récupération : travail de la ventilation calmante.
+- [4 × 25 m, récup 45 s, 45 s, 30 s](https://freedive-knowledge.github.io/exercice/4x25-recup-45s-45s-30s.md) : Quatre 25 m en dynamique à allure de croisière, récupération de 45 s, 45 s puis 30 s.
+- [4 × 50 m, départ toutes les 1 mn 45 s](https://freedive-knowledge.github.io/exercice/4x50-depart-1mn45s.md) : Quatre 50 m en dynamique, départ toutes les 1 mn 45 s ; exemple de série où la ventilation de récupération est indiquée.
+- [4 × 50 m, départ toutes les 2 mn](https://freedive-knowledge.github.io/exercice/4x50-depart-2mn.md) : Quatre 50 m en dynamique, départ toutes les 2 mn ; marche intermédiaire vers le 8 × 50 m départ 2 mn.
+- [4 × 50 m, départ toutes les 2 mn 15 s](https://freedive-knowledge.github.io/exercice/4x50-depart-2mn15s.md) : Quatre 50 m en dynamique, départ toutes les 2 mn 15 s ; première marche vers le 8 × 50 m départ 2 mn.
+- [4 × 50 m, récup 1 mn](https://freedive-knowledge.github.io/exercice/4x50-recup-1mn.md) : Quatre 50 m en dynamique avec 1 mn de récupération, scindée en ventilation de récupération puis calmante.
+- [400 m PMT (examen IE)](https://freedive-knowledge.github.io/exercice/examen-ie-400m-pmt.md) : Épreuve de l'examen Initiateur-Entraîneur : 400 m de nage en surface avec palmes, masque et tuba. Préparation physique, sans apnée.
+- [4×25 m départ 1'15 (épreuve AP)](https://freedive-knowledge.github.io/exercice/examen-ap-4x25.md) : Épreuve de l'Apnéiste Piscine : quatre 25 m en apnée dynamique avec palmes, départ toutes les 1 mn 15 s.
+- [4×25 m départ toutes les 1 mn](https://freedive-knowledge.github.io/exercice/4x25-depart-1mn.md) : Quatre 25 m en apnée dynamique, départ toutes les minutes, poumons pleins. Maîtrise du 25 m pour le débutant, travail d'hypercapnie en reprise de saison.
+- [4×25 m poumon vide](https://freedive-knowledge.github.io/exercice/4x25-pv.md) : Quatre 25 m en poumon vide, récupération 30 s. Travail d'adaptation au manque d'air sur distance courte, sous surveillance renforcée.
+- [4×50 m départ 2 mn (épreuve ACP)](https://freedive-knowledge.github.io/exercice/examen-acp-4x50.md) : Épreuve de l'Apnéiste Confirmé Piscine : quatre 50 m en apnée dynamique avec palmes, départ toutes les 2 minutes.
+- [50 m + récup 1 mn + 25 m](https://freedive-knowledge.github.io/exercice/50m-recup-1mn-25m.md) : Un 50 m en dynamique, 1 mn de récupération, puis un 25 m.
+- [50 m + statique 15 s](https://freedive-knowledge.github.io/exercice/50m-sta-15s.md) : Un 50 m en dynamique prolongé par 15 s de statique en fin d'apnée.
+- [50 m allure libre, départs un par un](https://freedive-knowledge.github.io/exercice/50m-departs-successifs.md) : Un 50 m en dynamique par apnéiste, à son allure, chacun partant quand le précédent est arrivé.
+- [50 m avec sécurité tournante](https://freedive-knowledge.github.io/exercice/50m-securite-tournante.md) : Un 50 m en dynamique par apnéiste, la sécurité étant tenue à tour de rôle par le groupe.
+- [50 m en 2 mn](https://freedive-knowledge.github.io/exercice/50m-en-2mn.md) : Un 50 m en dynamique nagé lentement, en 2 mn.
+- [50 m poumons vides](https://freedive-knowledge.github.io/exercice/50m-pv.md) : Un 50 m en dynamique poumons vides ; objectif de fin d'une séance hypoxique pour confirmés.
+- [6 × 25 m départ toutes les 1 mn](https://freedive-knowledge.github.io/exercice/6x25-depart-1mn.md) : Six 25 m en dynamique, départ toutes les minutes, poumons pleins. Version longue du 4×25 départ 1 mn.
+- [6 × 25 m départ toutes les 1 mn 30 s](https://freedive-knowledge.github.io/exercice/6x25-depart-1mn30s.md) : Six 25 m en dynamique, départ toutes les 1 mn 30 s, poumons pleins. Travail d'hypercapnie en reprise.
+- [6 × 25 m en pyramide de récupération](https://freedive-knowledge.github.io/exercice/6x25-pyramide-recup.md) : Six 25 m en dynamique à allure de croisière, la récupération descendant de 45 s à 5 s puis remontant à 30 s.
+- [62,5 m](https://freedive-knowledge.github.io/exercice/62-5m.md) : Un 62,5 m en dynamique, avec sécurité en surface.
+- [8 × 50 m chronométré](https://freedive-knowledge.github.io/exercice/8x50-chronometre.md) : Huit 50 m enchaînés sous le chronomètre, récupération au choix de l'apnéiste : la plus courte et la plus efficace possible.
+- [8 × 50 m, départ toutes les 1 mn 30 s](https://freedive-knowledge.github.io/exercice/8x50-depart-1mn30s.md) : Huit 50 m en dynamique, départ toutes les 1 mn 30 s : série hypercapnique à récupérations courtes.
+- [8 × 50 m, départ toutes les 2 mn](https://freedive-knowledge.github.io/exercice/8x50-depart-2mn.md) : Huit 50 m en dynamique, départ toutes les 2 mn ; objectif de fin d'une séance hypercapnique pour intermédiaires.
+- [Descente au bout, tête en bas](https://freedive-knowledge.github.io/exercice/descente-boute-tete-en-bas.md) : Descente le long d'un bout lesté, tête en bas, avec virage en bas.
+- [Descente au bout, tête en haut](https://freedive-knowledge.github.io/exercice/descente-boute-tete-en-haut.md) : Descentes répétées le long d'un bout lesté, tête en haut, en augmentant progressivement la profondeur.
+- [Descente en brasse avec frite](https://freedive-knowledge.github.io/exercice/descente-brasse-frite.md) : Descente en brasse, avec une frite.
+- [Descente en brasse sans palme](https://freedive-knowledge.github.io/exercice/descente-brasse-sans-palme.md) : Descente en brasse, sans palme.
+- [Descente palmée](https://freedive-knowledge.github.io/exercice/descente-palmee.md) : Descente en palmettes, sans guide.
+- [Dynamique 75 m (épreuve ACP)](https://freedive-knowledge.github.io/exercice/examen-acp-dynamique-75m.md) : Épreuve de l'Apnéiste Confirmé Piscine : une apnée dynamique de 75 m en bipalmes.
+- [Démonstration de sauvetage (examen IE)](https://freedive-knowledge.github.io/exercice/examen-ie-demonstration-sauvetage.md) : Épreuve de l'examen Initiateur-Entraîneur : 25 m avec palmes, récupération d'un apnéiste au fond, remorquage 25 m voies aériennes hors de l'eau jusqu'au bord.
+- [Longueurs en apnée yeux fermés (contre-exemple)](https://freedive-knowledge.github.io/exercice/longueurs-apnee-yeux-fermes.md) (PROVISOIRE) : Exercice proposé par un LLM sans contexte : enchaîner des longueurs en apnée les yeux fermés en comptant. À ne pas faire : l'apnéiste dérive et percute.
+- [Relais 50 m nage et apnée](https://freedive-knowledge.github.io/exercice/relais-50m-nage-apnee.md) : Course de relais par équipes : chaque nageur fait 50 m en mêlant nage et apnée, dont au moins 25 m d'apnée.
+- [Statique 1 mn + 50 m](https://freedive-knowledge.github.io/exercice/sta-1mn-50m.md) : Une minute de statique en début d'apnée, puis un 50 m en dynamique sans reprise d'air.
+- [Statique 1 mn + dynamique 25 m (examen IE)](https://freedive-knowledge.github.io/exercice/examen-ie-statique-dynamique.md) : Épreuve de l'examen Initiateur-Entraîneur : une apnée de 1 mn 30 s, une minute de statique en surface puis 25 m de dynamique sans reprise de ventilation.
+- [Statique 3 mn (épreuve ACP)](https://freedive-knowledge.github.io/exercice/examen-acp-statique.md) : Épreuve de l'Apnéiste Confirmé Piscine : apnée statique de 3 minutes en surface.
+- [Séries de 2 × 25 m à allures variées](https://freedive-knowledge.github.io/exercice/2x25-changement-allure.md) : Quatre séries de 2 × 25 m en dynamique, une allure par série, de la très lente à la rapide, récupération croissante.
+- [Traversée palmée de la fosse](https://freedive-knowledge.github.io/exercice/traversee-palmee-fosse.md) : Traversée de la fosse en palmettes.
+- [Échauffement 200 m nage libre](https://freedive-knowledge.github.io/exercice/echauffement-200m-nage-libre.md) : Échauffement en nage libre de surface, sans palmes.
+
+## Compétence
+
+Item évaluable d'un cursus. Ce qu'un apnéiste sait faire.
+
+- [Animer un entraînement](https://freedive-knowledge.github.io/competence/animer-entrainement.md) : Proposer et animer des séances d'entraînement en apnée insérées dans un programme plus long.
+- [Animer un groupe](https://freedive-knowledge.github.io/competence/animer-groupe.md) : Mobiliser les techniques et outils de la communication pour faire s'exprimer chaque membre d'un groupe.
+- [Appeler les secours](https://freedive-knowledge.github.io/competence/appel-des-secours.md) (PROVISOIRE) : Capacité 7 du module RIFA Apnée.
+- [Assister son binôme (ACP)](https://freedive-knowledge.github.io/competence/assister-son-binome-acp.md) : Déceler une syncope ou une PCM, assister son binôme et pratiquer un sauvetage.
+- [Certifier un apnéiste](https://freedive-knowledge.github.io/competence/certifier-apneiste.md) : Organiser la certification d'un apnéiste (examen, contrôle continu, validation de compétences) dans le cadre de ses prérogatives.
+- [Compensation](https://freedive-knowledge.github.io/competence/compensation.md) : Capacité à équilibrer la pression de l'oreille moyenne avec la pression ambiante pendant la descente.
+- [Compenser ses volumes (ACP)](https://freedive-knowledge.github.io/competence/compenser-ses-volumes-acp.md) : Compenser avec les méthodes utiles à sa pratique, en privilégiant une compensation douce.
+- [Conduire une randonnée subaquatique](https://freedive-knowledge.github.io/competence/conduire-randonnee-subaquatique.md) : Choisir un site et conduire une randonnée subaquatique selon la réglementation, le danger, la faune et la flore.
+- [Construire une progression](https://freedive-knowledge.github.io/competence/construire-progression.md) : Bâtir une progression sur plusieurs séances, avec objectifs à court et long terme et évaluations intermédiaires.
+- [Coordonner les opérations de secours](https://freedive-knowledge.github.io/competence/coordination-secours.md) (PROVISOIRE) : Capacité 4 du module RIFA Apnée.
+- [Décomposer un geste](https://freedive-knowledge.github.io/competence/decomposition-geste.md) : Capacité de l'encadrant à décomposer une apnée en actions, pour savoir quoi enseigner, quoi observer et comment remédier.
+- [Définir des objectifs pédagogiques](https://freedive-knowledge.github.io/competence/definir-objectifs-pedagogiques.md) : Associer aux qualités visées les comportements ou gestes techniques que l'élève devra acquérir.
+- [Gestion de l'allure](https://freedive-knowledge.github.io/competence/gestion-allure.md) : Capacité à reconnaître et tenir une allure donnée, de la très lente au sprint, et à choisir celle qui sert l'objectif de l'apnée.
+- [Introspection](https://freedive-knowledge.github.io/competence/introspection.md) : Cartographie de ses sensations en apnée et connaissance de soi.
+- [Mettre en œuvre les gestes de secours](https://freedive-knowledge.github.io/competence/gestes-de-secours.md) (PROVISOIRE) : Capacité 6 du module RIFA Apnée.
+- [Mettre le groupe en sécurité](https://freedive-knowledge.github.io/competence/mise-en-securite-groupe.md) (PROVISOIRE) : Capacité 3 du module RIFA Apnée.
+- [Organiser une séance](https://freedive-knowledge.github.io/competence/organiser-seance.md) : Construire méthodiquement une séance pratique et répartir l'espace, le temps, le matériel et les personnes.
+- [Performer (ACP)](https://freedive-knowledge.github.io/competence/performer-acp.md) : Réaliser diverses apnées pour démontrer ses acquis : statique 3 mn, dynamique 75 m, 4×50 m départ 2 mn.
+- [Planifier l'entraînement](https://freedive-knowledge.github.io/competence/planifier-entrainement.md) : Construire un programme d'entraînement apnée sur une période donnée, jusqu'au plan de saison.
+- [Porter assistance](https://freedive-knowledge.github.io/competence/porter-assistance.md) (PROVISOIRE) : Maîtriser les techniques de sauvetage en PMT et sans équipement.
+- [Posture en descente](https://freedive-knowledge.github.io/competence/posture-descente.md) : Capacité à descendre avec une posture efficace, qui limite la résistance et l'effort sur les premiers mètres.
+- [Prévention des accidents](https://freedive-knowledge.github.io/competence/prevention-accidents.md) (PROVISOIRE) : Connaître les accidents liés à l'activité et mettre en œuvre les moyens de les éviter.
+- [Résistance lactique](https://freedive-knowledge.github.io/competence/resistance-lactique.md) : Capacité à nager efficacement en situation lactique, en fin de longue apnée.
+- [Savoir abaisser la fréquence cardiaque après un effort](https://freedive-knowledge.github.io/competence/abaisser-frequence-cardiaque.md) : Ramener la fréquence cardiaque à un niveau propice à l'apnée, par la ventilation calmante, après un effort ou une récupération active.
+- [Savoir appliquer le protocole ventilatoire de sécurité](https://freedive-knowledge.github.io/competence/appliquer-protocole-ventilatoire-securite.md) : Recycler le plus vite possible le plus grand volume d'air pulmonaire possible à la sortie d'une apnée longue ou profonde.
+- [Savoir se préparer à une apnée longue ou profonde sans hyperventiler](https://freedive-knowledge.github.io/competence/preparation-apnee-sans-hyperventilation.md) : Partir en normocapnie, fréquence cardiaque abaissée et poumons remplis, sans recourir à l'hyperventilation.
+- [Savoir se remplir d'air efficacement avant l'apnée](https://freedive-knowledge.github.io/competence/remplissage-pulmonaire.md) : Réaliser une dernière inspiration ample et relâchée, sur les trois étages de la pyramide ventilatoire.
+- [Se déplacer (ACP)](https://freedive-knowledge.github.io/competence/se-deplacer-acp.md) : Se déplacer horizontalement et verticalement au sein d'un groupe dans un espace défini, avec hydrodynamisme et respect du milieu.
+- [Se ventiler, se relâcher (ACP)](https://freedive-knowledge.github.io/competence/se-ventiler-se-relacher-acp.md) : Adapter sa ventilation préparatoire et de récupération à ses performances, et maîtriser des techniques de relâchement efficaces pour soi.
+- [Surveillance surface](https://freedive-knowledge.github.io/competence/surveillance-surface.md) (PROVISOIRE) : Assurer la surveillance depuis la surface, en situation de directeur de bassin.
+- [Séries d'apnées (AP)](https://freedive-knowledge.github.io/competence/series-apnees-ap.md) : Réaliser une série d'apnées de 4×25 m avec un départ toutes les 1'15'', sans hyperventilation et avec protocole de sortie.
+- [Tolérance à l'hypercapnie](https://freedive-knowledge.github.io/competence/tolerance-hypercapnie.md) : Capacité à poursuivre une apnée en conservant technique et lucidité malgré l'inconfort ventilatoire.
+- [Tolérance à l'hypoxie](https://freedive-knowledge.github.io/competence/tolerance-hypoxie.md) : Capacité à évoluer en hypoxie et à en apprivoiser les sensations, une fois la tolérance au CO2 acquise.
+- [Transmettre la théorie](https://freedive-knowledge.github.io/competence/transmettre-theorie.md) : Identifier les connaissances strictement nécessaires et les intégrer aux séances pratiques auxquelles elles se rattachent.
+- [Utiliser son matériel (ACP)](https://freedive-knowledge.github.io/competence/utiliser-son-materiel-acp.md) : Optimiser le choix de son matériel personnel (PMT, combinaison, lestage) pour améliorer sa performance.
+- [Virage en dynamique](https://freedive-knowledge.github.io/competence/virage-dynamique.md) : Savoir effectuer un virage au mur en apnée dynamique sans perte de vitesse ni d'oxygène inutile.
+- [Évaluer les fonctions vitales](https://freedive-knowledge.github.io/competence/evaluation-fonctions-vitales.md) (PROVISOIRE) : Capacité 5 du module RIFA Apnée.
+- [Évoluer en autonomie (ACP)](https://freedive-knowledge.github.io/competence/evoluer-en-autonomie-acp.md) : Évoluer en binôme en autonomie dans l'espace proche.
+
+## Cursus
+
+Brevet, niveau ou qualification fédérale.
+
+- [ACEL — Apnéiste Confirmé Eau Libre](https://freedive-knowledge.github.io/cursus/apneiste-confirme-eau-libre.md)
+- [ACP — Apnéiste Confirmé Piscine](https://freedive-knowledge.github.io/cursus/apneiste-confirme-piscine.md) : Brevet apnée de la FFESSM, délivré par la CNA.
+- [AEEL — Apnéiste Expert Eau Libre](https://freedive-knowledge.github.io/cursus/apneiste-expert-eau-libre.md) : Brevet apnée de la FFESSM, délivré par la CNA.
+- [AEL — Apnéiste Eau Libre](https://freedive-knowledge.github.io/cursus/apneiste-eau-libre.md) : Brevet apnée de la FFESSM, délivré par la CNA.
+- [AP — Apnéiste Piscine](https://freedive-knowledge.github.io/cursus/apneiste-piscine.md)
+- [IE1 — Initiateur-Entraîneur Apnée Niveau 1](https://freedive-knowledge.github.io/cursus/initiateur-entraineur-1.md) : Premier brevet d'encadrement apnée de la FFESSM : enseigne l'apnée dans l'espace proche (jusqu'à 6 m) et valide les compétences de l'Apnéiste Piscine.
+- [IE2 — Initiateur-Entraîneur Apnée Niveau 2](https://freedive-knowledge.github.io/cursus/initiateur-entraineur-2.md) : Brevet d'encadrement apnée de la FFESSM : enseigne l'apnée jusqu'à 20 m après accord du directeur de plongée, et valide les compétences de l'AP, de l'ACP et de l'AEL.
+- [INA — Instructeur National Apnée](https://freedive-knowledge.github.io/cursus/instructeur-national-apnee.md) : Niveau d'instructeur national de la filière d'encadrement apnée.
+- [IRA — Instructeur Régional Apnée](https://freedive-knowledge.github.io/cursus/instructeur-regional-apnee.md) : Niveau d'instructeur régional de la filière d'encadrement apnée.
+- [Juge de compétition apnée](https://freedive-knowledge.github.io/cursus/juge-competition-apnee.md) : Qualification de juge en compétition d'apnée, exigée pour l'accès au MEF2.
+- [MEF1 — Moniteur Entraîneur Fédéral 1](https://freedive-knowledge.github.io/cursus/moniteur-entraineur-federal-1.md) : Brevet apnée de la FFESSM, délivré par la CNA.
+- [MEF2 — Moniteur Entraîneur Fédéral 2](https://freedive-knowledge.github.io/cursus/moniteur-entraineur-federal-2.md) : Brevet apnée de la FFESSM, délivré par la CNA.
+- [Niveau Dauphin](https://freedive-knowledge.github.io/cursus/niveau-dauphin.md) : Niveau apnée jeunes de la FFESSM, accessible dès 8 ans.
+- [Pass'Apnéiste](https://freedive-knowledge.github.io/cursus/pass-apneiste.md) : Produit de découverte en piscine, sans licence ni brevet.
+- [Pass'Plongeur Libre](https://freedive-knowledge.github.io/cursus/pass-plongeur-libre.md) : Produit de découverte en milieu naturel, sans licence ni brevet.
+- [RIFA Apnée](https://freedive-knowledge.github.io/cursus/rifa-apnee.md)
+
+## Organisation
+
+Structure fédérale, départementale ou associative.
+
+- [Club associatif](https://freedive-knowledge.github.io/organisation/club-associatif.md) : Association loi 1901 affiliée à la FFESSM, cadre de la pratique et des formations en club.
+- [CMAS — Confédération Mondiale des Activités Subaquatiques](https://freedive-knowledge.github.io/organisation/cmas.md) : Confédération internationale des fédérations d'activités subaquatiques, dont la FFESSM est membre.
+- [CNA — Commission Nationale Apnée](https://freedive-knowledge.github.io/organisation/cna.md) : Commission de la FFESSM qui porte les brevets d'apnéiste et d'encadrant apnée.
+- [FFESSM](https://freedive-knowledge.github.io/organisation/ffessm.md) : Fédération délégataire des activités subaquatiques, dont l'apnée.
+
+## Source
+
+Document ou capture référençable. Cible du verbe `source`, qui rend l'indicateur `verification: verifie` traçable.
+
+- [Apnée Attitude — Améliorer son apnée grâce à la ventilation (V.3.1, débutants)](https://freedive-knowledge.github.io/source/apnee-attitude-ventilation-v3-1.md) : Support de cours sur la ventilation : récupération après effort, ventilation calmante, hyperventilation, dernière inspiration, protocole ventilatoire de sécurité.
+- [Apnée Attitude — Construire une séance d'entrainement (IE, V.1.2023)](https://freedive-knowledge.github.io/source/apnee-attitude-construire-seance-2023.md) : Support de formation initiateur-entraineur du CODEP 91 : cadrage d'une séance, exercices hypercapniques et hypoxiques, progression annuelle, animation au bord du bassin.
+- [Apnée Attitude — De l'Apnéiste à l'Apnéiste Expert Eau Libre (2020)](https://freedive-knowledge.github.io/source/apnee-attitude-livret-aeel-2020.md) : Référentiel théorique de club couvrant AP à AEEL : réglementation, physique, physiologie, compensation, accidents, disciplines et matériel de profondeur.
+- [Apnée Attitude — L'apnée : anatomie / physiologie (ind. 03, 2025)](https://freedive-knowledge.github.io/source/apnee-attitude-anatomie-physiologie-2025.md) : Support de cours : respiration et ventilation, voies aériennes, volumes pulmonaires, échanges gazeux, seuils hypercapnique et hypoxique, mécanismes d'adaptation.
+- [Apnée Attitude — L'apnée : physiologie et physiopathologie (ind. 03, 2025)](https://freedive-knowledge.github.io/source/apnee-attitude-physiopathologie-2025.md) : Support de cours sur les accidents et incidents de l'apnée : mécaniques, barotraumatiques, biochimiques, biophysiques ; règles d'or de sécurité.
+- [Apnée Attitude — La compensation, zone des 0 – 30 m (2026-01-06)](https://freedive-knowledge.github.io/source/apnee-attitude-compensation-0-30m-2026.md) : Support de cours sur la compensation jusqu'à 30 m : BTV, Valsalva, Frenzel, charge, mouthfill, freins à la compensation, compensation du masque.
+- [Apnée Attitude — Notions d'entrainement (IE, V.1.2024)](https://freedive-knowledge.github.io/source/apnee-attitude-notions-entrainement-2024.md) : Support de formation initiateur-entraineur du CODEP 91 : organisation d'une saison, filières énergétiques, surcompensation, décomposition du geste, axes de progression en apnée.
+- [Compte-rendu de séance — 02/10/2026](https://freedive-knowledge.github.io/source/cr-2026-10-02-recup-degressive-virage.md) : Observation directe d'un apnéiste participant à la séance du 02/10/2026, piscine Audrey Mestre : récupération dégressive, virage et relais.
+- [Compte-rendu de séance — 05/10/2026](https://freedive-knowledge.github.io/source/cr-2026-10-05-progression-50m.md) : Observation directe de l'encadrant de la séance du 05/10/2026, piscine de Brunoy : distances fractionnées de 37,5 m puis progression vers le 50 m.
+- [Compte-rendu de séance — 12/10/2026](https://freedive-knowledge.github.io/source/cr-2026-10-12-2x50-successifs.md) : Observation directe de l'auteur, présent à la séance du 12/10/2026, piscine de Brunoy : 37,5 m fractionnés, 50 m, puis 2 × 50 m successifs et un 62,5 m.
+- [Compte-rendu de séance — 22/09/2026](https://freedive-knowledge.github.io/source/cr-2026-09-22-pre-acp-dynamique.md) : Observation directe de l'encadrant sur la séance pré-ACP du 22/09/2026. Source de plein droit : elle peut justifier `verification: verifie`.
+- [Compte-rendu de séance — 23/09/2026, fosse des Sénarts](https://freedive-knowledge.github.io/source/cr-2026-09-23-fosse-senarts.md) : Observation directe de la première séance fosse de la saison, à la Piscine des Sénarts. L'auteur était pratiquant, non encadrant.
+- [Compte-rendu de séance — 25/09/2026](https://freedive-knowledge.github.io/source/cr-2026-09-25-reprise-hypercapnie.md) : Observation directe de l'encadrant sur la séance de reprise orientée hypercapnie du 25/09/2026, piscine Audrey Mestre.
+- [Compte-rendu de séance — 28/09/2026](https://freedive-knowledge.github.io/source/cr-2026-09-28-travail-allures.md) : Observation directe d'un apnéiste participant à la séance de travail des allures du 28/09/2026, piscine de Brunoy.
+- [Cours sur la ventilation — 2 décembre 2025, propos oraux](https://freedive-knowledge.github.io/source/cr-2025-12-02-cours-ventilation.md) : Observation directe du cours d'un MEF2 (Apnée Attitude) sur la ventilation : ce qui a été dit à l'oral en plus du support écrit.
+- [Cours théoriques apnée 2026-2027 — proposition de calendrier](https://freedive-knowledge.github.io/source/calendrier-cours-theoriques-2026-2027.md) : Message d'un MEF1 du Neptune Club de Brunoy : 10 lundis de cours théoriques (AP, APC, ACEL) à la piscine de Brunoy, de 20h30 à 21h15.
+- [Cours à Massy — janvier 2026, hyperventilation en série](https://freedive-knowledge.github.io/source/cr-2026-01-cours-hyperventilation-massy.md) : Observation directe d'un cours d'un MEF2 (Apnée Attitude), hors cadre FFESSM : hyperventilation brève en début de récupération dans une série.
+- [DAN / UCSD — Barotrauma and SIPE in Freediving (actes, 2024)](https://freedive-knowledge.github.io/source/dan-barotrauma-sipe-freediving-2024.md) : Actes du workshop international de 2023 sur le barotraumatisme pulmonaire et l'œdème d'immersion en apnée ; consensus sur le terme FIPS.
+- [Mahé — Les Accidents d'Apnée (mémoire de DIU, 2023)](https://freedive-knowledge.github.io/source/mahe-accidents-apnee-2023.md) : Mémoire de DIU de médecine subaquatique et hyperbare (Bordeaux) : barotraumatismes en apnée organe par organe, hypoxie, accidents pulmonaires.
+- [Manuel MSD — barotraumatismes de plongée (juin 2025)](https://freedive-knowledge.github.io/source/msd-barotraumatismes-2025.md) : Manuel médical professionnel (R. E. Moon) : vue d'ensemble des barotraumatismes, barotraumatisme digestif, dentaire, de masque et oculaire.
+- [MFA Apnéiste Confirmé Piscine — version juillet 2026](https://freedive-knowledge.github.io/source/mfa-acp-2026-07.md) : Manuel de formation du cursus Apnéiste Confirmé Piscine (Indoor Freediver 2** CMAS) : 7 compétences, conditions d'accès et de délivrance.
+- [MFA Apnéiste Piscine — version juillet 2026](https://freedive-knowledge.github.io/source/mfa-ap-2026-07.md) : Manuel de formation du cursus Apnéiste Piscine (Indoor Freediver 1* CMAS) : prérogatives, conditions d'accès et de délivrance, compétences.
+- [MFA Généralités — version juillet 2026](https://freedive-knowledge.github.io/source/mfa-generalites-2026-07.md) : Cadre commun à tous les cursus apnée FFESSM : conditions générales de pratique. Document transverse auquel les MFA de cursus renvoient.
+- [MFA Initiateur-Entraîneur IE1 / IE2 — V10, CDN 02/2026](https://freedive-knowledge.github.io/source/mfa-ie-2026-02.md) : Manuel de formation des Initiateurs-Entraîneurs Apnée niveaux 1 et 2 : conditions de candidature, prérogatives, cursus de formation, examen.
+- [QCM d'entraînement — organisation et réglementation (10 questions)](https://freedive-knowledge.github.io/source/qcm-organisation-reglementation-2026.md) : Série de 10 QCM corrigés générée avec Gemini Notebook : licence FFESSM, CACI, club loi 1901, FFESSM et CNA, RIFA Apnée.
+- [Réglementation — Stage initial IE 2025-26 (Commission apnée 91)](https://freedive-knowledge.github.io/source/reglementation-stage-ie-2025-26.md) : Support de cours du stage initial Initiateur-Entraîneur de la Commission apnée 91 : candidature et prérogatives IE, FFESSM, Code du sport, licence, CACI, assurance, responsabilité de l'encadrant, 10 commandements, exercices d'autonomie.
+- [Veille web — organisation FFESSM, CNA, RIFA Apnée (2026-11)](https://freedive-knowledge.github.io/source/veille-web-organisation-ffessm-2026-11.md) : Recherche web du 2026-11-02 : historique du nom FFESSM, création de la CNA, chiffres de licences, prérequis du RIFA Apnée.
+- [Wiki de veille — section Apnée (état 2026-09-28)](https://freedive-knowledge.github.io/source/wiki-veille-apnee-2026-09.md) : Quatorze articles de synthèse sur l'apnée (physiologie, risques, cadre FFESSM), chacun adossé à ses références primaires, avec une section Fiabilité.
+- [Wikipédia — vision, son et chaleur sous l'eau (octobre 2026)](https://freedive-knowledge.github.io/source/wikipedia-physique-milieu-2026-10.md) : Quatre articles Wikipédia (Underwater vision, Diving physics, Vitesse du son, Plongée sous-marine) : grossissement et rapprochement sous le masque, absorption du rouge, vitesse du son, conduction thermique de l'eau.
+- [Élaboration — 4×25 m départ toutes les 1 mn (24/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-24-elaboration-4x25-depart-1mn.md) : Transcript d'élaboration : intégration de l'exercice 4×25 m départ 1 mn et rapprochement avec l'épreuve de séries du MFA AP. Savoir produit par la discussion, non extrait d'une source externe.
+- [Élaboration — allure rapide (23/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-23-elaboration-rapide.md) : Transcript d'élaboration : bornes de l'allure rapide, données par encadrement entre croisière et sprint.
+- [Élaboration — allure sprint (23/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-23-elaboration-sprint.md) : Transcript d'élaboration : plancher de vitesse du sprint et emploi en montée rapide de CO2.
+- [Élaboration — allure très lente (23/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-23-elaboration-tres-lent.md) : Transcript d'élaboration : plage de vitesse et emploi de l'allure très lente. Savoir produit par la discussion, non extrait d'une source externe.
+- [Élaboration — cadrage du REX IA pour les encadrants (03/11/2026)](https://freedive-knowledge.github.io/source/transcript-2026-11-03-elaboration-rex-ia-encadrants.md) : Transcript de la session /interroge préparant une présentation REX aux encadrants du club ; mentionne l'exercice « yeux fermés » proposé par un LLM et la validation du cours lestage par des MEF1.
+- [Élaboration — cours AP lois physiques contre le graphe (14/10/2026)](https://freedive-knowledge.github.io/source/transcript-2026-10-14-elaboration-cours-lois-physiques.md) : Transcript d'élaboration : poche d'air et surpression pulmonaire ; statut de l'instructeur à l'origine de la règle du lest (sécurité, performance, confort).
+- [Élaboration — dangers du surlestage (30/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-30-elaboration-surlestage.md) : Transcript d'élaboration : le surlestage gêne le sauvetage, fait couler l'apnéiste en syncope (noyade) et accroît l'effort de remontée.
+- [Élaboration — hyperventilation entre deux apnées d'une série](https://freedive-knowledge.github.io/source/transcript-2026-09-27-elaboration-hyperventilation-serie.md) : Propos rapportés d'un MEF2, hors cadre FFESSM : hyperventilation brève en début de récupération dans une série. Élaboration : ne justifie jamais `verifie`.
+- [Élaboration — la frite en profondeur (24/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-24-elaboration-frite-profondeur.md) : Transcript d'élaboration : effet de la frite sur une descente en fosse. Savoir produit par la discussion, non extrait d'une source externe.
+- [Élaboration — le lest en dynamique (30/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-30-elaboration-lest-dynamique.md) : Transcript d'élaboration : en dynamique, un lest bien réglé compense la poussée d'Archimède, redresse la posture, réduit l'effort ; test de réglage en DNF.
+- [Élaboration — les cinq barotraumatismes (29/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-29-elaboration-barotraumatismes.md) : Transcript d'élaboration : liste usuelle des cinq barotraumatismes (masque, oreilles, dents, intestins, poumons) et moyen mnémotechnique « MODI Poumons ».
+- [Élaboration — matière et dureté des palmes (24/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-24-elaboration-palmes.md) : Transcript d'élaboration : matière (PVC, fibre de verre, carbone) et dureté (souple, moyen, dure) des voilures de palmes longues et de monopalme.
+- [Élaboration — revue de la séance du 25/09/2026](https://freedive-knowledge.github.io/source/transcript-2026-09-27-elaboration-revue-reprise-hypercapnie.md) : Réponses de l'encadrant aux incertitudes d'extraction de la séance reprise hypercapnie. Élaboration : ne justifie jamais `verifie`.
+- [Élaboration — surlestage, désorientation, décrochage du lest (14/10/2026)](https://freedive-knowledge.github.io/source/transcript-2026-10-14-elaboration-surlestage-desorientation.md) : Transcript d'élaboration : le surlestage fait craindre hypoxie de remontée et perte de connaissance ; causes de la désorientation, rôle de la longe ; le secouriste décroche le lest de la victime.
+- [Élaboration — sécurité du 4×25 m départ 1 mn (24/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-24-elaboration-4x25-securite.md) : Transcript d'élaboration : niveau de risque, organisation (noria, deux de front) et surveillance en chaîne du 4×25 m départ 1 mn.
+- [Élaboration — usage de la manœuvre de Toynbee (30/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-30-elaboration-toynbee.md) : Transcript d'élaboration : Toynbee, compensation inverse des autres méthodes, surtout à la remontée, rarement nécessaire.
+- [Élaboration — vocabulaire des allures (23/09/2026)](https://freedive-knowledge.github.io/source/transcript-2026-09-23-elaboration-allures.md) : Transcript d'élaboration : définition des allures et de leur doctrine d'emploi. Savoir produit par la discussion, non extrait d'une source externe.
+
+## Risque
+
+Incident, accident ou mécanisme délétère, avec ses signes et sa conduite à tenir.
+
+- [Accident de décompression](https://freedive-knowledge.github.io/risque/accident-decompression.md) : Formation de bulles d’azote dans les tissus à la remontée ; rare en apnée, possible après des plongées profondes répétées.
+- [Barotraumatisme](https://freedive-knowledge.github.io/risque/barotraumatisme.md) : Lésion d’un organe contenant de l’air (yeux sous le masque, oreilles, sinus, dents, intestins, poumons) sous l’effet des variations de pression.
+- [Barotraumatisme de l’oreille](https://freedive-knowledge.github.io/risque/barotraumatisme-oreille.md) : Lésion du tympan quand la pression de l’oreille moyenne n’est pas équilibrée à la descente.
+- [Barotraumatisme de l’oreille interne](https://freedive-knowledge.github.io/risque/barotraumatisme-oreille-interne.md) : Atteinte cochléo-vestibulaire après une compensation brutale ou une descente trop rapide.
+- [Barotraumatisme des dents](https://freedive-knowledge.github.io/risque/barotraumatisme-dents.md) : Douleur ou lésion dentaire due à l’air piégé dans une obturation ou autour d’une dent.
+- [Barotraumatisme des intestins](https://freedive-knowledge.github.io/risque/barotraumatisme-intestins.md) : Distension digestive par l’air dégluti qui se dilate à la remontée ; rupture rare.
+- [Barotraumatisme des sinus](https://freedive-knowledge.github.io/risque/barotraumatisme-sinus.md) : Lésion des sinus paranasaux par défaut d'équilibrage, favorisée par l'inflammation ou le mucus qui obstruent leurs ostiums.
+- [Barotraumatisme du conduit auditif externe](https://freedive-knowledge.github.io/risque/barotraumatisme-conduit-auditif.md) : Aspiration des parois du conduit auditif par de l’air piégé derrière un bouchon ou une cagoule.
+- [Barotraumatisme pulmonaire de descente](https://freedive-knowledge.github.io/risque/barotraumatisme-pulmonaire-descente.md) : Lésion de la membrane alvéolo-capillaire quand la pression pulmonaire devient inférieure à la pression ambiante, au-delà du volume résiduel ; hémorragie alvéolaire.
+- [Collision](https://freedive-knowledge.github.io/risque/collision.md) (PROVISOIRE) : Heurt entre apnéistes, ou contre une paroi, quand l'apnéiste ne contrôle plus sa trajectoire et dérive vers les lignes voisines.
+- [Désorientation](https://freedive-knowledge.github.io/risque/desorientation.md) : Difficulté à s'orienter sous l'eau, jusqu'à ne plus distinguer le haut du bas.
+- [Hypothermie](https://freedive-knowledge.github.io/risque/hypothermie.md) : Baisse de la température corporelle par exposition prolongée à l’eau sans protection suffisante.
+- [Narcose à l'azote](https://freedive-knowledge.github.io/risque/narcose-azote.md) : Effet narcotique de l'azote au-delà d'une pression partielle importante, qui concerne les apnéistes profonds.
+- [Noyade](https://freedive-knowledge.github.io/risque/noyade.md) : Danger essentiel de l’apnée : conséquence possible d’une syncope, d’une PCM ou d’un autre accident, quand les voies aériennes sont immergées.
+- [Packing blackout](https://freedive-knowledge.github.io/risque/packing-blackout.md) (PROVISOIRE) : Perte de connaissance en début d'apnée, causée par la compression cardiovasculaire due au surgonflage pulmonaire, et non par l'hypoxie.
+- [Perte de contrôle moteur](https://freedive-knowledge.github.io/risque/perte-controle-moteur.md) : Tremblements importants et irrépressibles liés à l’hypoxie, en apnée ou jusqu’à une minute après la reprise ventilatoire.
+- [Perte du bout](https://freedive-knowledge.github.io/risque/perte-du-boute.md) : Éloignement de l’apnéiste de la ligne de descente, qui empêche la sécurité de le retrouver rapidement.
+- [Placage du masque](https://freedive-knowledge.github.io/risque/placage-masque.md) : Écrasement du volume d’air du masque non rééquilibré à la descente, pouvant rompre des vaisseaux à la surface de l’œil.
+- [Surpression pulmonaire](https://freedive-knowledge.github.io/risque/surpression-pulmonaire.md) : Distension pulmonaire mortelle quand un apnéiste inspire de l’air comprimé en profondeur et remonte sans expirer.
+- [Syncope hypoxique](https://freedive-knowledge.github.io/risque/syncope.md) : Perte de connaissance par hypoxie cérébrale. Risque majeur de l'apnée, précédé de signes annonciateurs inconstants : voir signes-syncope.
+- [Vertige alternobarique](https://freedive-knowledge.github.io/risque/vertige-alternobarique.md) : Vertige bref à la remontée, dû à une asymétrie de perméabilité des trompes d’Eustache entre les deux oreilles.
+- [Œdème aigu du poumon](https://freedive-knowledge.github.io/risque/oedeme-pulmonaire.md) : Œdème survenant à la descente ou au fond, au-delà du volume résiduel, souvent après une interruption de l’entraînement.
+
+## Matériel
+
+Équipement mobilisé par un exercice. Inclut des valeurs explicitement négatives (sans-palme, aucun-materiel) : l'absence de matériel se déclare, elle ne se déduit pas d'un triple manquant.
+
+- [Bout lesté](https://freedive-knowledge.github.io/materiel/boute-leste.md) : Bout tendu sous une bouée par un lest, guide des descentes en fosse.
+- [Ceinture de lest](https://freedive-knowledge.github.io/materiel/ceinture-lest.md) : Lest porté à la taille, l’un des trois lests courants en profondeur.
+- [Frite](https://freedive-knowledge.github.io/materiel/frite.md) : Boudin de mousse flottant. En profondeur, lest inversé : il augmente la flottabilité et rend la descente plus coûteuse.
+- [Gueuse largable](https://freedive-knowledge.github.io/materiel/gueuse-largable.md) : Lest de 4 à 10 kg à poignée, relié à une bouée par un filin, lâché pour s’arrêter.
+- [Lest](https://freedive-knowledge.github.io/materiel/lest.md) : Masse ajoutée pour compenser la flottabilité ; en profondeur, ceinture de plombs ou plomb de cou.
+- [Longe](https://freedive-knowledge.github.io/materiel/longe.md) : Lien reliant l’apnéiste au bout de descente, qui circonscrit sa zone d’évolution.
+- [Mannequin](https://freedive-knowledge.github.io/materiel/mannequin.md) : Mannequin de sauvetage lesté, remonté du fond et remorqué en surface.
+- [Monopalme](https://freedive-knowledge.github.io/materiel/monopalme.md) : Voilure unique chaussée pieds joints, propulsée par une ondulation du corps entier.
+- [Palmes](https://freedive-knowledge.github.io/materiel/palmes.md) : Palmes sans précision de type. Nœud générique, dont les types précis (palmes longues, monopalme) seront des `sorte-de`.
+- [Palmes longues](https://freedive-knowledge.github.io/materiel/palmes-longues.md) : Bipalmes à voilure longue : propulsion forte, sollicitation musculaire plus grande que les palmettes.
+- [Palmettes](https://freedive-knowledge.github.io/materiel/palmettes.md) : Palmes courtes, propulsion modérée, geste proche du palmage naturel.
+- [Planche](https://freedive-knowledge.github.io/materiel/planche.md) : Planche de natation en mousse, tenue devant soi pour isoler le palmage. En travers, elle freine et augmente l'effort.
+- [Plomb de cou](https://freedive-knowledge.github.io/materiel/plomb-de-cou.md) : Lest porté autour du cou, l’un des trois lests courants en profondeur.
+- [PMT](https://freedive-knowledge.github.io/materiel/pmt.md) : Palmes, masque, tuba : l'équipement de nage en surface.
+- [Sans palme](https://freedive-knowledge.github.io/materiel/sans-palme.md) : Absence de palme **déclarée explicitement**, et non déduite d'un triple manquant.
+
+## Lieu
+
+Bassin, fosse, site naturel.
+
+- [Fosse — Piscine Audrey Mestre](https://freedive-knowledge.github.io/lieu/fosse-audrey-mestre.md) : Fosse à fond amovible de la Piscine Audrey Mestre, profondeur maximale 11,3 m.
+- [Piscine Audrey Mestre](https://freedive-knowledge.github.io/lieu/piscine-audrey-mestre.md) : Piscine de Boussy-Saint-Antoine (ex-Piscine des Sénarts), dotée d'un bassin sportif et d'une fosse à fond amovible. Lieu de séance régulier du club.
+- [Piscine de Brunoy](https://freedive-knowledge.github.io/lieu/piscine-brunoy.md) : Bassin d'entraînement du Neptune Club de Brunoy.
+
+## Rôle
+
+Fonction tenue lors d'une séance ou d'une formation, côté encadrement ou côté public. Porte le "Qui" sans nommer de personne.
+
+- [Binôme de surveillance](https://freedive-knowledge.github.io/role/binome-de-surveillance.md) : Apnéiste chargé de la surveillance active d'un partenaire pendant et après son apnée.
+- [Directeur de Bassin](https://freedive-knowledge.github.io/role/directeur-de-bassin.md) : Responsable d'une séance d'apnée en milieu artificiel, pratique encadrée ou en autonomie relative.
+- [Directeur de Plongée Libre](https://freedive-knowledge.github.io/role/directeur-de-plongee-libre.md) : Responsable d'une séance d'apnée en milieu naturel, pratique encadrée ou en autonomie relative.
+- [Encadrant IE1](https://freedive-knowledge.github.io/role/encadrant-ie1.md) : Encadrement d'une séance par un titulaire de l'Initiateur Entraîneur Apnée niveau 1.
+- [Encadrant IE2](https://freedive-knowledge.github.io/role/encadrant-ie2.md) : Encadrement d'une séance par un titulaire de l'Initiateur Entraîneur Apnée niveau 2.
+- [Public pré-ACP](https://freedive-knowledge.github.io/role/public-pre-acp.md) : Apnéistes titulaires de l'AP ou plus, engagés dans la préparation de l'ACP. Correspond au « niveau intermédiaire » du Neptune Club de Brunoy.
+
+## Allure
+
+Régime de déplacement défini par le ressenti, borne par une plage de vitesse et documenté par une doctrine d'emploi. Les allures sont des REPÈRES NON COUVRANTS : elles ne partitionnent pas l'échelle des vitesses et des zones intermédiaires n'ont aucun nom. Une borne absente vaut intervalle ouvert.
+
+- [Croisière](https://freedive-knowledge.github.io/allure/croisiere.md) : Allure la plus optimale, permettant de parcourir de longues distances malgré la production de CO2 et la consommation d'O2.
+- [Rapide](https://freedive-knowledge.github.io/allure/rapide.md) : Allure comprise entre croisière et sprint. Fait monter le CO2 sans le coût d'un sprint : soutenable sur une série.
+- [Sprint](https://freedive-knowledge.github.io/allure/sprint.md) : Allure maximale de l'apnéiste, sous les 20 s au 25 m. Fait monter le CO2 très rapidement ; s'emploie en amorce, pas en travail de distance.
+- [Tranquille](https://freedive-knowledge.github.io/allure/tranquille.md) : Allure la plus confortable sur une distance seule, support d'hypercapnie ou de relâchement.
+- [Très lente](https://freedive-knowledge.github.io/allure/tres-lent.md) : Allure la plus basse, autour de la minute au 25 m. Support privilégié de la mise à l'épreuve de la tolérance à l'hypercapnie.
+
+## Titre
+
+Pièce ou qualification conditionnant l'accès a un cursus sans être elle-meme un brevet d'apnée : licence, certificat médical. Un brevet fédéral, même de secourisme comme le RIFA Apnée, reste un `cursus`.
+
+- [CACI](https://freedive-knowledge.github.io/titre/caci.md) : Certificat médical d’absence de contre-indication à la pratique de l’apnée, délivrable par tout médecin.
+- [Licence FFESSM](https://freedive-knowledge.github.io/titre/licence-ffessm.md) : Attestation d’affiliation à la fédération, renouvelée chaque saison sur une carte perpétuelle, incluant une assurance responsabilité civile.
+- [Permis côtier](https://freedive-knowledge.github.io/titre/permis-cotier.md) : Permis de conduire les bateaux de plaisance à moteur, option côtière.
+
+## Séance
+
+Occurrence datée d'entraînement. Porte le champ `date`. Compose des exercices existants ; ne duplique aucun contenu pédagogique.
+
+- [2 × 50 m successifs](https://freedive-knowledge.github.io/seance/2026-10-12-2x50-successifs.md) : Séance de dynamique à la piscine de Brunoy : 25 m en expiration, 37,5 m fractionnés à 3 inspirations, 50 m, 2 × 50 m récupération 2 mn, puis un 62,5 m pour deux apnéistes.
+- [Première fosse de la saison](https://freedive-knowledge.github.io/seance/2026-09-23-fosse-audrey-mestre.md) : Première séance en fosse de la saison, à la Piscine Audrey Mestre : descentes progressives au bout, puis palmées et en brasse.
+- [Progression vers le 2 × 50 m](https://freedive-knowledge.github.io/seance/2026-10-05-progression-2x50.md) : Séance de dynamique à la piscine de Brunoy : 25 m, 37,5 m en noria, 50 m fractionnés à récupération de 3 puis 1 inspiration, 50 m, puis 2 × 50 m départ 2 mn.
+- [Pré-ACP — dynamique et adaptation au manque d'air](https://freedive-knowledge.github.io/seance/2026-09-22-pre-acp-dynamique.md) : Première séance de la saison orientée adaptation au manque d'air. 4×25 PV bien encaissé par le groupe, allure sous-estimée.
+- [Pyramide de récupération](https://freedive-knowledge.github.io/seance/2026-10-02-pyramide-recuperation.md) : Séance de dynamique au bassin Audrey Mestre : 25 m à récupération de plus en plus courte, rappel du virage, 50 m et relais ludique par équipes.
+- [Reprise — dynamique et hypercapnie](https://freedive-knowledge.github.io/seance/2026-09-25-reprise-hypercapnie.md) : Séance de reprise en dynamique au bassin Audrey Mestre, orientée tolérance à l'hypercapnie, pour le niveau intermédiaire.
+- [Travail des allures](https://freedive-knowledge.github.io/seance/2026-09-28-travail-allures.md) : Séance au bassin de Brunoy consacrée aux cinq allures, du très lent au sprint, en apnée de 30 s aux palmettes puis en 25 m au grand bassin.
+
+## Cours
+
+- [Organisation et réglementation : le cadre de votre pratique](https://freedive-knowledge.github.io/cours/acp-organisation-reglementation/cours.md) : Cours théorique ACP — Neptune Club de Brunoy — 45 mn.
+- [Maîtriser son lestage](https://freedive-knowledge.github.io/cours/ap-lestage/cours.md) : Cours théorique AP — Neptune Club de Brunoy — 45 mn.
+- [Les lois physiques en apnée et leurs conséquences](https://freedive-knowledge.github.io/cours/ap-lois-physiques/cours.md) : Cours théorique AP — Neptune Club de Brunoy — 45 mn.
+- [L'IA au service de nos cours : retour d'expérience](https://freedive-knowledge.github.io/cours/rex-ia/cours.md) : Présentation aux encadrants — Neptune Club de Brunoy — 45 mn.

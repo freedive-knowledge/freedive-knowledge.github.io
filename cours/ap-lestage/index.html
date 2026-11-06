@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maîtriser son lestage · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/cours/index.html">Cours</a></p>
+<h1>Maîtriser son lestage</h1>
+<p class="chapeau">Cours théorique AP — Neptune Club de Brunoy — 45 mn.</p>
+<p class="telechargements">
+  <a href="/cours/ap-lestage/ap-lestage.pdf" download>Support PDF</a> · <a href="/cours/ap-lestage/ap-lestage.pptx" download>Support PPTX</a> · 
+  <a href="/cours/ap-lestage/cours.md">Source Markdown</a>
+</p>
+<div class="corps cours"><p>Ce fichier porte le <strong>fond</strong> du cours : plan, texte de chaque slide, notes du
+présentateur, minutage, quiz. La mise en forme vit dans le deck généré par
+<code>build.js</code> ; le PDF et les tableurs Kahoot en sont des exports.</p>
+<p>Origine : plan proposé par un collègue encadrant (« Cours d'Apnée (Niveau
+Débutant) : Maîtriser son Lestage », reçu le 31/10/2026), cadré lors de
+l'élaboration du 31/10/2026 et complété par les connaissances du graphe.</p>
+<h2>Cadre</h2>
+<ul>
+<li><strong>Public</strong> : candidats Apnéiste Piscine (<a class="noeud" href="/cursus/apneiste-piscine.html" title="Cursus">AP — Apnéiste Piscine</a>) en formation
+  débutant. Ils vont pratiquer en fosse à 10 m et 20 m, et peut-être plus tard
+  en mer ou en carrière si une sortie est prévue.</li>
+<li><strong>Référentiel</strong> : MFA AP juillet 2026 (<a class="noeud" href="/source/mfa-ap-2026-07.html" title="Source">MFA Apnéiste Piscine — version juillet 2026</a>) — « réglage du
+  lestage en fonction du milieu et de sa combinaison ».</li>
+<li><strong>Position</strong> : <strong>avant</strong> le cours lois physiques
+  (<a href="/cours/ap-lois-physiques/">Les lois physiques en apnée et leurs conséquences</a>). Ce cours pose Archimède et la
+  flottabilité sans formule ; le cours lois physiques y reviendra plus tard
+  avec le poids apparent et l'exemple chiffré. Mêmes mots dans les deux cours :
+  poussée, poids, flottabilité positive, neutre, négative.</li>
+<li><strong>Périmètre</strong> : principe d'Archimède qualitatif, trois états de
+  flottabilité, matériel (ceinture, boucle, plomb de cou), réglage en piscine
+  et en fosse, surlestage et largage. La mer et la carrière sont une ouverture,
+  pas un protocole.</li>
+<li><strong>Parti pris</strong> : mécanisme puis geste, aucune formule. Les accidents
+  (syncope, noyade) sont nommés, leur prise en charge est renvoyée au cours
+  accidents.</li>
+<li><strong>Forme</strong> : charte et mécanique du cours lois physiques — slides épurées, un
+  quiz Kahoot d'ouverture rejoué à la fin, une slide « à retenir ».</li>
+</ul>
+<h2>Objectifs</h2>
+<p>À la fin du cours, le participant sait :</p>
+<ol>
+<li>expliquer pourquoi il flotte ou coule : la poussée d'Archimède, que l'eau
+   exerce vers le haut, contre son poids ;</li>
+<li>décrire les trois états de flottabilité (positive, neutre, négative) et
+   dire pourquoi elle diminue en descendant ;</li>
+<li>choisir et porter son lest : ceinture caoutchouc sur le bassin, boucle à
+   largage rapide, plomb de cou ;</li>
+<li>régler son lest en piscine (STA, DYN) et en fosse, et le tester ;</li>
+<li>dire pourquoi le surlestage est dangereux et larguer sa ceinture par
+   réflexe.</li>
+</ol>
+<h2>Minutage</h2>
+<table>
+<thead>
+<tr>
+<th>Bloc</th>
+<th>Slides</th>
+<th>Durée</th>
+<th>Cumul</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Titre, objectifs, plan</td>
+<td>1-3</td>
+<td>2 mn</td>
+<td>2 mn</td>
+</tr>
+<tr>
+<td>Quiz d'ouverture</td>
+<td>4-6</td>
+<td>4 mn</td>
+<td>6 mn</td>
+</tr>
+<tr>
+<td>Flotter ou couler</td>
+<td>7-10</td>
+<td>6 mn</td>
+<td>12 mn</td>
+</tr>
+<tr>
+<td>Le matériel</td>
+<td>11-15</td>
+<td>9 mn</td>
+<td>21 mn</td>
+</tr>
+<tr>
+<td>Régler son lest</td>
+<td>16-21</td>
+<td>10 mn</td>
+<td>31 mn</td>
+</tr>
+<tr>
+<td>Surlestage et largage</td>
+<td>22-23</td>
+<td>6 mn</td>
+<td>37 mn</td>
+</tr>
+<tr>
+<td>Checklist, à retenir, quiz final, merci</td>
+<td>24-37</td>
+<td>8 mn</td>
+<td>45 mn</td>
+</tr>
+</tbody>
+</table>
+<h2>Charte</h2>
+<p>Celle du cours lois physiques (<a href="/cours/ap-lois-physiques/">Les lois physiques en apnée et leurs conséquences</a>, section
+Charte), fournie par <code>_commun/charte.js</code>.</p>
+<hr />
+<h2>Slides</h2>
+<h3>1. Titre</h3>
+<p><strong>Écran</strong> — Maîtriser son lestage. « Ni trop, ni trop peu. » Cours théorique
+Apnéiste Piscine. Logo du club.</p>
+<p><strong>Notes</strong> — Accueil. Annoncer : 45 mn, deux quiz, aucun calcul.</p>
+<h3>2. Pourquoi parler du lestage ?</h3>
+<p><strong>Écran</strong> — « Bien réglé, le lest rend l'apnée plus sûre, plus confortable et
+plus efficace. Mal réglé, il l'épuise, voire la rend dangereuse. » Trois
+cartes : sécurité, confort, efficacité.</p>
+<p><strong>Notes</strong> — Le lestage est un facteur déterminant et sous-estimé : sans lest, on
+lutte contre la poussée de l'eau, on nage de biais, on se fatigue ; trop lesté,
+on lutte pour remonter. On commence par un quiz : sortez vos téléphones.
+Sources : <a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a> (section « En dynamique »),
+<a class="noeud" href="/source/apnee-attitude-notions-entrainement-2024.html" title="Source">Apnée Attitude — Notions d&#39;entrainement (IE, V.1.2024)</a> v.20.</p>
+<h3>3. Au programme</h3>
+<p><strong>Écran</strong> — 1. Quiz d'ouverture (4 mn) · 2. Flotter ou couler (6 mn) · 3. Le
+matériel (9 mn) · 4. Régler son lest (10 mn) · 5. Surlestage et largage
+(6 mn) · 6. Checklist et quiz final (8 mn).</p>
+<p><strong>Notes</strong> — Annoncer le chemin : comprendre pourquoi on flotte, puis avec quoi
+on se leste, comment on règle, et ce qu'on ne fait jamais.</p>
+<h3>4-6. Quiz d'ouverture — questions 1 à 3</h3>
+<p><strong>Écran</strong> — Les questions 1, 2 et 3 du quiz, une par slide, sans la réponse.</p>
+<p><strong>Notes</strong> — 20 secondes chacune. Ne pas donner les réponses : on les retrouvera
+dans le cours, et on rejouera ces trois questions à la fin.</p>
+<h3>7. Poids et poussée d'Archimède</h3>
+<p><strong>Écran</strong> — Image <code>archimede-flottabilite.jpg</code> (celle du cours lois
+physiques) : le même apnéiste à la surface, entre deux eaux, plus bas. Flèches
+tracées dans le PPT : la <strong>poussée d'Archimède</strong> de l'eau vers le haut (bleu-vert), le
+<strong>poids</strong> vers le bas (orange). « L'eau pousse vers le haut tout ce qu'on y
+plonge : c'est la poussée d'Archimède. »</p>
+<figure class="illustration"><img src="/cours/ap-lestage/img/archimede-flottabilite.jpg" alt="archimede-flottabilite.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Dans l'eau, deux forces s'opposent. Mon poids me tire vers le bas ;
+le lest l'augmente. L'eau me pousse vers le haut, d'autant plus fort que je
+prends de la place : c'est la poussée d'Archimède. Poussée plus forte : je
+flotte. Égales : je reste entre deux eaux. Poids plus fort : je coule. On verra
+la loi en détail au cours lois physiques.
+Source : <a class="noeud" href="/concept/poussee-archimede.html" title="Concept">Poussée d&#39;Archimède</a>.</p>
+<h3>8. Ce qui me fait flotter, ce qui me fait couler</h3>
+<p><strong>Écran</strong> — Deux colonnes. <strong>Je flotte</strong> : poumons pleins, combinaison (une
+mousse pleine de bulles). <strong>Je coule</strong> : mon corps, le lest. En bas : « En
+descendant, l'air des poumons et les bulles de la combinaison se compriment :
+je flotte de moins en moins. »</p>
+<p><strong>Notes</strong> — L'air me fait flotter : celui de mes poumons et celui des bulles
+de la combinaison, d'autant plus qu'elle est épaisse. En descendant, l'eau
+appuie et cet air prend moins de place : je flotte moins. C'est pour ça que
+les premiers mètres d'une descente sont les plus durs, et qu'on finit par
+couler sans effort. Le lest sert à compenser ce qui me fait flotter.
+Sources : <a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a> ; livret <a class="noeud" href="/source/apnee-attitude-livret-aeel-2020.html" title="Source">Apnée Attitude — De l&#39;Apnéiste à l&#39;Apnéiste Expert Eau Libre (2020)</a>
+p.69-70.</p>
+<h3>9. Les trois états de flottabilité</h3>
+<p><strong>Écran</strong> — Schéma <code>zones-flottabilite.png</code> (SVG) : échelle de 0 à 20 m.
+Au-dessus de la profondeur neutre, flottabilité <strong>positive</strong> (je remonte
+seul) ; à la profondeur neutre, <strong>neutre</strong> (ni je monte, ni je coule) ; en
+dessous, <strong>négative</strong> (je coule seul). À droite : « La profondeur neutre dépend
+de chacun : corpulence, poumons, combinaison, lest. »</p>
+<figure class="illustration"><img src="/cours/ap-lestage/img/zones-flottabilite.png" alt="zones-flottabilite.png" loading="lazy"></figure>
+
+<p><strong>Notes</strong> — Positive en surface : on se détend sans effort avant de plonger.
+Neutre à une certaine profondeur : on reste immobile sans dépenser d'énergie.
+Négative en dessous : on coule seul, c'est la chute libre des apnéistes en
+profondeur. Le schéma place la profondeur neutre à 10 m, comme exemple : elle
+varie d'une personne à l'autre et c'est le lest qui la déplace. Plus on est
+lesté, plus elle remonte.
+Source : <a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a> (positive en surface, neutre puis négative ; livret
+p.69-70).</p>
+<h3>10. À retenir — flotter ou couler</h3>
+<p><strong>Écran</strong> —
+- La poussée d'Archimède (vers le haut) contre mon poids (vers le bas).
+- Poumons pleins et combinaison me font flotter ; le lest me fait couler.
+- En descendant, je flotte de moins en moins.
+- Le lest déplace ma profondeur neutre : plus de lest, elle remonte.</p>
+<p><strong>Notes</strong> — Transition : le lest, concrètement, c'est quoi ?</p>
+<h3>11. La ceinture : du caoutchouc, pas du nylon</h3>
+<p><strong>Écran</strong> — Deux photos : à gauche, ceinture caoutchouc à boucle marseillaise
+(<code>ceinture-caoutchouc.jpg</code>, encadré vert « Oui ») ; à droite, ceinture
+nylon de plongée bouteille (<code>ceinture-nylon.jpg</code>, encadré orange
+« Non »). « Elastique, elle reste plaquée quand mon tour de taille diminue. »</p>
+<figure class="illustration"><img src="/cours/ap-lestage/img/ceinture-caoutchouc.jpg" alt="ceinture-caoutchouc.jpg" loading="lazy"><figcaption>droits réservés à leur auteur</figcaption></figure>
+
+<figure class="illustration"><img src="/cours/ap-lestage/img/ceinture-nylon.jpg" alt="ceinture-nylon.jpg" loading="lazy"></figure>
+
+<p><strong>Notes</strong> — En descendant, la pression comprime le ventre et la combinaison ;
+en ventilant, le ventre bouge. Une ceinture en caoutchouc ou en silicone,
+élastique, reste plaquée sur les hanches. Une sangle en nylon, rigide, se
+détend, glisse et tourne : les plombs migrent vers le thorax ou le dos. On les
+réserve à la plongée bouteille. Plombs enrobés conseillés : le plomb est
+toxique pour le milieu.
+Sources : plan du collègue (élasticité, nylon à bannir) ; <a class="noeud" href="/materiel/ceinture-lest.html" title="Matériel">Ceinture de lest</a>
+(plombs enrobés, livret p.16, p.70).</p>
+<h3>12. Porter la ceinture</h3>
+<p><strong>Écran</strong> — Image <code>position-ceinture.jpg</code> (Gemini, prompt dans
+<code>img/PROMPTS.md</code>) : apnéiste de profil, ceinture sur le bassin. Deux repères
+posés dans le PPT : « Sur le bassin » (bleu-vert) et « Pas sur le ventre »
+(orange, barré). Photo <code>ceinture-plombs.jpg</code> : plombs cavaliers répartis
+sur la sangle. En bas : « L'extrémité libre pend du côté de la main qui
+largue. »</p>
+<figure class="illustration"><img src="/cours/ap-lestage/img/position-ceinture.jpg" alt="position-ceinture.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<figure class="illustration"><img src="/cours/ap-lestage/img/ceinture-plombs.jpg" alt="ceinture-plombs.jpg" loading="lazy"><figcaption>droits réservés à leur auteur</figcaption></figure>
+
+<p><strong>Notes</strong> — La ceinture se porte au niveau du bassin, pas sur le ventre : trop
+haute, elle bloque le diaphragme et gêne la ventilation et la dernière
+inspiration. Répartir les plombs de chaque côté, devant les hanches, pour ne
+pas tirer sur les lombaires et pour garder la boucle dégagée.
+Sources : <a class="noeud" href="/materiel/ceinture-lest.html" title="Matériel">Ceinture de lest</a> (position, cours du 2 décembre 2025,
+<a class="noeud" href="/source/apnee-attitude-ventilation-v3-1.html" title="Source">Apnée Attitude — Améliorer son apnée grâce à la ventilation (V.3.1, débutants)</a> v.34) ; extrémité libre côté main qui
+largue : élaboration du 31/10/2026, à vérifier.</p>
+<h3>13. La boucle à largage rapide</h3>
+<p><strong>Écran</strong> — Gros plan sur la boucle (recadrage de
+<code>ceinture-caoutchouc.jpg</code>). « Une main, un geste : la ceinture tombe. »
+Trois points : boucle devant, jamais sous un autre équipement ; extrémité libre
+saisissable ; je sais la larguer les yeux fermés.</p>
+<figure class="illustration"><img src="/cours/ap-lestage/img/ceinture-caoutchouc.jpg" alt="ceinture-caoutchouc.jpg" loading="lazy"><figcaption>droits réservés à leur auteur</figcaption></figure>
+
+<p><strong>Notes</strong> — Sur les ceintures caoutchouc, la boucle la plus courante est la
+boucle marseillaise : une boucle inox qu'on ouvre en tirant sur l'extrémité
+libre. Certaines ceintures portent une boucle à clapet, dite américaine. Dans
+les deux cas, la boucle doit rester devant, dégagée, jamais cachée sous un
+autre équipement, et l'extrémité libre doit pouvoir être saisie d'une main —
+par moi, par mon binôme ou par un secouriste. À s'entraîner au bord : larguer
+et remettre sa ceinture, les yeux fermés.
+Sources : plan du collègue (« boucle américaine ») ; terminologie marseillaise
+et extrémité libre : élaboration du 31/10/2026, à vérifier.</p>
+<h3>14. Le plomb de cou</h3>
+<p><strong>Écran</strong> — Deux photos : plomb de cou rigide
+(<code>plomb-de-cou-rigide.jpg</code>, Wikimedia Commons, CC BY 4.0) et plomb de cou
+souple (<code>plomb-de-cou-souple.jpg</code>). Deux avantages : « Aligne la tête et
+le buste » ; « Soulage la ceinture et les lombaires ». Encadré orange : « Il ne
+se largue pas d'un geste. »</p>
+<figure class="illustration"><img src="/cours/ap-lestage/img/plomb-de-cou-rigide.jpg" alt="plomb-de-cou-rigide.jpg" loading="lazy"><figcaption>Lobster Weight, CC BY 4.0, via Wikimedia Commons</figcaption></figure>
+
+<figure class="illustration"><img src="/cours/ap-lestage/img/plomb-de-cou-souple.jpg" alt="plomb-de-cou-souple.jpg" loading="lazy"><figcaption>droits réservés à leur auteur</figcaption></figure>
+
+<p><strong>Notes</strong> — Le plomb de cou se pose sur la nuque, le poids sur le haut du dos ou
+sur la poitrine. Très utilisé en dynamique : il ramène le haut du corps à
+l'horizontale, plus hydrodynamique, et évite de tout charger sur la ceinture.
+Mais il ne se largue pas d'un geste : en cas de malaise, c'est la ceinture que
+le secouriste retire. On ne le porte qu'en complément d'une ceinture réglée,
+sur conseil d'un encadrant.
+Sources : <a class="noeud" href="/materiel/plomb-de-cou.html" title="Matériel">Plomb de cou</a> (livret p.71) ; avantages : plan du collègue ;
+« ne se largue pas d'un geste » : élaboration du 31/10/2026, à vérifier ;
+<a class="noeud" href="/concept/surlestage.html" title="Concept">Surlestage</a> (le secouriste décroche le lest).</p>
+<h3>15. Ceinture ou plomb de cou ?</h3>
+<p><strong>Écran</strong> — Tableau à trois colonnes (critère, ceinture, plomb de cou) :
+position (bassin / nuque), effet (compense la flottabilité / aligne le haut du
+corps), largage (une main, un geste / non), pour qui (tout le monde / en
+complément, sur conseil).</p>
+<p><strong>Notes</strong> — Pour débuter, une ceinture caoutchouc bien réglée suffit. Le plomb
+de cou vient plus tard, en dynamique, pour affiner la posture.</p>
+<h3>16. Régler son lest : de quoi ça dépend</h3>
+<p><strong>Écran</strong> — Balance : « Plus de lest » (combinaison épaisse, eau de mer) ;
+« Moins de lest » (maillot ou combinaison fine, eau douce : piscine, fosse,
+carrière). Encadré orange : « Le lest compense, il ne sert pas à couler. »</p>
+<p><strong>Notes</strong> — Le lest compense ce qui me fait flotter. Il dépend de la combinaison
+(plus elle est épaisse, plus il en faut) et du milieu : l'eau de mer porte
+mieux que l'eau douce, donc plus de lest en mer. Il se règle à chaque
+changement de combinaison ou de milieu.
+Sources : <a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a> ; livret <a class="noeud" href="/source/apnee-attitude-livret-aeel-2020.html" title="Source">Apnée Attitude — De l&#39;Apnéiste à l&#39;Apnéiste Expert Eau Libre (2020)</a> p.18 et p.29
+(salinité).</p>
+<h3>17. En piscine</h3>
+<p><strong>Écran</strong> — Deux cartes. <strong>Statique</strong> : pas de lest, je flotte relâché en
+surface, sans effort. <strong>Dynamique</strong> : neutre à la profondeur de nage (entre
+50 cm et 1 m) : ni remonter, ni racler le fond.</p>
+<p><strong>Notes</strong> — En statique, on reste en surface : on cherche la flottabilité
+positive pour se relâcher sans effort du dos. En dynamique, on nage entre 50 cm
+et 1 m de profondeur : on cherche l'équilibre, pour glisser parallèlement au
+fond. Bien réglé, le lest améliore la posture, réduit l'effort et retarde
+l'envie de respirer.
+Sources : plan du collègue (STA sans lest, DYN neutre entre 50 cm et 1 m) ;
+<a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a> (section « En dynamique ») ; <a class="noeud" href="/technique/reglage-lest.html" title="Technique">Réglage du lest</a>.</p>
+<h3>18. En dynamique : sans lest, avec lest</h3>
+<p><strong>Écran</strong> — Image <code>dynamique-lest.jpg</code> (Gemini, prompt dans <code>img/PROMPTS.md</code>, recadrée) : deux bassins de profil, même
+nage, même profondeur. À gauche, <strong>sans lest</strong> : poussée plus forte que le
+poids, apnéiste de biais, traînée. À droite, <strong>avec le bon lest</strong> : poussée et
+poids égaux, apnéiste à l'horizontale, il glisse. « Le bon lest se règle pour
+glisser à l'horizontale, sans remonter ni racler le fond. » (dit à l'oral)</p>
+<figure class="illustration"><img src="/cours/ap-lestage/img/dynamique-lest.jpg" alt="dynamique-lest.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p>Sur chaque apnéiste, cinq vecteurs posés dans le PPT : poussée
+(bleu-vert), poids (orange), direction de nage (flèche blanche), traînée
+(gris, à l'opposé de l'avancée) et résultante, leur somme (tirets foncés).
+Même effort de nage des deux côtés (flèches de direction de même longueur) et
+résultante horizontale dans les deux cas. Sans lest, une partie de l'effort
+sert à compenser l'excès de poussée et la traînée est forte : la résultante
+est nettement plus courte, on avance moins. Avec le bon lest, poussée et poids
+s'annulent et la traînée est faible : la résultante est à peine plus courte
+que la direction de nage.</p>
+<p><strong>Notes</strong> — Même nage, même profondeur, deux réglages. Sans lest, la poussée
+d'Archimède l'emporte sur le poids : on nage de biais pour rester sous l'eau,
+la posture oblique génère de la traînée, on se fatigue et l'envie de respirer
+arrive plus tôt. Avec le bon lest, la poussée est compensée : on glisse à
+l'horizontale, plus hydrodynamique, avec moins d'effort. Le schéma est
+qualitatif.
+Sources : <a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a>, section « En dynamique » (règle d'encadrement d'un MEF2,
+rapportée oralement) ; <a class="noeud" href="/source/apnee-attitude-notions-entrainement-2024.html" title="Source">Apnée Attitude — Notions d&#39;entrainement (IE, V.1.2024)</a> v.20 pour
+la performance.</p>
+<h3>19. En fosse</h3>
+<p><strong>Écran</strong> — Reprise du schéma <code>zones-flottabilite.png</code>. Règle en grand :
+« Neutre vers <strong>la moitié</strong> de ma profondeur maximale, jamais plus haut. »
+Exemple en orange : « Apnée à 20 m → neutre vers 10 m. »</p>
+<figure class="illustration"><img src="/cours/ap-lestage/img/zones-flottabilite.png" alt="zones-flottabilite.png" loading="lazy"></figure>
+
+<p><strong>Notes</strong> — En fosse, on descend plus profond. Moins on est lesté, plus la
+profondeur neutre est basse, et plus la remontée est sûre : la zone critique se
+situe entre 10 m et la surface. Repère : être neutre vers la moitié de sa
+profondeur maximale, jamais plus haut. Pour une apnée à 20 m, neutre vers 10 m
+ou plus bas. En fosse de 10 m, neutre vers 5 m ou plus bas.
+Sources : principe : <a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a> (livret p.69-70) ; règle de la moitié
+et exemple : plan du collègue, reformulé lors de l'élaboration du 31/10/2026,
+à vérifier.</p>
+<h3>20. Tester son lest</h3>
+<p><strong>Écran</strong> — Quatre étapes numérotées : 1. Je descends à la profondeur cible,
+binôme en surveillance. 2. Poumons pleins, j'arrête de palmer, immobile à
+l'horizontale. 3. Je coule : trop lesté, j'enlève. 4. Je remonte : pas assez
+lesté, j'ajoute. Geste : « Je teste en début de séance. Dans le doute, moins
+de lest. »</p>
+<p><strong>Notes</strong> — Le test se fait poumons pleins, comme en apnée : sinon le résultat
+n'a pas de sens. Toujours avec un binôme qui surveille. On ajuste par petits
+pas (500 g) et on refait le test. Mieux vaut ajouter 500 g que remonter trop
+lourd.
+Sources : plan du collègue (test à 10 m, 500 g) ; « poumons pleins » et binôme :
+élaboration du 31/10/2026, à vérifier ; <a class="noeud" href="/technique/reglage-lest.html" title="Technique">Réglage du lest</a> (se teste au mieux
+immobile).</p>
+<h3>21. Et en mer ou en carrière ?</h3>
+<p><strong>Écran</strong> — « Nouvelle eau, nouvelle combinaison : je refais mon réglage. »
+Deux points : la mer porte mieux que l'eau douce → plus de lest ; une
+combinaison plus épaisse (eau froide) → plus de lest. « Même règle : neutre vers
+la moitié de ma profondeur maximale. »</p>
+<p><strong>Notes</strong> — Ouverture pour une sortie éventuelle. En mer, l'eau salée porte
+mieux ; en carrière, eau douce mais souvent plus froide, donc combinaison plus
+épaisse. On ne reprend jamais tel quel le lest de la fosse : on refait le test
+en début de sortie, encadré.
+Source : <a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a> ; livret p.18 et p.29.</p>
+<h3>22. Le surlestage : l'ennemi n°1</h3>
+<p><strong>Écran</strong> — Encadré orange « Trop lesté = danger ». Trois conséquences :
+1. <strong>Je m'épuise</strong> : effort au canard et au début de la remontée, oxygène
+   consommé. 2. <strong>Je suis moins serein</strong> : difficile de se relâcher en surface
+   avant de plonger. 3. <strong>Je coule si je perds connaissance</strong> : remontée plus
+   risquée, sauvetage plus difficile.</p>
+<p><strong>Notes</strong> — Trop lesté, on lutte contre la flottabilité négative pour remonter :
+on brûle l'oxygène au pire moment, dans la zone où le risque de perte de
+connaissance est le plus élevé, les derniers mètres. Et en cas de syncope, un
+apnéiste trop lesté coule au lieu de remonter : il est plus exposé à la noyade
+et plus difficile à secourir. Le détail des accidents est vu au cours
+accidents.
+Sources : <a class="noeud" href="/concept/surlestage.html" title="Concept">Surlestage</a> (noyade, syncope, hypoxie de remontée, sauvetage) ;
+<a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a> (livret p.69 : « trop lutter contre la flottabilité
+négative ») ; plan du collègue (effort au canard, sérénité en surface).</p>
+<h3>23. Larguer : le réflexe</h3>
+<p><strong>Écran</strong> — « Fatigue, malaise, doute : je largue ma ceinture. » Geste : main
+sur la boucle, je tire, je lâche. Pour le binôme et le secouriste : « Sur un
+apnéiste en difficulté, je décroche sa ceinture. »</p>
+<p><strong>Notes</strong> — Le largage doit être un réflexe automatique : une ceinture se
+rachète, pas un apnéiste. Le secouriste aussi décroche la ceinture de la
+victime, quel que soit son poids ; non formé ou non averti, il peut ne pas y
+penser. D'où l'entraînement au bord.
+Sources : plan du collègue (règle de sécurité) ; <a class="noeud" href="/concept/surlestage.html" title="Concept">Surlestage</a> (le secouriste
+décroche le lest).</p>
+<h3>24. Checklist avant la séance</h3>
+<p><strong>Écran</strong> — Quatre cases à cocher :
+1. Ma ceinture est élastique et sa boucle s'ouvre d'une main.
+2. Je la porte bas, sur le bassin, extrémité libre côté main qui largue.
+3. Je commence léger : mieux vaut ajouter 500 g que remonter trop lourd.
+4. Je teste ma flottabilité en début de séance.</p>
+<p><strong>Notes</strong> — À faire à chaque séance, et à chaque changement de combinaison ou de
+milieu.
+Source : plan du collègue (synthèse).</p>
+<h3>25. À retenir — le lestage</h3>
+<p><strong>Écran</strong> —
+- Le lest compense ce qui me fait flotter. Il ne sert pas à couler.
+- Ceinture caoutchouc, sur le bassin, boucle dégagée.
+- Piscine : neutre à la profondeur de nage. Fosse : neutre vers la moitié de la
+  profondeur maximale.
+- Dans le doute, moins de lest. En difficulté, je largue.</p>
+<p><strong>Notes</strong> — Transition vers le quiz final : les trois questions du début, puis
+quatre nouvelles.</p>
+<h3>26-36. Quiz final</h3>
+<p><strong>Écran</strong> — Questions 1 à 3 à l'identique, bonne réponse en orange ; puis
+questions 4 à 7, chacune suivie d'une slide réponse.</p>
+<p><strong>Notes</strong> — Rythme rapide. Pour les questions d'ouverture, vérifier que les
+réponses ont changé.</p>
+<h3>37. Merci</h3>
+<p><strong>Écran</strong> — Logo centré. « Merci ! » puis « À tester dans l'eau à la prochaine
+séance ». En petit : « Larguer sa ceinture les yeux fermés · flotter, puis
+s'équilibrer · trouver son lest ».</p>
+<p><strong>Notes</strong> — Clôture. Annoncer le cours lois physiques, qui reviendra sur
+Archimède et la flottabilité avec des chiffres.</p>
+<hr />
+<h2>Quiz — import Kahoot</h2>
+<p>20 secondes par question. Les questions 1 à 3 sont jouées deux fois (ouverture
+et final) : prévoir deux Kahoot, « ouverture » (1-3) et « final » (1-7).</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>Bonne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>À quoi sert le lest d'un apnéiste ?</td>
+<td>À couler plus vite</td>
+<td>À compenser ce qui le fait flotter</td>
+<td>À aller plus profond</td>
+<td>À se muscler</td>
+<td>B</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Où se porte la ceinture de lest ?</td>
+<td>Sur le ventre</td>
+<td>Sur la poitrine</td>
+<td>Sur le bassin</td>
+<td>Peu importe</td>
+<td>C</td>
+</tr>
+<tr>
+<td>3</td>
+<td>En cas de doute sur son lest, mieux vaut être…</td>
+<td>un peu trop léger</td>
+<td>un peu trop lourd</td>
+<td>très lourd pour descendre facilement</td>
+<td>sans lest du tout</td>
+<td>A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>En descendant, ma flottabilité…</td>
+<td>augmente</td>
+<td>ne change pas</td>
+<td>diminue</td>
+<td>dépend de ma vitesse</td>
+<td>C</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Pour une apnée à 20 m en fosse, je cherche à être neutre vers…</td>
+<td>2 m</td>
+<td>10 m</td>
+<td>20 m</td>
+<td>30 m</td>
+<td>B</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Un apnéiste est en difficulté sous l'eau. Que fait-on de sa ceinture ?</td>
+<td>On la serre</td>
+<td>On la largue</td>
+<td>On ajoute du lest</td>
+<td>On n'y touche pas</td>
+<td>B</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Pourquoi une ceinture en caoutchouc plutôt qu'en nylon ?</td>
+<td>Elle est moins chère</td>
+<td>Elle reste plaquée quand le tour de taille diminue</td>
+<td>Elle flotte</td>
+<td>Elle est plus légère</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<h2>Sources</h2>
+<p>Le plan du collègue (31/10/2026) est la seule source des affirmations
+suivantes, absentes du graphe ; elles sont à vérifier avant de les y faire
+entrer (<code>/capture</code>) :</p>
+<table>
+<thead>
+<tr>
+<th>Affirmation</th>
+<th>Slide</th>
+<th>Origine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ceinture élastique : reste plaquée quand le tour de taille diminue ; nylon à bannir</td>
+<td>11</td>
+<td>plan du collègue</td>
+</tr>
+<tr>
+<td>Plomb de cou : aligne tête et buste, soulage la ceinture et les lombaires</td>
+<td>14</td>
+<td>plan du collègue</td>
+</tr>
+<tr>
+<td>Statique sans lest ; dynamique neutre entre 50 cm et 1 m</td>
+<td>17</td>
+<td>plan du collègue</td>
+</tr>
+<tr>
+<td>Neutre vers la moitié de la profondeur max (apnée à 20 m → 10 m)</td>
+<td>19</td>
+<td>plan du collègue (« neutre à au moins 10 m pour une apnée à 20 m »), reformulé</td>
+</tr>
+<tr>
+<td>Test immobile à la profondeur cible ; ajuster par 500 g</td>
+<td>20</td>
+<td>plan du collègue</td>
+</tr>
+<tr>
+<td>Surlestage : effort au canard, sérénité en surface</td>
+<td>22</td>
+<td>plan du collègue</td>
+</tr>
+<tr>
+<td>Largage réflexe, boucle dégagée et accessible</td>
+<td>13, 23</td>
+<td>plan du collègue</td>
+</tr>
+</tbody>
+</table>
+<p>Ajouts de l'élaboration du 31/10/2026, à vérifier : boucle marseillaise comme
+boucle la plus courante sur les ceintures caoutchouc ; extrémité libre côté
+main qui largue ; le plomb de cou ne se largue pas d'un geste ; test poumons
+pleins et sous surveillance d'un binôme.</p>
+<p>Déjà sourcés dans le graphe : position sur le bassin (<a class="noeud" href="/materiel/ceinture-lest.html" title="Matériel">Ceinture de lest</a>) ;
+plombs enrobés (<a class="noeud" href="/materiel/ceinture-lest.html" title="Matériel">Ceinture de lest</a>, livret p.16, p.70) ; trois lests courants
+(<a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a>, livret p.70-71) ; flottabilité positive, neutre puis négative, et
+« moins lesté, remontée plus sûre » (<a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a>, livret p.69-70) ; lest
+bien réglé : sécurité, performance, confort (<a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a>, <a class="noeud" href="/technique/reglage-lest.html" title="Technique">Réglage du lest</a>) ;
+plus de lest en mer (livret p.18, p.29) ; dangers du surlestage et sauvetage
+(<a class="noeud" href="/concept/surlestage.html" title="Concept">Surlestage</a>).</p>
+<p>Images : voir <a href="img/PROMPTS.md">img/PROMPTS.md</a>.</p></div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+</body>
+</html>
