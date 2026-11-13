@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vocabulaire du graphe · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/docs/index.html">Documentation</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/docs/index.html">Documentation</a></p>
+<h1>Vocabulaire du graphe</h1>
+<p class="telechargements"><a href="/docs/vocabulaire.md">Source Markdown</a></p>
+<div class="corps doc"><blockquote>
+<p><strong>Document généré</strong> depuis <code>ontologie/classes.yaml</code>, <code>ontologie/verbes.yaml</code>
+et <code>ontologie/enums.yaml</code> par <code>tools/gen_vocab.py</code>. <strong>Ne pas éditer à la main.</strong>
+Pour étendre le vocabulaire, modifier le YAML puis régénérer.</p>
+</blockquote>
+<p>16 classes · 40 verbes · 11 types de littéraux.</p>
+<h2 id="classes-de-nuds">Classes de nœuds</h2>
+<p>Le champ <code>type</code> d'un nœud vaut exactement une de ces clés, et le nœud réside dans <code>graphe/&lt;clé&gt;/</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Classe</th>
+<th>Description</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>allure</code></td>
+<td>Régime de déplacement défini par le ressenti, borne par une plage de vitesse et documenté par une doctrine d'emploi. Les allures sont des REPÈRES NON COUVRANTS : elles ne partitionnent pas l'échelle des vitesses et des zones intermédiaires n'ont aucun nom. Une borne absente vaut intervalle ouvert.</td>
+<td><code>tres-lent</code>, <code>tranquille</code>, <code>croisiere</code>, <code>rapide</code>, <code>sprint</code></td>
+</tr>
+<tr>
+<td><code>competence</code></td>
+<td>Item évaluable d'un cursus. Ce qu'un apnéiste sait faire.</td>
+<td><code>sauvetage-10m</code>, <code>maitrise-expiration-passive</code></td>
+</tr>
+<tr>
+<td><code>concept</code></td>
+<td>Savoir scientifique ou théorique : physiologie, physique, mécanisme. Inclut les contraintes pulmonaires (poumon-vide, poumon-neutre, poumons-pleins).</td>
+<td><code>hypoxie</code>, <code>reflexe-immersion</code>, <code>poumon-vide</code></td>
+</tr>
+<tr>
+<td><code>cursus</code></td>
+<td>Brevet, niveau ou qualification fédérale.</td>
+<td><code>apneiste-piscine</code>, <code>apneiste-confirme-piscine</code>, <code>initiateur-entraineur-1</code></td>
+</tr>
+<tr>
+<td><code>discipline</code></td>
+<td>Famille d'épreuve ou de travail structurant la description d'un exercice. Admet des entrées qui ne sont pas des épreuves codifiées (échauffement, secourisme).</td>
+<td><code>statique</code>, <code>dynamique</code>, <code>profondeur</code>, <code>secourisme</code>, <code>echauffement</code></td>
+</tr>
+<tr>
+<td><code>exercice</code></td>
+<td>Unité d'entraînement concrète et réutilisable. Porte le champ <code>execution</code>. Brique du catalogue d'exercices.</td>
+<td><code>4x25-pv</code>, <code>tables-co2</code></td>
+</tr>
+<tr>
+<td><code>formation</code></td>
+<td>Occurrence datée de formation, avec cadre fédéral et validation de compétences. Distincte de <code>seance</code> par le verbe <code>evalue</code>.</td>
+<td><code>2026-11-14-formation-acp</code></td>
+</tr>
+<tr>
+<td><code>lieu</code></td>
+<td>Bassin, fosse, site naturel.</td>
+<td><code>piscine-entrainement</code></td>
+</tr>
+<tr>
+<td><code>materiel</code></td>
+<td>Équipement mobilisé par un exercice. Inclut des valeurs explicitement négatives (sans-palme, aucun-materiel) : l'absence de matériel se déclare, elle ne se déduit pas d'un triple manquant.</td>
+<td><code>palmettes</code>, <code>palmes-longues</code>, <code>sans-palme</code>, <code>aucun-materiel</code>, <code>poids</code>, <code>mannequin</code></td>
+</tr>
+<tr>
+<td><code>organisation</code></td>
+<td>Structure fédérale, départementale ou associative.</td>
+<td><code>ffessm</code>, <code>codep-91</code>, <code>club</code></td>
+</tr>
+<tr>
+<td><code>risque</code></td>
+<td>Incident, accident ou mécanisme délétère, avec ses signes et sa conduite à tenir.</td>
+<td><code>syncope</code>, <code>samba</code>, <code>noyade</code></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>Fonction tenue lors d'une séance ou d'une formation, côté encadrement ou côté public. Porte le "Qui" sans nommer de personne.</td>
+<td><code>initiateur-entraineur-1</code>, <code>binome-de-surveillance</code>, <code>public-pre-acp</code></td>
+</tr>
+<tr>
+<td><code>seance</code></td>
+<td>Occurrence datée d'entraînement. Porte le champ <code>date</code>. Compose des exercices existants ; ne duplique aucun contenu pédagogique.</td>
+<td><code>2026-09-22-pre-acp-dynamique</code></td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>Document ou capture référençable. Cible du verbe <code>source</code>, qui rend l'indicateur <code>verification: verifie</code> traçable.</td>
+<td><code>mfa-2024</code>, <code>transcript-2026-09-23-elaboration-allures</code></td>
+</tr>
+<tr>
+<td><code>technique</code></td>
+<td>Geste ou méthode exécutable, qui s'enseigne.</td>
+<td><code>expiration-passive</code>, <code>carpe</code>, <code>palmage-sustentation</code></td>
+</tr>
+<tr>
+<td><code>titre</code></td>
+<td>Pièce ou qualification conditionnant l'accès a un cursus sans être elle-meme un brevet d'apnée : licence, certificat médical. Un brevet fédéral, même de secourisme comme le RIFA Apnée, reste un <code>cursus</code>.</td>
+<td><code>licence-ffessm</code>, <code>certificat-medical</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="verbes">Verbes</h2>
+<p><strong>Aucun verbe inverse n'est stocké</strong> : on écrit <code>requiert</code>, jamais <code>est-requis-par</code>. Les relations retour sont calculées à la lecture.</p>
+<h3 id="bloc-operationnel">Bloc opérationnel</h3>
+<p>Exercices, séances, formations, progression. Répond aux questions Qui / Quand / Où / Quoi / Comment / Pourquoi et aux prérequis.</p>
+<h4 id="discipline"><code>discipline</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code>, <code>seance</code></li>
+<li><strong>Co-domaine</strong> : <code>discipline</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Famille de travail à laquelle l'exercice appartient. Multiple assumé : un sauvetage mannequin relève du secourisme ET du dynamique.</p>
+<h4 id="allure"><code>allure</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <code>allure</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Régime de déplacement prescrit, par renvoi vers un nœud allure. Plusieurs triples déclarent les allures ADMISES pour l'exercice, sans ordre ni progression implicite : l'effet de chaque allure se décrit dans le corps du nœud.</p>
+<h4 id="utilise-materiel"><code>utilise-materiel</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code>, <code>technique</code></li>
+<li><strong>Co-domaine</strong> : <code>materiel</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Équipement mobilisé. L'absence de matériel se DÉCLARE (sans-palme, aucun-materiel) : un triple manquant signifie "non renseigné", jamais "rien".</p>
+<h4 id="contrainte-pulmonaire"><code>contrainte-pulmonaire</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <code>concept</code></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Volume pulmonaire imposé. Cible poumon-vide, poumon-neutre ou poumons-pleins.</p>
+<h4 id="repetitions"><code>repetitions</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <em>nombre</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Nombre de répétitions de la série. Le "4" de 4x25m.</p>
+<h4 id="distance-apnee"><code>distance-apnee</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <em>distance</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Distance parcourue en apnée sur une répétition. Le "25m" de 4x25m.</p>
+<p>⚠️ Ne désigne pas la distance totale de l'exercice, qui se déduit de répétitions x distance-apnee et n'est donc jamais stockée.</p>
+<h4 id="duree-apnee"><code>duree-apnee</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <em>duree</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Durée nominale de l'apnée sur une répétition. Le "1mn" de 4x1mn.</p>
+<p>⚠️ Durée ATTENDUE, non imposée. Un temps plancher relève de duree-min, un plafond de duree-max : trois consignes pédagogiques distinctes.</p>
+<h4 id="duree-min"><code>duree-min</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <em>duree</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Plancher imposé : il faut tenir AU MOINS ce temps. Objectif de performance. Le "1mn min" de "1x25m en 1mn min".</p>
+<h4 id="duree-max"><code>duree-max</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <em>duree</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+<li><strong>Portée</strong> : exercice</li>
+</ul>
+<p>Plafond imposé sur l'exercice ENTIER : ne pas dépasser ce temps. Objectif d'efficacité ou contrainte de sécurité. Le "4mn max" d'un sauvetage.</p>
+<h4 id="recuperation"><code>recuperation</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <em>recuperation</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code> · liste de valeurs admise</li>
+</ul>
+<p>Récupération entre répétitions, exprimée en temps, en inspirations ou en coups de palme. UNE SEULE modalité par exercice. Une liste exprime une récupération dégressive, dans l'ordre des répétitions.</p>
+<p>Exemples : <code>30s</code>, <code>4inspi</code>, <code>10cp</code>, <code>[45s, 30s, 15s]</code></p>
+<h4 id="depart-toutes-les"><code>depart-toutes-les</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <em>duree</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Départ imposé à intervalle fixe, récupération incluse. Le "1mn45s" de "4x50m départ 1mn45s". Exclusif avec récupération en pratique.</p>
+<h4 id="vitesse-min"><code>vitesse-min</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>allure</code></li>
+<li><strong>Co-domaine</strong> : <em>vitesse</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Borne basse de la plage de vitesse. Les bornes sont TOUJOURS deux valeurs numériques : aucune notation d'approximation, le flou est porté par confidence.</p>
+<h4 id="vitesse-max"><code>vitesse-max</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>allure</code></li>
+<li><strong>Co-domaine</strong> : <em>vitesse</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Borne haute de la plage de vitesse. Égale à vitesse-min si valeur unique.</p>
+<h4 id="vise"><code>vise</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code>, <code>seance</code>, <code>formation</code></li>
+<li><strong>Co-domaine</strong> : <code>competence</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Le POURQUOI. Ce que l'exercice cherche à faire acquérir.</p>
+<p>⚠️ Ne pas confondre avec mobilise : un 4x25 PV mobilise le réflexe d'immersion mais vise la tolérance à l'hypercapnie.</p>
+<h4 id="mobilise"><code>mobilise</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code>, <code>technique</code></li>
+<li><strong>Co-domaine</strong> : <code>concept</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Mécanisme physiologique ou physique en jeu pendant l'exécution.</p>
+<h4 id="permet"><code>permet</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>allure</code>, <code>technique</code>, <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <code>concept</code> · <code>competence</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Usage rendu possible. Traduit en triples les mentions saillantes de la doctrine d'emploi rédigée dans le corps de la note.</p>
+<h4 id="requiert"><code>requiert</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code>, <code>competence</code>, <code>cursus</code>, <code>technique</code></li>
+<li><strong>Co-domaine</strong> : <code>competence</code> · <code>cursus</code> · <code>titre</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Les PRÉREQUIS. Ce qu'il faut déjà savoir faire, ou déjà détenir, pour aborder le nœud. Une cible <code>cursus</code> exprime un brevet prérequis, ce qui rend le graphe de progression fédéral interrogeable ; une cible <code>titre</code> exprime une pièce conditionnant l'accès.</p>
+<h4 id="expose-a"><code>expose-a</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code>, <code>technique</code></li>
+<li><strong>Co-domaine</strong> : <code>risque</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Risque encouru par la pratique de cet exercice ou de cette technique.</p>
+<h4 id="variante-de"><code>variante-de</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <code>exercice</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Relation LATÉRALE : même intention, exécution modifiée.</p>
+<p>⚠️ Un objectif plus exigeant relève de progresse-vers, non de variante-de.</p>
+<h4 id="progresse-vers"><code>progresse-vers</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>exercice</code>, <code>competence</code></li>
+<li><strong>Co-domaine</strong> : <code>exercice</code> · <code>competence</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Relation VERTICALE : gradient de difficulté. Support de la construction d'une trame de saison AP vers ACP.</p>
+<h4 id="comporte"><code>comporte</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>seance</code>, <code>formation</code>, <code>cursus</code></li>
+<li><strong>Co-domaine</strong> : <code>exercice</code> · <code>competence</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Composition. L'ORDRE DE LA LISTE est signifiant pour une séance : il est l'ordre de déroulement. Aucun index numérique n'est stocké.</p>
+<h4 id="derive-de"><code>derive-de</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>seance</code>, <code>formation</code></li>
+<li><strong>Co-domaine</strong> : <code>seance</code> · <code>formation</code></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Réutilisation d'une occurrence antérieure. Quand trois séances dérivent de la même souche, celle-ci est mûre pour être promue en modèle.</p>
+<h4 id="se-deroule-a"><code>se-deroule-a</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>seance</code>, <code>formation</code></li>
+<li><strong>Co-domaine</strong> : <code>lieu</code></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Le OÙ.</p>
+<h4 id="encadre-par"><code>encadre-par</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>seance</code>, <code>formation</code></li>
+<li><strong>Co-domaine</strong> : <code>role</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Le QUI côté encadrement, par rôle et jamais par personne nommée. Rend la séance transmissible a un autre encadrant.</p>
+<h4 id="destine-a"><code>destine-a</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>seance</code>, <code>formation</code>, <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <code>role</code> · <code>cursus</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Le QUI côté public visE.</p>
+<h3 id="bloc-savoir">Bloc savoir</h3>
+<p>Concepts, risques, cursus, institutions, sources. Porte les quatre échelles : science, FFESSM, CODEP 91, le club.</p>
+<h4 id="sorte-de"><code>sorte-de</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>concept</code>, <code>risque</code>, <code>technique</code>, <code>materiel</code>, <code>discipline</code>, <code>competence</code>, <code>cursus</code>, <code>organisation</code>, <code>lieu</code>, <code>role</code>, <code>allure</code></li>
+<li><strong>Co-domaine</strong> : <code>concept</code> · <code>risque</code> · <code>technique</code> · <code>materiel</code> · <code>discipline</code> · <code>competence</code> · <code>cursus</code> · <code>organisation</code> · <code>lieu</code> · <code>role</code> · <code>allure</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+<li><strong>Contrainte</strong> : sujet et cible de la même classe</li>
+</ul>
+<p>Subsomption : épine dorsale de l'ontologie. Donne l'héritage, donc la possibilité d'interroger le graphe à plusieurs niveaux de granularité. Sujet et cible doivent être de la MÊME classe.</p>
+<p>⚠️ N'est pas l'instanciation. "croisière est une allure" se dit par le champ <code>type</code>, pas par un triple.</p>
+<h4 id="partie-de"><code>partie-de</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>organisation</code>, <code>concept</code>, <code>lieu</code></li>
+<li><strong>Co-domaine</strong> : <code>organisation</code> · <code>concept</code> · <code>lieu</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Composition structurelle. club partie-de codep-91.</p>
+<h4 id="provoque"><code>provoque</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>concept</code>, <code>technique</code></li>
+<li><strong>Co-domaine</strong> : <code>risque</code> · <code>concept</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Causalité déterministe : le mécanisme entraîne l'effet.</p>
+<p>⚠️ Un simple facteur de risque relève de favorise.</p>
+<h4 id="favorise"><code>favorise</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>concept</code>, <code>technique</code>, <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <code>risque</code> · <code>concept</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Facteur de risque : augmente la probabilité sans déterminer l'effet. La polarité est portée par le verbe lui-même, jamais par un attribut annexe.</p>
+<h4 id="previent"><code>previent</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>technique</code>, <code>concept</code>, <code>role</code>, <code>materiel</code></li>
+<li><strong>Co-domaine</strong> : <code>risque</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Réduit ou annule le risque. Pendant de favorise.</p>
+<h4 id="signe-de"><code>signe-de</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>concept</code></li>
+<li><strong>Co-domaine</strong> : <code>risque</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Signe clinique permettant de RECONNAÎTRE. Premier temps du savoir de sécurité, dont conduite-a-tenir est le second.</p>
+<h4 id="conduite-a-tenir"><code>conduite-a-tenir</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>risque</code></li>
+<li><strong>Co-domaine</strong> : <code>technique</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Action à mener face au risque. L'ORDRE DE LA LISTE est signifiant : il est l'ordre de la conduite.</p>
+<h4 id="delivre"><code>delivre</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>organisation</code></li>
+<li><strong>Co-domaine</strong> : <code>cursus</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Brevet ou qualification delivre par la structure.</p>
+<h4 id="autorise"><code>autorise</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>cursus</code>, <code>role</code></li>
+<li><strong>Co-domaine</strong> : <code>discipline</code> · <code>technique</code> · <code>lieu</code> · <em>texte</em></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Prérogative ouverte par le cursus ou le rôle.</p>
+<h4 id="age-minimum"><code>age-minimum</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>cursus</code></li>
+<li><strong>Co-domaine</strong> : <em>age</em></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Âge minimum requis à la date de l'examen, en années révolues. Seuil comparable : permet de répondre à "quels brevets sont accessibles à 16 ans ?", ce qu'un <code>requiert</code> en prose ne saurait pas faire.</p>
+<h4 id="profondeur-max"><code>profondeur-max</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>cursus</code></li>
+<li><strong>Co-domaine</strong> : <em>distance</em></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+<li><strong>Attributs du triple</strong> : <code>cadre</code> (requis), <code>milieu</code></li>
+</ul>
+<p>Profondeur maximale ouverte par le brevet, qualifiée par deux attributs du triple : <code>cadre</code> (autonomie-relative, autonomie-complete, encadrement), toujours requis, et <code>milieu</code> (naturel, artificiel), omis quand la valeur vaut pour les deux milieux. Rend comparable "qui peut évoluer, ou encadrer, à 15m ?", ce qu'un <code>autorise</code> en texte ne sait pas faire.</p>
+<p>⚠️ Les conditions attachées (accord du directeur de plongée, qualification du DP) ne sont pas encodées : elles restent dans un <code>autorise</code> texte ou dans la prose. Une borne absente pour un cadre signifie "non renseigné", pas "sans limite".</p>
+<p>Exemples : <code>20m (cadre: autonomie-relative)</code>, <code>15m (cadre: autonomie-complete)</code>, <code>6m (cadre: encadrement)</code></p>
+<h4 id="exige-de-tous"><code>exige-de-tous</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>organisation</code></li>
+<li><strong>Co-domaine</strong> : <code>titre</code> · <code>cursus</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Condition d'accès UNIVERSELLE, valable pour tous les cursus délivrés par l'organisation. Centralise ce qui serait sinon répété sur chaque cursus : un triple présent sur les douze brevets n'a aucun pouvoir discriminant, coûte le double à maintenir et bruite toute requête. Le front lit cette condition centrale et l'affiche sur chaque fiche de cursus.</p>
+<h4 id="evalue"><code>evalue</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>formation</code>, <code>exercice</code></li>
+<li><strong>Co-domaine</strong> : <code>competence</code></li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Compétence dont la maîtrise est mesurée. Verbe qui distingue structurellement une formation d'un simple entraînement.</p>
+<h4 id="remplace"><code>remplace</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <code>source</code></li>
+<li><strong>Co-domaine</strong> : <code>source</code></li>
+<li><strong>Cardinalité</strong> : <code>0..1</code></li>
+</ul>
+<p>Nouvelle édition se substituant à l'ancienne. Mécanisme qui permet de réexaminer en masse les triples <code>verifie</code> adossés a une édition périmée, et donc qui empêche le graphe de vieillir silencieusement.</p>
+<h4 id="source"><code>source</code></h4>
+<ul>
+<li><strong>Domaine</strong> : <em>toutes classes</em></li>
+<li><strong>Co-domaine</strong> : <code>source</code> · URL</li>
+<li><strong>Cardinalité</strong> : <code>0..n</code></li>
+</ul>
+<p>Pièce justificative. REQUIS sur le nœud dès lors qu'un triple y porte <code>verification: verifie</code> : contrainte contrôlée par le linter, qui empêche l'indicateur de devenir déclaratif.</p>
+<h2 id="enumerations">Énumérations</h2>
+<h3 id="verification"><code>verification</code></h3>
+<p>État du PROCESSUS de verification : ai-je retrouvé et lu la source ? Strictement orthogonal à <code>confidence</code>.</p>
+<p>Valeur par défaut : <code>a-verifier</code></p>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a-verifier</code></td>
+<td>Posé de mémoire ou par déduction, source non retrouvée. Valeur par défaut.</td>
+</tr>
+<tr>
+<td><code>verifie</code></td>
+<td>Source identifiée, lue, et liée par un triple <code>source</code> sur le même nœud. Contrainte contrôlée par le linter.</td>
+</tr>
+<tr>
+<td><code>infirme</code></td>
+<td>Source consultée, elle contredit l'assertion. Le triple est CONSERVÉ : un savoir réfuté doit rester documenté pour pouvoir être déconstruit.</td>
+</tr>
+<tr>
+<td><code>intrinseque</code></td>
+<td>Fait CONSTITUTIF du nœud, lisible dans un de ses champs (en pratique <code>execution</code>). Aucune source externe n'est requise ni possible : ce n'est pas une assertion sur le monde mais une lecture du nœud lui-meme. Réservé aux verbes de transcription listes ci-dessous, et aux nœuds portant le champ dont le triple est la transcription : contrainte contrôlée par le linter, pour que la valeur ne devienne pas une échappatoire commode à l'obligation de sourcer.</td>
+</tr>
+</tbody>
+</table>
+<p>Verbes autorisés à porter <code>intrinseque</code> — liste <strong>fermée</strong>, contrôlée par le linter :</p>
+<p><code>discipline</code>, <code>contrainte-pulmonaire</code>, <code>repetitions</code>, <code>distance-apnee</code>, <code>duree-apnee</code>, <code>duree-min</code>, <code>duree-max</code>, <code>recuperation</code>, <code>depart-toutes-les</code>.</p>
+<p><code>allure</code> en est <strong>absent à dessein</strong> : c'est un jugement de ressenti, révisé après avoir fait nager le groupe. <code>utilise-materiel</code> aussi : c'est une décision d'encadrement, pas une transcription.</p>
+<h3 id="confidence"><code>confidence</code></h3>
+<p>Force épistémique de l'assertion, même parfaitement sourcée. Jugement INDÉPENDANT du type de source : le tableau d'ancrage est une aide, pas une règle de déduction.</p>
+<p>Valeur par défaut : <code>plausible</code></p>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Sens</th>
+<th>Ancrage typique</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>certain</code></td>
+<td>Prescrit ou établi, non discutable à mon niveau.</td>
+<td>texte federal, MFA, physiologie de manuel</td>
+</tr>
+<tr>
+<td><code>probable</code></td>
+<td>Consensus large, sans texte prescriptif.</td>
+<td>litterature apnee, pratique convergente des cadres</td>
+</tr>
+<tr>
+<td><code>plausible</code></td>
+<td>Usage local qui fonctionne, sans validation externe.</td>
+<td>pratique du le club, experience d'encadrant</td>
+</tr>
+<tr>
+<td><code>incertain</code></td>
+<td>Entendu, à creuser, possiblement faux.</td>
+<td>propos de stage, forum, souvenir</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cadre"><code>cadre</code></h3>
+<p>Cadre de pratique auquel s'applique une profondeur maximale.</p>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>autonomie-relative</code></td>
+<td>Évolution en autonomie relative : sous la responsabilité d'un directeur de plongée ou de bassin.</td>
+</tr>
+<tr>
+<td><code>autonomie-complete</code></td>
+<td>Évolution en autonomie complète</td>
+</tr>
+<tr>
+<td><code>encadrement</code></td>
+<td>Profondeur jusqu'à laquelle le titulaire peut encadrer.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="milieu"><code>milieu</code></h3>
+<p>Milieu de pratique. Omis sur le triple quand la valeur vaut pour les deux.</p>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>naturel</code></td>
+<td>Mer</td>
+</tr>
+<tr>
+<td><code>artificiel</code></td>
+<td>Piscine</td>
+</tr>
+</tbody>
+</table>
+<h3 id="statut"><code>statut</code></h3>
+<p>Statut éditorial d'un NŒUD (champ de frontmatter, pas attribut de triple). Champ omis = contenu établi, lisible sans réserve. Un nœud <code>provisoire</code> est signalé par un bandeau sur le front web et marqué dans les listes et graphes.</p>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>provisoire</code></td>
+<td>Contenu non établi, en attente d'une session de travail dédiée. Ne pas enseigner.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="statut_silver"><code>statut_silver</code></h3>
+<p>État d'un triple candidat dans la couche silver.</p>
+<p>Valeur par défaut : <code>propose</code></p>
+<table>
+<thead>
+<tr>
+<th>Valeur</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>propose</code></td>
+<td>Extrait</td>
+</tr>
+<tr>
+<td><code>accepte</code></td>
+<td>Promu vers graphe/. Conserve en silver comme trace de decision.</td>
+</tr>
+<tr>
+<td><code>rejete</code></td>
+<td>Ecarte. Conserve pour ne pas reexaminer deux fois la meme assertion.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="litteraux-et-grandeurs">Littéraux et grandeurs</h2>
+<p>Unité <strong>collée</strong> à la valeur. Une <strong>seule forme canonique</strong> par valeur, afin que deux triples égaux soient littéralement identiques.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Grammaire</th>
+<th>Exemples</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nombre</code></td>
+<td><code>^[0-9]+$</code></td>
+<td><code>4</code></td>
+<td>Entier sans unité.</td>
+</tr>
+<tr>
+<td><code>duree</code></td>
+<td><code>^([0-9]+s|[0-9]+mn([0-9]{1,2}s)?)$</code></td>
+<td><code>30s</code>, <code>45s</code>, <code>1mn30s</code>, <code>1mn45s</code>, <code>4mn</code></td>
+<td>Forme <code>&lt;n&gt;s</code> strictement sous la minute, <code>&lt;n&gt;mn&lt;n&gt;s</code> au-dela, <code>&lt;n&gt;mn</code> si les secondes sont nulles. <code>1.50mn</code> est lisible mais NON canonique.</td>
+</tr>
+<tr>
+<td><code>distance</code></td>
+<td><code>^[0-9]+([.][0-9]+)?m$</code></td>
+<td><code>25m</code>, <code>100m</code></td>
+<td>Mètres.</td>
+</tr>
+<tr>
+<td><code>vitesse</code></td>
+<td><code>^[0-9]+([.][0-9]+)?m/s$</code></td>
+<td><code>0.6m/s</code>, <code>1.05m/s</code></td>
+<td>Mètres par seconde.</td>
+</tr>
+<tr>
+<td><code>masse</code></td>
+<td><code>^[0-9]+([.][0-9]+)?kg$</code></td>
+<td><code>20kg</code></td>
+<td>Kilogrammes.</td>
+</tr>
+<tr>
+<td><code>frequence_cardiaque</code></td>
+<td><code>^[0-9]+bpm$</code></td>
+<td><code>60bpm</code></td>
+<td>Battements par minute.</td>
+</tr>
+<tr>
+<td><code>age</code></td>
+<td><code>^[0-9]+ans$</code></td>
+<td><code>16ans</code></td>
+<td>Âge en années révolues. Seuil comparable, pas une durée.</td>
+</tr>
+<tr>
+<td><code>pourcentage</code></td>
+<td><code>^[0-9]+([.][0-9]+)?%$</code></td>
+<td><code>95%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>recuperation</code></td>
+<td><code>^([0-9]+s|[0-9]+mn([0-9]{1,2}s)?|[0-9]+inspi|[0-9]+cp)$</code></td>
+<td><code>30s</code>, <code>4inspi</code>, <code>10cp</code></td>
+<td>Modalité de récupération. Les unités ne sont pas des variantes d'une même grandeur mais des MODALITÉS distinctes de la même fonction : rendre la main à l'apnéiste. Une seule modalité par exercice.</td>
+</tr>
+<tr>
+<td><code>texte</code></td>
+<td><code>^.+$</code></td>
+<td></td>
+<td>Chaîne libre. À n'employer que faute de mieux : non comparable.</td>
+</tr>
+<tr>
+<td><code>booleen</code></td>
+<td><code>^(true|false)$</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="unites-de-recuperation">Unités de récupération</h3>
+<table>
+<thead>
+<tr>
+<th>Unité</th>
+<th>Sens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s</code></td>
+<td>secondes</td>
+</tr>
+<tr>
+<td><code>mn</code></td>
+<td>minutes</td>
+</tr>
+<tr>
+<td><code>inspi</code></td>
+<td>inspirations</td>
+</tr>
+<tr>
+<td><code>cp</code></td>
+<td>coups de palme (palmage de sustentation)</td>
+</tr>
+</tbody>
+</table></div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+<script>
+if (document.querySelector("pre.mermaid")) {
+  const s = document.createElement("script");
+  s.src = "/static/vendor/mermaid.min.js";
+  s.onload = () => { mermaid.initialize({ startOnLoad: false, theme: "neutral" }); mermaid.run(); };
+  document.head.appendChild(s);
+}
+</script>
+
+</body>
+</html>

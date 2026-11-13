@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spec — front web d&#39;exploration du graphe · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/docs/index.html">Documentation</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/docs/index.html">Documentation</a></p>
+<h1>Spec — front web d&#39;exploration du graphe</h1>
+<p class="telechargements"><a href="/docs/spec-site.md">Source Markdown</a></p>
+<div class="corps doc"><p>Site statique <strong>public, en lecture seule</strong> pour explorer <code>graphe/</code> et diffuser
+les cours. Ce document consigne les décisions et <strong>leurs raisons</strong>, comme
+<a href="/docs/spec-graphe.html">spec-graphe.md</a> le fait pour le modèle.</p>
+<h2 id="decisions">Décisions</h2>
+<table>
+<thead>
+<tr>
+<th>Sujet</th>
+<th>Décision</th>
+<th>Raison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Public</td>
+<td><strong>Tout le monde</strong>, site public ; le dépôt source reste <strong>privé</strong></td>
+<td>Le site ne contient que le graphe promu, sans personne nommée. Le dépôt contient bronze (œuvres d'autrui) : le publier serait une redistribution.</td>
+</tr>
+<tr>
+<td>Contenu non consolidé</td>
+<td><strong>Tout est affiché</strong> (nœuds <code>provisoire</code>, triples <code>a_verifier</code>, <code>infirme</code>), avec un <strong>avertissement global</strong> : document de travail personnel, ne remplace ni le MFA ni l'encadrement</td>
+<td>L'état épistémique est déjà rendu par axe : c'est ce qui rend le graphe honnête. Un site filtré imposerait deux builds et casserait des wikilinks.</td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>Site <strong>statique</strong> généré depuis le dépôt</td>
+<td>Git est la source de vérité, le front n'écrit rien. À ~300 nœuds, un <code>graph.json</code> suffit ; un serveur ou une base de graphe n'apporteraient qu'un processus de plus à maintenir.</td>
+</tr>
+<tr>
+<td>Vue principale</td>
+<td><strong>Fiche par nœud</strong> : triples sortants groupés par verbe, <strong>liens entrants</strong>, mini-graphe du voisinage (1 ou 2 sauts)</td>
+<td>Le graphe est sémantique : une vue globale masque les verbes et l'état épistémique. Les liens entrants sont ce que l'éditeur ne montre pas, puisque le sujet d'un triple est implicite.</td>
+</tr>
+<tr>
+<td>Vue secondaire</td>
+<td>Graphe global filtrable par classe</td>
+<td>Utile pour repérer les îlots ; <code>source</code> est décochée par défaut (elle relie tout à tout).</td>
+</tr>
+<tr>
+<td>Stack</td>
+<td>Python + Jinja2 ; MiniSearch et Cytoscape.js vendorisés dans <code>site/static/vendor/</code> ; pas de npm pour le site</td>
+<td>Une URL stable par nœud (<code>/&lt;classe&gt;/&lt;id&gt;.html</code>), qui marche sans JS. Parsing partagé avec <code>lint.py</code>. Node n'intervient que pour générer les decks de cours.</td>
+</tr>
+<tr>
+<td>Données</td>
+<td><code>graphe/</code> et <code>cours/</code></td>
+<td>Silver brouillerait la frontière que <code>/promouvoir</code> protège. Bronze contient des œuvres d'autrui : jamais embarqué.</td>
+</tr>
+<tr>
+<td>Cours</td>
+<td>Section <code>/cours/</code> : fond <code>cours.md</code> rendu en HTML, deck en <strong>PPTX et PDF</strong></td>
+<td>Le PDF sert les adhérents (mobile, impression), le PPTX les encadrants qui adaptent le cours (cohérent avec CC BY-SA). PDF converti par LibreOffice headless en CI.</td>
+</tr>
+<tr>
+<td>Documentation</td>
+<td>Section <code>/docs/</code> : <code>spec-graphe</code>, <code>vocabulaire</code>, <code>conventions</code>, <code>spec-site</code> rendus en HTML (+ Markdown brut, listés dans <code>llms.txt</code>) ; liens <code>x.md</code> réécrits, wikilinks <strong>non</strong> résolus</td>
+<td>Qui lit un nœud doit pouvoir comprendre comment le graphe est construit. Dans la doc, <code>[[x]]</code> illustre la syntaxe : le résoudre en lien la fausserait.</td>
+</tr>
+<tr>
+<td>Images de cours</td>
+<td>Inventaire <code>cours/*/img/sources.yaml</code> (origine, licence, crédit) ; le build n'embarque que les images <code>diffusable: true</code> : <strong>libres</strong> (crédit affiché), <strong>générées par IA</strong> (signalées), ou tierces en <strong><code>risque: assume</code></strong> (crédit affiché, retrait sur simple demande de l'ayant droit) ; les autres sont remplacées par un encart « image non diffusable »</td>
+<td>« Accessible en ligne » ne veut pas dire « réutilisable » : une image sans licence explicite est protégée par défaut. Le risque est assumé pour des images déjà accessibles publiquement, dont la publication sert souvent l'ayant droit (FFESSM) ; il est tracé image par image.</td>
+</tr>
+<tr>
+<td>Licences</td>
+<td>Code (<code>tools/</code>, <code>site/</code>, scripts de <code>cours/</code>) : <strong>MIT</strong>. Contenu (<code>graphe/</code>, <code>ontologie/</code>, <code>cours/</code>, <code>article/</code>) : <strong>CC BY-SA 4.0</strong>. Bronze et images tierces <strong>exclus</strong>, ils gardent leur licence d'origine</td>
+<td>Le partage à l'identique fait revenir les améliorations d'autres clubs sous forme ouverte. NC écarté : « non commercial » est flou et bloquerait des clubs.</td>
+</tr>
+<tr>
+<td>Attribution</td>
+<td>« François Sarradin et contributeurs », dans <code>LICENSE</code> et en pied de page</td>
+<td>On sait qui répond du contenu. « Aucune personne nommée » protège les tiers, pas l'auteur.</td>
+</tr>
+<tr>
+<td>Indexation</td>
+<td>Site <strong>indexé</strong> : <code>robots.txt</code> ouvert, <code>sitemap.xml</code> généré</td>
+<td>Le contenu est public et attribué ; l'avertissement global et les bandeaux <code>provisoire</code> suffisent.</td>
+</tr>
+<tr>
+<td>LLM</td>
+<td><code>/llms.txt</code> (site, ontologie, licence, liste des nœuds), chaque fiche aussi en <strong>Markdown brut</strong> (<code>/&lt;classe&gt;/&lt;id&gt;.md</code>), <code>/llms-full.txt</code> concaténé, <code>graph.json</code> documenté</td>
+<td>Le Markdown source est déjà la forme canonique, avec des triples explicites. <strong>Non négociable</strong> : <code>verification</code>, <code>confidence</code> et <code>statut</code> restent dans chaque <code>.md</code>, sinon un LLM présentera du provisoire comme établi.</td>
+</tr>
+<tr>
+<td>Accueil</td>
+<td>Recherche plein texte, index par classe, récemment modifiés (<code>updated</code>)</td>
+<td>Recherche = usage principal ; <code>/</code> la déclenche partout.</td>
+</tr>
+<tr>
+<td>État épistémique</td>
+<td>Canal visuel <strong>par axe</strong> : la confiance règle l'intensité du lien (gras → pâle → pointillés pour <code>incertain</code>), la vérification une icône (✓ vérifié, ≡ intrinsèque, ? à vérifier, ✗ infirmé). <code>infirme</code> est <strong>barré mais affiché</strong>.</td>
+<td>Les deux axes sont orthogonaux, ils ne partagent pas de canal. Un savoir réfuté reste documenté.</td>
+</tr>
+<tr>
+<td>Filtre</td>
+<td>« Vérifié seulement » : ne garde que <code>verifie</code> et <code>intrinseque</code>, mémorisé par navigateur</td>
+<td>La vue de ce qui est solide, avant de préparer une séance.</td>
+</tr>
+<tr>
+<td>Nœuds provisoires</td>
+<td>Champ <code>statut: provisoire</code> (ontologie) → bandeau rouge sur la fiche, ⚠ sur les liens, cerclage dans les graphes</td>
+<td>Un champ explicite, validé par le linter, plutôt qu'une détection de texte dans le corps.</td>
+</tr>
+<tr>
+<td>Nœuds manquants</td>
+<td>Wikilink sans fichier → rendu en rouge, <strong>le build n'échoue pas</strong></td>
+<td>C'est de la dette (l'audit la signale), pas une erreur de syntaxe.</td>
+</tr>
+<tr>
+<td>CI</td>
+<td><code>lint.py</code> <strong>bloque</strong> ; <code>audit.py</code> consultatif</td>
+<td>Le pre-commit se contourne (<code>--no-verify</code>, édition web) ; le site ne publie qu'un état valide.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hebergement-et-deploiement">Hébergement et déploiement</h2>
+<ul>
+<li><strong>Organisation GitHub</strong> au nom neutre (<code>freedive-knowledge</code>), indépendante du
+  club et du CODEP : le contenu <code>provisoire</code> ne doit pas passer pour une
+  doctrine fédérale. L'organisation permet des co-propriétaires et la
+  continuité si l'auteur passe la main.</li>
+<li><strong>Deux dépôts</strong> dans l'organisation :</li>
+<li><code>knowledge-graph</code>, <strong>privé</strong> : ce dépôt, bronze compris ;</li>
+<li><code>freedive-knowledge.github.io</code>, <strong>public</strong> : le build seul, servi à la racine de
+    <code>https://freedive-knowledge.github.io/</code> (les liens absolus <code>/classe/id.html</code> restent
+    valides). Le plan Free ne publie pas Pages depuis un dépôt privé, d'où la
+    séparation.</li>
+<li><strong>CI/CD</strong> : GitHub Actions sur <code>knowledge-graph</code>, à chaque push sur <code>main</code> : <code>lint.py</code>
+  (bloque), <code>audit.py</code> (consultatif), <code>build_site.py</code>, build des decks (Node +
+  LibreOffice), puis push du résultat vers <code>freedive-knowledge.github.io</code> avec un token
+  fine-grained limité à ce dépôt.</li>
+<li><strong>Sauvegarde</strong> : le Forgejo du VPS garde un <strong>pull mirror</strong> de <code>knowledge-graph</code>,
+  contre une fermeture ou une suspension du dépôt GitHub (risque réel pour un
+  dépôt qui contient des œuvres d'autrui).</li>
+<li><strong>Abandonné</strong> : le site Tailscale sur le VPS (<code>http://life-vps:8082</code>). Le
+  public voyant tout, il ferait doublon avec le site public. À retirer
+  après bascule : conteneur <code>apnee-web</code>, <code>Dockerfile</code>, <code>docker-compose.yml</code>,
+  <code>deploy.sh</code>, <code>deploy/</code>, <code>.forgejo/</code>.</li>
+</ul>
+<h2 id="prerequis-avant-publication">Prérequis avant publication</h2>
+<ol>
+<li><code>LICENSE</code> (MIT + CC BY-SA 4.0, exclusions explicites).</li>
+<li>Inventaire <code>sources.yaml</code> des images de chaque cours.</li>
+<li>Relecture des <code>cours.md</code> : pas de longs extraits de textes fédéraux.</li>
+<li>Relecture du rendu PDF de chaque deck (polices de la charte).</li>
+</ol>
+<h2 id="developpement-local">Développement local</h2>
+<pre><code class="language-sh">.venv/bin/pip install -r requirements.txt
+.venv/bin/python tools/build_site.py          # -&gt; _site/
+python3 -m http.server -d _site               # http://localhost:8000
+</code></pre>
+<p>Les liens sont absolus (<code>/classe/id.html</code>) : servir <code>_site/</code> <strong>à la racine</strong>.</p>
+<h2 id="reporte">Reporté</h2>
+<ul>
+<li>Vue « dette » : l'audit rendu cliquable.</li>
+<li>Dump RDF/Turtle du graphe, si un besoin SPARQL apparaît.</li>
+</ul></div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+<script>
+if (document.querySelector("pre.mermaid")) {
+  const s = document.createElement("script");
+  s.src = "/static/vendor/mermaid.min.js";
+  s.onload = () => { mermaid.initialize({ startOnLoad: false, theme: "neutral" }); mermaid.run(); };
+  document.head.appendChild(s);
+}
+</script>
+
+</body>
+</html>

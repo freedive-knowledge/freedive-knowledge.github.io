@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" width="900" height="460" role="img" aria-label="Zones de flottabilité de la surface à 20 m : positive au-dessus de la profondeur neutre, neutre vers 10 m dans cet exemple, négative en dessous">
+<g font-family="Arial, Helvetica, sans-serif" fill="#24454D">
+<!-- échelle : 20 px par mètre, surface à y = 40 -->
+<rect x="130" y="40" width="440" height="190" fill="#94CEC8" opacity="0.35"/>
+<rect x="130" y="230" width="440" height="20" fill="#F4F7F8"/>
+<rect x="130" y="250" width="440" height="190" fill="#3D6E79" opacity="0.35"/>
+<line x1="130" y1="40" x2="570" y2="40" stroke="#3D6E79" stroke-width="3"/>
+<line x1="130" y1="240" x2="570" y2="240" stroke="#24454D" stroke-width="2" stroke-dasharray="10 6"/>
+<line x1="120" y1="40" x2="120" y2="440" stroke="#24454D" stroke-width="2"/>
+<g font-size="22" text-anchor="end" font-weight="bold">
+<line x1="112" y1="40" x2="120" y2="40" stroke="#24454D" stroke-width="2"/><text x="104" y="48">0 m</text>
+<line x1="112" y1="140" x2="120" y2="140" stroke="#24454D" stroke-width="2"/><text x="104" y="148">5 m</text>
+<line x1="112" y1="240" x2="120" y2="240" stroke="#24454D" stroke-width="2"/><text x="104" y="248" fill="#F08237">10 m</text>
+<line x1="112" y1="340" x2="120" y2="340" stroke="#24454D" stroke-width="2"/><text x="104" y="348">15 m</text>
+<line x1="112" y1="440" x2="120" y2="440" stroke="#24454D" stroke-width="2"/><text x="104" y="448">20 m</text>
+</g>
+<!-- flèches : on remonte au-dessus, on coule en dessous -->
+<g stroke-width="8" fill="none" stroke-linecap="round">
+<line x1="350" y1="190" x2="350" y2="90" stroke="#3D6E79"/>
+<polyline points="330,110 350,85 370,110" stroke="#3D6E79" stroke-linejoin="round"/>
+<line x1="350" y1="290" x2="350" y2="390" stroke="#F08237"/>
+<polyline points="330,370 350,395 370,370" stroke="#F08237" stroke-linejoin="round"/>
+</g>
+<g font-size="24" font-weight="bold">
+<text x="600" y="128">Positive</text>
+<text x="600" y="248" fill="#F08237">Neutre</text>
+<text x="600" y="368">Négative</text>
+</g>
+<g font-size="19" fill="#5F7378">
+<text x="600" y="156">je remonte seul</text>
+<text x="600" y="276">ni je monte, ni je coule</text>
+<text x="600" y="396">je coule seul</text>
+</g>
+</g>
+</svg>
