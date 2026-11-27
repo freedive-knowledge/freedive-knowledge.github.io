@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pression, oreille, voies aériennes et barotraumatismes · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/docs/index.html">Documentation</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/cours/index.html">Cours</a></p>
+<h1>Pression, oreille, voies aériennes et barotraumatismes</h1>
+<p class="chapeau">Cours théorique AP — le club — 45 mn — 30 novembre 2026.</p>
+<p class="telechargements">
+  <a href="/cours/ap-pression-oreille-ventilation/ap-pression-oreille-ventilation.pdf" download>Support PDF</a> · <a href="/cours/ap-pression-oreille-ventilation/ap-pression-oreille-ventilation.pptx" download>Support PPTX</a> · 
+  <a href="/cours/ap-pression-oreille-ventilation/cours.md">Source Markdown</a>
+</p>
+<div class="corps cours"><p>Ce fichier porte le <strong>fond</strong> du cours : plan, texte de chaque slide, notes du
+présentateur, minutage, quiz. La mise en forme vit dans le deck Google Slides
+généré à partir de lui ; le PDF et le tableur Kahoot en sont des exports.
+Une version HTML pilotée par la fenix 8, <code>deck.html</code>, reprend la
+mise en page de <code>build.js</code> avec des révélations pas à pas
+(<code>cd ../_commun/watchdeck &amp;&amp; make up COURS=ap-pression-oreille-ventilation</code>).
+Tout changement d'un bloc <strong>Écran</strong> se reporte dans <code>build.js</code> <strong>et</strong> dans
+<code>deck.html</code>.
+Il remplace, pour le cursus, le cours POC <a href="../ap-lois-physiques/cours.md">ap-lois-physiques</a>,
+dont il reprend une partie de la matière et des images.</p>
+<h2>Cadre</h2>
+<ul>
+<li><strong>Public</strong> : candidats Apnéiste Piscine (<a class="noeud" href="/cursus/apneiste-piscine.html" title="Cursus">AP — Apnéiste Piscine</a>), 0-6 m en bassin.</li>
+<li><strong>Référentiel</strong> : MFA AP juillet 2026 (<a class="noeud" href="/source/mfa-ap-2026-07.html" title="Source">MFA Apnéiste Piscine — version juillet 2026</a>) — « notions simples
+  de physique permettant de comprendre les effets du milieu et les accidents »,
+  « variations de pression liées à la profondeur pour comprendre la
+  compensation ».</li>
+<li><strong>Programme reçu</strong> : « les pressions et volumes, anatomie, rôle et
+  fonctionnement de l'oreille, du système ventilatoire, les barotraumatismes ».
+  Rester dans le cadre de l'apnéiste piscine : la profondeur relève d'un cours
+  optionnel ultérieur.</li>
+<li><strong>Cours suivant</strong> : système cardiovasculaire, la respiration, accidents
+  biochimiques. Lui reviennent : mécanique ventilatoire (diaphragme,
+  intercostaux), échanges gazeux, contrôle par le CO2, hyperventilation, Dalton
+  et hypoxie de remontée.</li>
+<li><strong>Fil rouge</strong> : la pression comprime l'air → l'air du corps est dans des
+  cavités → une cavité qu'on n'équilibre pas fait mal, c'est le
+  barotraumatisme.</li>
+<li><strong>Barotraumatismes</strong> : ce cours est leur cours de référence. Chacun suit la
+  même grille : mécanisme → signes → prévention → conduite à tenir.</li>
+<li><strong>Compensation</strong> : Valsalva est nommée comme la manœuvre spontanée, avec ses
+  risques, sans être enseignée ; le principe du Frenzel, à privilégier, est
+  présenté et sa pratique renvoyée au bassin (<a class="noeud" href="/competence/compensation.html" title="Compétence">Compensation</a>, <a class="noeud" href="/technique/valsalva.html" title="Technique">Valsalva</a>).</li>
+<li><strong>Liens</strong> : les termes clés écrits <span class="manquant" title="Nœud manquant : id">id</span> dans les blocs <strong>Écran</strong> sont
+  rendus en hyperliens vers <code>https://freedive-knowledge.github.io/&lt;classe&gt;/&lt;id&gt;.html</code>.
+  Première occurrence seulement, 3 liens au plus par slide, couleur d'accent
+  sans soulignement. Jamais de lien vers <code>seance/</code> ni vers un transcript. Un
+  terme sans nœud n'est pas lié (voir « Nœuds à créer »).</li>
+<li><strong>Forme</strong> : slides épurées aux couleurs du club, illustrations Gemini (prompts
+  dans <a href="img/PROMPTS.md">img/PROMPTS.md</a>), graphiques chiffrés en SVG.</li>
+</ul>
+<h2>Objectifs</h2>
+<p>À la fin du cours, le participant sait :</p>
+<ol>
+<li>dire en une phrase pourquoi on voit, on entend et on se refroidit autrement
+   sous l'eau ;</li>
+<li>expliquer pourquoi il flotte ou coule entre 0 et 6 m, et le lien avec son
+   lest ;</li>
+<li>donner la pression absolue à 0, 3 et 6 m et dire ce que devient un volume
+   d'air à 6 m ;</li>
+<li>citer les deux fonctions de l'oreille (audition ; équilibre et
+   orientation), situer tympan, oreille moyenne et trompe d'Eustache, et
+   expliquer pourquoi et quand compenser ;</li>
+<li>appliquer les règles de la compensation (tôt, souvent, sans forcer, pas
+   enrhumé) et souffler dans son masque ;</li>
+<li>nommer les voies aériennes et les volumes pulmonaires, et dire pourquoi les
+   poumons se compriment en descendant ;</li>
+<li>reconnaître un barotraumatisme (oreille, sinus, masque, oreille interne) et
+   appliquer la conduite à tenir : arrêter, sortir, consulter — en urgence pour
+   l'oreille interne.</li>
+</ol>
+<h2>Minutage</h2>
+<table>
+<thead>
+<tr>
+<th>Bloc</th>
+<th>Slides</th>
+<th>Durée</th>
+<th>Cumul</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ouverture</td>
+<td>1-3</td>
+<td>2 mn</td>
+<td>2 mn</td>
+</tr>
+<tr>
+<td>Effets du milieu</td>
+<td>4</td>
+<td>3 mn</td>
+<td>5 mn</td>
+</tr>
+<tr>
+<td>Archimède 0-6 m</td>
+<td>5-6</td>
+<td>5 mn</td>
+<td>10 mn</td>
+</tr>
+<tr>
+<td>Pression et Boyle-Mariotte</td>
+<td>7-10</td>
+<td>8 mn</td>
+<td>18 mn</td>
+</tr>
+<tr>
+<td>Oreille</td>
+<td>11-15</td>
+<td>11 mn</td>
+<td>29 mn</td>
+</tr>
+<tr>
+<td>Voies aériennes et volumes</td>
+<td>16-17</td>
+<td>5 mn</td>
+<td>34 mn</td>
+</tr>
+<tr>
+<td>Barotraumatismes</td>
+<td>18-23</td>
+<td>8 mn</td>
+<td>42 mn</td>
+</tr>
+<tr>
+<td>À retenir, Kahoot, clôture</td>
+<td>24-36</td>
+<td>3 mn</td>
+<td>45 mn</td>
+</tr>
+</tbody>
+</table>
+<p>Le Kahoot (5 questions × 20 s) tient en 3 mn à condition de ne pas commenter
+chaque réponse : les corrections sont déjà dans le cours.</p>
+<h2>Charte</h2>
+<p>Celle du cours POC, voir <a href="../ap-lois-physiques/cours.md#charte">ap-lois-physiques/cours.md</a>
+et <code>_commun/charte.js</code>. Liens : couleur dominante <code>#3d6e79</code>.</p>
+<hr />
+<h2>Slides</h2>
+<h3>1. Titre</h3>
+<p><strong>Écran</strong> — Pression, oreilles, poumons : ce que l'eau fait à l'air de mon
+corps. Cours théorique Apnéiste Piscine. Logo du club.</p>
+<p><strong>Notes</strong> — Accueil. 45 mn, un Kahoot à la fin. Le cours suivant traitera le
+cœur, la respiration et les accidents biochimiques.</p>
+<h3>2. Le fil du cours</h3>
+<p><strong>Écran</strong> — Trois étapes reliées par des flèches : « L'eau appuie » → « L'air
+de mon corps se comprime » → « Une cavité non équilibrée fait mal ».</p>
+<p><strong>Notes</strong> — Tout le cours tient dans cette chaîne. On commence par ce que
+l'eau change dès la surface, puis on descend.</p>
+<h3>3. Au programme</h3>
+<p><strong>Écran</strong> — Sept lignes numérotées, durée à droite :
+1. L'eau et nos sens — 3 mn ;
+2. Flotter ou couler — 5 mn ;
+3. La pression et l'air — 8 mn ;
+4. L'oreille et la compensation — 11 mn ;
+5. Voies aériennes et poumons — 5 mn ;
+6. Les barotraumatismes — 8 mn ;
+7. À retenir et Kahoot — 3 mn.</p>
+<p><strong>Notes</strong> — Lire rapidement, ne pas commenter.</p>
+<h3>4. L'eau et nos sens</h3>
+<p><strong>Écran</strong> — Trois colonnes, un pictogramme chacune :
+- <strong>Vision</strong> (<a class="noeud" href="/concept/vision-subaquatique.html" title="Concept">Vision sous l&#39;eau</a>) : objets <strong>1/3 plus gros</strong>, <strong>1/4 plus
+  près</strong> → un masque, méfiance sur les distances.
+- <strong>Son</strong> (<a class="noeud" href="/concept/propagation-son.html" title="Concept">Le son sous l&#39;eau</a>) : <strong>4 fois plus vite</strong> que dans l'air → on
+  entend bien, on situe mal → signes, binôme à vue.
+- <strong>Chaleur</strong> (<a class="noeud" href="/concept/conduction-thermique.html" title="Concept">Conduction thermique de l&#39;eau</a>) : l'eau refroidit <strong>plus de 20 fois</strong>
+  plus vite que l'air → une combinaison adaptée à la séance.</p>
+<p>Petite vignette <code>vision-refraction.jpg</code> en tête de la colonne Vision.</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/vision-refraction.jpg" alt="vision-refraction.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Une phrase par colonne. Vision : la lumière change de direction
+entre l'eau et l'air du masque ; sans masque on voit flou. Son : 1 500 m/s
+contre 340 m/s, le décalage entre les deux oreilles devient trop court pour
+situer la source. Chaleur : à 28 °C l'eau est plus froide que la peau ;
+immobile on se refroidit vite, et frissonner consomme de l'oxygène.
+Chiffres et sources : voir le cours POC, section « Sources des affirmations
+ajoutées ».</p>
+<h3>5. Archimède : flotter ou couler</h3>
+<p><strong>Écran</strong> — Image <code>archimede-flottabilite.jpg</code> (flèches poussée / poids
+tracées dans le PPT, comme au POC). En dessous, en orange : <strong>Poids apparent =
+poids réel − poussée</strong> (<a class="noeud" href="/concept/poussee-archimede.html" title="Concept">Poussée d&#39;Archimède</a>).</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/archimede-flottabilite.jpg" alt="archimede-flottabilite.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Rappel du cours lestage. L'eau pousse vers le haut tout ce qu'on y
+plonge, d'autant plus fort que l'objet prend de la place : 1 L de volume, c'est
+environ 1 kg de poussée en eau douce. Dans l'eau, on ne sent pas son poids réel
+mais son poids apparent. Sa flottabilité en est l'opposé.</p>
+<h3>6. Entre 0 et 6 m, je flotte de moins en moins</h3>
+<p><strong>Écran</strong> — Tableau, apnéiste de 78 kg et 80 L, poumons de 6 L :</p>
+<table>
+<thead>
+<tr>
+<th>Profondeur</th>
+<th>Poumons</th>
+<th>Poids apparent</th>
+<th>Flottabilité</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surface</td>
+<td>6 L</td>
+<td>− 2 kg</td>
+<td>positive</td>
+</tr>
+<tr>
+<td>3 m</td>
+<td>4,6 L</td>
+<td>− 0,6 kg</td>
+<td>positive</td>
+</tr>
+<tr>
+<td>5 m</td>
+<td>4 L</td>
+<td>0 kg</td>
+<td>neutre</td>
+</tr>
+<tr>
+<td>6 m</td>
+<td>3,75 L</td>
+<td>+ 0,25 kg</td>
+<td>négative</td>
+</tr>
+</tbody>
+</table>
+<p>En bas : « Lest bien réglé = équilibre à la profondeur de nage. Jamais trop. »
+(<a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a>, <a class="noeud" href="/materiel/lest.html" title="Matériel">Lest</a>).</p>
+<p><strong>Notes</strong> — On anticipe la suite : les poumons se compriment en descendant
+(on va voir pourquoi), donc le volume baisse, la poussée aussi. Le poids
+apparent augmente : on flotte en surface, on est neutre vers 5 m dans cet
+exemple, on coule un peu à 6 m. La profondeur neutre varie d'une personne à
+l'autre. Trop lesté, en cas de malaise on coule au lieu de remonter.
+Sources : <a class="noeud" href="/concept/flottabilite.html" title="Concept">Flottabilité</a>, <a class="noeud" href="/concept/surlestage.html" title="Concept">Surlestage</a>, exemple du livret
+<a class="noeud" href="/source/apnee-attitude-livret-aeel-2020.html" title="Source">Apnée Attitude — De l&#39;Apnéiste à l&#39;Apnéiste Expert Eau Libre (2020)</a> p.29.</p>
+<h3>7. La pression : +1 bar tous les 10 m</h3>
+<p><strong>Écran</strong> — Image <code>pression-apneiste.jpg</code>. À droite, tableau :</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/pression-apneiste.jpg" alt="pression-apneiste.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<table>
+<thead>
+<tr>
+<th>Profondeur</th>
+<th>Pression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surface</td>
+<td>1 bar</td>
+</tr>
+<tr>
+<td>3 m (nos bassins)</td>
+<td>1,3 bar</td>
+</tr>
+<tr>
+<td>6 m (limite AP)</td>
+<td>1,6 bar</td>
+</tr>
+</tbody>
+</table>
+<p>Règle en orange : <strong>1 bar en surface, + 1 bar tous les 10 m</strong>
+(<a class="noeud" href="/concept/pression-hydrostatique.html" title="Concept">Pression hydrostatique</a>).</p>
+<p><strong>Notes</strong> — En surface, l'atmosphère pèse 1 bar. L'eau est lourde : 10 m d'eau
+pèsent autant que toute l'atmosphère, soit 0,1 bar par mètre. Au fond de nos
+bassins, déjà 30 % de plus ; à 6 m, 60 %. Le piège classique : oublier le
+bar de l'air.</p>
+<h3>8. L'air se comprime</h3>
+<p><strong>Écran</strong> — Ballon de plage <code>ballon.png</code> répété à trois tailles le long
+d'une échelle 0 / 3 / 6 m : <strong>6 L</strong>, <strong>4,6 L</strong>, <strong>3,75 L</strong>. Formule en orange :
+<strong>P × V = constante</strong> (<a class="noeud" href="/concept/loi-boyle-mariotte.html" title="Concept">Loi de Boyle-Mariotte</a>).</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/ballon.png" alt="ballon.png" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — L'eau ne se comprime pas, l'air si. Rien n'entre, rien ne sort :
+c'est le même air, plus serré. 1 × 6 = 1,3 × 4,6 = 1,6 × 3,75 = 6. Il reprend
+son volume en remontant. C'est la seule formule du cours.</p>
+<h3>9. C'est près de la surface que tout change</h3>
+<p><strong>Écran</strong> — Courbe <code>boyle-mariotte-6l.png</code>, zone 0-6 m surlignée. En
+bas : « À 6 m, plus d'un tiers du volume a disparu. »</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/boyle-mariotte-6l.png" alt="boyle-mariotte-6l.png" loading="lazy"></figure>
+
+<p><strong>Notes</strong> — Entre 0 et 10 m, le volume est divisé par deux ; entre 10 et 20 m,
+il ne perd plus qu'un tiers. Nous pratiquons exactement dans la zone où l'air
+change le plus vite : c'est là qu'il faut agir, dès la surface.</p>
+<h3>10. Où y a-t-il de l'air dans mon corps ?</h3>
+<p><strong>Écran</strong> — Coupe <code>coupe-espaces-air.jpg</code> avec pastilles : 1 sinus,
+2 cavité nasale, 3 bouche, 4 oreille moyenne, 5 trachée et poumons, plus le
+masque. Les trois « portes » en orange : A <a class="noeud" href="/concept/trompe-eustache.html" title="Concept">Trompe d&#39;Eustache</a>, B voile du
+palais, C <a class="noeud" href="/concept/glotte.html" title="Concept">Glotte</a>.</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/coupe-espaces-air.jpg" alt="coupe-espaces-air.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Le corps est surtout fait d'eau : il ne se comprime pas. Seules
+les cavités d'air subissent Boyle-Mariotte. Elles communiquent par trois
+portes. Équilibrer une cavité, c'est y faire entrer de l'air par sa porte.
+Si la porte reste fermée, la cavité est mise en dépression : c'est le
+barotraumatisme. On va les voir une par une, en commençant par l'oreille.
+Source : <a class="noeud" href="/source/apnee-attitude-compensation-0-30m-2026.html" title="Source">Apnée Attitude — La compensation, zone des 0 – 30 m (2026-01-06)</a> v.10.</p>
+<h3>11. L'oreille : trois étages</h3>
+<p><strong>Écran</strong> — Image <code>oreille-trois-etages.jpg</code> (à générer), légendes posées
+dans le PPT :
+- <strong>Oreille externe</strong> : pavillon, conduit auditif — ouvert, l'eau y entre.
+- <strong>Oreille moyenne</strong> : tympan, osselets, cavité d'<strong>air</strong>, reliée au nez par la
+  <a class="noeud" href="/concept/trompe-eustache.html" title="Concept">Trompe d&#39;Eustache</a>.
+- <strong>Oreille interne</strong> : du <strong>liquide</strong>, <strong>deux fonctions</strong> — la cochlée
+  (<strong>audition</strong>) et le vestibule (<strong>équilibre et orientation</strong> : où est le
+  haut ?).</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/oreille-trois-etages.jpg" alt="oreille-trois-etages.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Rôles : l'oreille externe capte le son ; le tympan et les osselets
+le transmettent ; l'oreille interne le transforme en message nerveux et gère
+l'équilibre. Insister sur les <strong>deux fonctions</strong> de l'oreille : entendre, mais
+aussi tenir l'équilibre et s'orienter. Le vestibule sent les rotations de la
+tête (canaux semi-circulaires) et le sens de la pesanteur (le haut, le bas).
+Sous l'eau, on flotte presque et on voit moins bien : le corps perd une partie
+de ses repères habituels et compte davantage sur l'oreille interne. Si elle est
+perturbée — eau froide dans une seule oreille, compensation inégale entre les
+deux côtés, barotraumatisme de l'oreille interne — on a le <strong>vertige</strong> et on
+peut perdre le sens du haut et du bas : on remonte en suivant son binôme, le
+mur, la ligne ou ses bulles. Pour l'apnéiste, un seul étage pose problème : l'oreille moyenne,
+le seul qui contient de l'air. Sa seule entrée est la trompe d'Eustache, qui
+débouche à l'arrière du nez. L'oreille interne est séparée de l'oreille
+moyenne par deux petites membranes, les fenêtres ovale et ronde : on y
+reviendra avec les barotraumatismes.</p>
+<h3>12. En descendant, le tympan s'enfonce</h3>
+<p><strong>Écran</strong> — Image <code>oreille-moyenne.jpg</code>, flèches de l'eau qui poussent le
+tympan vers l'intérieur. À droite : « L'eau appuie, l'air derrière le tympan se
+comprime : gêne, puis douleur. »</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/oreille-moyenne.jpg" alt="oreille-moyenne.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Le conduit est plein d'eau, à la pression de la profondeur.
+Derrière le tympan, l'air de l'oreille moyenne se comprime et ne pousse plus
+assez : le tympan se courbe vers l'intérieur. D'abord une sensation d'oreille
+pleine, puis une douleur. Ça arrive dès 1 à 2 m, et la trompe se « colle »
+avec la pression : plus on attend, plus elle est dure à ouvrir.
+Sources : <a class="noeud" href="/risque/barotraumatisme-oreille.html" title="Risque">Barotraumatisme de l’oreille</a> (livret p.39), <a class="noeud" href="/concept/trompe-eustache.html" title="Concept">Trompe d&#39;Eustache</a>.</p>
+<h3>13. Compenser : ouvrir la porte</h3>
+<p><strong>Écran</strong> — Reprise de <code>oreille-moyenne.jpg</code>, flèche orange de l'air qui
+remonte du nez par la trompe. « Compenser : envoyer de l'air dans l'oreille
+moyenne par la trompe d'Eustache. Nez pincé. » (<a class="noeud" href="/competence/compensation.html" title="Compétence">Compensation</a>).</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/oreille-moyenne.jpg" alt="oreille-moyenne.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Pour équilibrer, il faut que la pression de l'air derrière le
+tympan rejoigne celle de l'eau. On pince le nez pour que l'air ne s'échappe
+pas, on met un peu de pression dans le nez, la trompe s'ouvre, l'air passe :
+un petit « clic ». Toutes les techniques font ça ; elles diffèrent par ce qui
+pousse l'air.</p>
+<h3>14. Deux façons de pousser l'air</h3>
+<p><strong>Écran</strong> — Deux colonnes :
+- <strong><a class="noeud" href="/technique/valsalva.html" title="Technique">Valsalva</a></strong> (gris) : on souffle nez pincé, avec les poumons et le
+  ventre. Spontané, mais <strong>brutal</strong> : beaucoup d'air, beaucoup de muscles.
+  « À éviter. »
+- <strong><a class="noeud" href="/technique/frenzel.html" title="Technique">Frenzel</a></strong> (orange) : glotte fermée, la <strong>langue</strong> pousse l'air de la
+  bouche vers le nez. Petit volume, geste dosé. « À privilégier : on
+  l'apprend dans l'eau. »</p>
+<p><strong>Notes</strong> — La plupart des débutants font Valsalva sans le savoir : ils
+soufflent fort, nez pincé. Ça marche en piscine, mais c'est un coup de piston
+sur les tympans, et forcé, c'est la cause du barotraumatisme de l'oreille
+interne qu'on verra tout à l'heure. Le Frenzel isole l'air de la bouche en
+fermant la glotte : la langue fait piston, comme quand on prononce « t » ou
+« k ». C'est plus fin et ça marche aussi en profondeur. On ne l'apprend pas
+au tableau : exercices en bassin aux prochaines séances.
+Sources : <a class="noeud" href="/technique/valsalva.html" title="Technique">Valsalva</a> (« à proscrire », compensation 0-30 m v.16 ; Mahé
+p.11-12), <a class="noeud" href="/technique/frenzel.html" title="Technique">Frenzel</a> (livret p.41-43), <a class="noeud" href="/competence/compensation.html" title="Compétence">Compensation</a>.</p>
+<h3>15. Les règles de la compensation</h3>
+<p><strong>Écran</strong> — Quatre lignes, la dernière en orange :
+- <strong>Tôt</strong> : dès la surface, avant la gêne.
+- <strong>Souvent</strong> : tous les 1 à 2 m sur les premiers mètres.
+- <strong>Sans forcer</strong> : ça ne passe pas → je m'arrête, je remonte un peu, je
+  réessaie ; sinon je renonce.
+- <strong>Pas enrhumé</strong>, et je souffle par le nez dans mon <strong>masque</strong>.</p>
+<p><strong>Notes</strong> — Les barotraumatismes d'oreille en piscine viennent d'une
+compensation tardive ou forcée, rarement d'une mauvaise technique. Repasser
+tête en haut aide la trompe à s'ouvrir. Un rhume bouche la trompe et les
+sinus : on ne descend pas. Le masque est une cavité d'air qu'on oublie
+facilement : une petite expiration par le nez suffit.
+Sources : <a class="noeud" href="/risque/barotraumatisme-oreille.html" title="Risque">Barotraumatisme de l’oreille</a> (Mahé p.9 : compenser tôt, dès la
+surface, souvent ; ralentir ou interrompre, repasser tête haute),
+<a class="noeud" href="/risque/placage-masque.html" title="Risque">Placage du masque</a>.</p>
+<h3>16. Les voies aériennes</h3>
+<p><strong>Écran</strong> — Image <code>voies-aeriennes.jpg</code> (à générer), légendes posées dans
+le PPT : nez et bouche → pharynx → larynx et <a class="noeud" href="/concept/glotte.html" title="Concept">Glotte</a> → trachée → bronches →
+alvéoles. En bas : « Toutes ces cavités sont pleines d'air : toutes se
+compriment. »</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/voies-aeriennes.jpg" alt="voies-aeriennes.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Rôle : amener l'air jusqu'aux alvéoles, où l'oxygène passe dans le
+sang — le détail des échanges, c'est le cours suivant. La glotte, entre les
+cordes vocales, est le bouchon de l'apnée : fermée, elle isole les poumons de
+la bouche, ce qui sert au Frenzel. Le nez communique avec les sinus et, par
+les trompes, avec les oreilles.</p>
+<h3>17. Les volumes pulmonaires</h3>
+<p><strong>Écran</strong> — Spirogramme <code>spirogramme.png</code> (SVG à produire) : capacité
+pulmonaire totale <strong>6 L</strong> = capacité vitale <strong>4,5 L</strong> (réserve inspiratoire
+2,5 L, volume courant 0,5 L, réserve expiratoire 1,5 L) + <a class="noeud" href="/concept/volume-residuel.html" title="Concept">Volume résiduel</a>
+<strong>1,5 L</strong>. À droite, la même barre de 6 L à 6 m : <strong>3,75 L</strong>.</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/spirogramme.png" alt="spirogramme.png" loading="lazy"></figure>
+
+<p><strong>Notes</strong> — Valeurs moyennes d'un adulte, très variables. Au repos on ne
+déplace qu'un demi-litre ; poumons pleins on en a 6. Le volume résiduel reste
+toujours dans les poumons. À 6 m, Boyle-Mariotte réduit 6 L à 3,75 L : sans
+danger, le thorax est souple. Les limites apparaissent bien plus profond, au
+cours optionnel. On part en apnée poumons pleins, sans forcer le remplissage.
+Source : <a class="noeud" href="/concept/volume-residuel.html" title="Concept">Volume résiduel</a> (diaporama anatomie / physiologie v.12-13).</p>
+<h3>18. Le barotraumatisme</h3>
+<p><strong>Écran</strong> — Reprise de <code>coupe-espaces-air.jpg</code>, quatre cavités entourées
+en orange : oreille moyenne, sinus, masque, oreille interne (signalée à part).
+Définition : « Une cavité d'air qu'on n'équilibre pas : la pression déforme et
+blesse les tissus. » (<a class="noeud" href="/risque/barotraumatisme.html" title="Risque">Barotraumatisme</a>).</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/coupe-espaces-air.jpg" alt="coupe-espaces-air.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p><strong>Notes</strong> — Même grille pour chacun : comment ça arrive, à quoi on le
+reconnaît, comment on l'évite, que faire. Ordre : du plus fréquent au plus
+grave.</p>
+<h3>19. L'oreille moyenne</h3>
+<p><strong>Écran</strong> — Quatre cases :
+- <strong>Mécanisme</strong> : compensation tardive ou forcée, tympan enfoncé.
+- <strong>Signes</strong> : douleur, oreille pleine, entendre moins bien ; parfois un peu
+  de sang.
+- <strong>Prévention</strong> : les règles de la compensation.
+- <strong>Conduite</strong> : j'arrête la séance, je ne replonge pas ; médecin si ça
+  persiste, si ça saigne ou si j'entends mal.</p>
+<p>Lien : <a class="noeud" href="/risque/barotraumatisme-oreille.html" title="Risque">Barotraumatisme de l’oreille</a>.</p>
+<p><strong>Notes</strong> — L'accident le plus fréquent en apnée. Dans les cas les plus
+sérieux, le tympan se perce : vertige, voire perte de connaissance si l'eau
+froide entre. Arrêt de quelques jours à un mois, contrôle du tympan par un
+médecin.
+Source : <a class="noeud" href="/risque/barotraumatisme-oreille.html" title="Risque">Barotraumatisme de l’oreille</a> (Mahé p.7-9 ; livret p.39-40).</p>
+<h3>20. Les sinus</h3>
+<p><strong>Écran</strong> — Image <code>sinus-face.jpg</code> (à générer) à gauche. À droite :
+- <strong>Mécanisme</strong> : cavités d'air dans les os du visage ; un rhume bouche leur
+  petit canal vers le nez.
+- <strong>Signes</strong> : douleur au front ou aux pommettes ; saignement de nez, souvent
+  en remontant.
+- <strong>Prévention</strong> : pas de plongée enrhumé ; se moucher avant de descendre.
+- <strong>Conduite</strong> : j'arrête ; médecin si la douleur persiste.</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/sinus-face.jpg" alt="sinus-face.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p>Lien : <a class="noeud" href="/risque/barotraumatisme-sinus.html" title="Risque">Barotraumatisme des sinus</a>.</p>
+<p><strong>Notes</strong> — Quatre paires de sinus : frontaux, maxillaires, ethmoïdaux,
+sphénoïdaux. Quand leur canal est bouché, l'air ne s'équilibre pas : douleur
+à la descente. À la remontée, l'air piégé se dilate : douleur vive et
+saignement de nez. Sinusites à répétition : voir le médecin.
+Source : <a class="noeud" href="/risque/barotraumatisme-sinus.html" title="Risque">Barotraumatisme des sinus</a> (Mahé p.13 ; compensation v.8-9, v.26).</p>
+<h3>21. Le masque</h3>
+<p><strong>Écran</strong> — Image <code>placage-masque.jpg</code> (à générer) à gauche. À droite :
+- <strong>Mécanisme</strong> : l'air du masque se comprime, le masque fait ventouse.
+- <strong>Signes</strong> : yeux rouges, bleus autour des yeux, marque du masque.
+- <strong>Prévention</strong> : souffler un peu par le nez en descendant ; masque de petit
+  volume ; jamais de lunettes de piscine en profondeur.
+- <strong>Conduite</strong> : j'arrête ; ophtalmologiste si la vue est troublée ou si
+  l'œil fait mal.</p>
+<figure class="illustration"><img src="/cours/ap-pression-oreille-ventilation/img/placage-masque.jpg" alt="placage-masque.jpg" loading="lazy"><figcaption>Image générée par IA (Gemini)</figcaption></figure>
+
+<p>Lien : <a class="noeud" href="/risque/placage-masque.html" title="Risque">Placage du masque</a>.</p>
+<p><strong>Notes</strong> — On compense ses oreilles et on oublie le masque : le rappeler à
+chaque descente. Les lunettes de piscine ne couvrent pas le nez : impossible
+d'y renvoyer de l'air. Rarement, un saignement derrière l'œil : d'où l'examen
+si la vision change.
+Source : <a class="noeud" href="/risque/placage-masque.html" title="Risque">Placage du masque</a> (livret p.27, p.39 ; MSD 2025 ; Mahé p.13-14).</p>
+<h3>22. L'oreille interne — urgence</h3>
+<p><strong>Écran</strong> — Bandeau orange en haut : <strong>URGENCE</strong>. Puis :
+- <strong>Mécanisme</strong> : compensation brutale (Valsalva forcé) ou descente trop
+  rapide ; la secousse passe à l'oreille interne.
+- <strong>Signes</strong> : <strong>vertige</strong>, <strong>sifflements</strong>, <strong>baisse d'audition</strong>, nausée.
+- <strong>Conduite</strong> : je sors de l'eau, je ne replonge pas, <strong>consultation en
+  urgence</strong> (ORL, urgences).</p>
+<p>Lien : <a class="noeud" href="/risque/barotraumatisme-oreille-interne.html" title="Risque">Barotraumatisme de l’oreille interne</a>.</p>
+<p><strong>Notes</strong> — Rare, mais c'est le seul où « attendre que ça passe » est une
+faute : le traitement doit être rapide pour préserver l'audition. C'est le
+risque principal d'un Valsalva forcé : le coup de piston passe par les
+osselets ou force sur la fenêtre ronde. Ne pas confondre avec un petit
+vertige passager à la remontée : dans le doute, on consulte.
+Source : <a class="noeud" href="/risque/barotraumatisme-oreille-interne.html" title="Risque">Barotraumatisme de l’oreille interne</a> (Mahé p.10-12).</p>
+<h3>23. Pour mémoire</h3>
+<p><strong>Écran</strong> — Trois lignes courtes :
+- <strong>Bouchons d'oreilles, cagoule trop serrée</strong> : de l'air piégé dans le
+  conduit → jamais de bouchons (<a class="noeud" href="/risque/barotraumatisme-conduit-auditif.html" title="Risque">Barotraumatisme du conduit auditif externe</a>).
+- <strong>Dents</strong> : une carie ou un soin mal fait peut piéger de l'air
+  (<a class="noeud" href="/risque/barotraumatisme-dents.html" title="Risque">Barotraumatisme des dents</a>).
+- <strong>Poumons</strong> : jamais d'air pris au fond, ni sur un détendeur, ni dans une
+  poche d'air (<a class="noeud" href="/risque/surpression-pulmonaire.html" title="Risque">Surpression pulmonaire</a>).</p>
+<p><strong>Notes</strong> — Les poumons ne craignent rien à 6 m tant qu'on n'y ajoute pas
+d'air. Respirer au fond l'air d'un plongeur puis remonter en apnée, c'est la
+surpression pulmonaire, possible dès 1 m : règle absolue en piscine partagée
+avec les plongeurs. Les lésions pulmonaires de descente concernent la grande
+profondeur : cours optionnel.
+Sources : <a class="noeud" href="/risque/barotraumatisme-conduit-auditif.html" title="Risque">Barotraumatisme du conduit auditif externe</a> (Mahé p.7),
+<a class="noeud" href="/risque/barotraumatisme-dents.html" title="Risque">Barotraumatisme des dents</a>, <a class="noeud" href="/risque/surpression-pulmonaire.html" title="Risque">Surpression pulmonaire</a> (livret p.51 ; MSD).</p>
+<h3>24. À retenir</h3>
+<p><strong>Écran</strong> —
+- <strong>1 bar</strong> en surface, <strong>+1 bar tous les 10 m</strong> ; <strong>P × V = constante</strong>.
+- Le volume d'air change le plus près de la surface.
+- Oreilles : <strong>tôt, souvent, sans forcer</strong> ; Frenzel plutôt que Valsalva.
+- Masque : souffler par le nez. Rhume : pas de plongée.
+- Vertige, sifflement, baisse d'audition : <strong>urgence</strong>.</p>
+<p><strong>Notes</strong> — Transition vers le Kahoot.</p>
+<h3>25-34. Kahoot — 5 questions</h3>
+<p><strong>Écran</strong> — Une slide question puis une slide réponse par question (voir
+tableau ci-dessous), la bonne réponse en orange.</p>
+<p><strong>Notes</strong> — 20 s par question, correction en une phrase.</p>
+<h3>35. Pour aller plus loin</h3>
+<p><strong>Écran</strong> — QR code vers <a href="https://freedive-knowledge.github.io/">https://freedive-knowledge.github.io/</a>. « Tous les
+termes soulignés en couleur dans le PDF mènent à une fiche. »</p>
+<p><strong>Notes</strong> — Le PDF sera envoyé après le cours.</p>
+<h3>36. Merci</h3>
+<p><strong>Écran</strong> — Logo centré. « Merci ! » « À essayer en bassin : compenser dès la
+surface, souffler dans son masque. »</p>
+<p><strong>Notes</strong> — Annoncer le cours suivant : cœur, respiration, accidents
+biochimiques.</p>
+<hr />
+<h2>Quiz — import Kahoot</h2>
+<p>20 secondes par question.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Question</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>Bonne</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Quelle est la pression à 6 m de profondeur ?</td>
+<td>0,6 bar</td>
+<td>1 bar</td>
+<td>1,6 bar</td>
+<td>6 bar</td>
+<td>C</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6 L d'air en surface : combien à 6 m ?</td>
+<td>6 L</td>
+<td>3,75 L</td>
+<td>4,8 L</td>
+<td>1 L</td>
+<td>B</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Quand faut-il compenser ses oreilles ?</td>
+<td>Dès la surface, puis souvent</td>
+<td>Quand ça fait mal</td>
+<td>Une fois au fond</td>
+<td>Seulement si on descend vite</td>
+<td>A</td>
+</tr>
+<tr>
+<td>4</td>
+<td>À 3 m, la compensation ne passe pas. Que faites-vous ?</td>
+<td>Je force</td>
+<td>Je continue de descendre</td>
+<td>Je descends plus vite</td>
+<td>Je remonte un peu et je réessaie, sinon j'arrête</td>
+<td>D</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Après une descente : vertige, sifflement, j'entends moins bien.</td>
+<td>C'est normal, ça passe</td>
+<td>Je sors : urgence, consultation</td>
+<td>Je replonge pour rééquilibrer</td>
+<td>Je bois de l'eau</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+<h2>Nœuds créés pour ce cours</h2>
+<p>Promus le 2026-11-23 (lot <code>ingest/silver/2026-11-23-anatomie-oreille-voies-aeriennes.yaml</code>) :
+<a class="noeud" href="/concept/oreille.html" title="Concept">Oreille</a>, <a class="noeud" href="/concept/oreille-moyenne.html" title="Concept">Oreille moyenne</a>, <a class="noeud" href="/concept/oreille-interne.html" title="Concept">Oreille interne</a>, <a class="noeud" href="/concept/tympan.html" title="Concept">Tympan</a>,
+<a class="noeud" href="/concept/voies-aeriennes.html" title="Concept">Voies aériennes</a>, <a class="noeud" href="/concept/voile-du-palais.html" title="Concept">Voile du palais</a>, <a class="noeud" href="/concept/sinus.html" title="Concept">Sinus</a>, <a class="noeud" href="/concept/volumes-pulmonaires.html" title="Concept">Volumes pulmonaires</a>.
+Anatomie adossée à <a class="noeud" href="/source/wikipedia-oreille-voies-aeriennes-2026-11.html" title="Source">Wikipédia — anatomie de l&#39;oreille et des voies aériennes (novembre 2026)</a> (révisions
+figées) ; sinus, voile du palais et volumes aux supports Apnée Attitude et à
+Mahé.</p>
+<h2>Sources des affirmations</h2>
+<p>Toutes les affirmations sur les barotraumatismes, la compensation et les
+volumes viennent des nœuds liés dans les notes. Ajouts non adossés au graphe,
+à vérifier lors de la capture :</p>
+<table>
+<thead>
+<tr>
+<th>Affirmation</th>
+<th>Slide</th>
+<th>État</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rôles des trois étages de l'oreille (capter, transmettre, transformer ; équilibre)</td>
+<td>11</td>
+<td>vérifié : <a class="noeud" href="/concept/oreille.html" title="Concept">Oreille</a>, <a class="noeud" href="/concept/oreille-moyenne.html" title="Concept">Oreille moyenne</a>, <a class="noeud" href="/concept/oreille-interne.html" title="Concept">Oreille interne</a> (Wikipédia)</td>
+</tr>
+<tr>
+<td>Vestibule : rotations et pesanteur ; vertige si stimulation inégale (eau froide d'un côté, compensation asymétrique) ; désorientation sous l'eau</td>
+<td>11</td>
+<td>ajouté sur retour d'un MEF1 ; à sourcer (vertige alterno-barique, vertige calorique)</td>
+</tr>
+<tr>
+<td>Gêne dès 1 à 2 m</td>
+<td>12</td>
+<td>cohérent avec Mahé p.8 (« dès quelques mètres »)</td>
+</tr>
+<tr>
+<td>Compenser tous les 1 à 2 m</td>
+<td>15</td>
+<td>règle pédagogique ; Mahé p.9 dit « souvent »</td>
+</tr>
+<tr>
+<td>Frenzel : la langue comme pour « t » ou « k »</td>
+<td>14</td>
+<td>livret p.41-43, blocs t, k, h (<a class="noeud" href="/technique/frenzel.html" title="Technique">Frenzel</a>)</td>
+</tr>
+<tr>
+<td>Perforation : perte de connaissance si l'eau froide entre</td>
+<td>19</td>
+<td>Mahé p.8 : « vertiges, voire syncope » ; le mécanisme par l'eau froide est à sourcer</td>
+</tr>
+<tr>
+<td>Dents : carie ou soin qui piège de l'air</td>
+<td>23</td>
+<td>vérifié : <a class="noeud" href="/risque/barotraumatisme-dents.html" title="Risque">Barotraumatisme des dents</a> (MSD 2025 ; Mahé p.13)</td>
+</tr>
+</tbody>
+</table></div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+</body>
+</html>

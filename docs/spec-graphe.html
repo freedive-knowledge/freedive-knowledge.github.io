@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spécification du graphe de connaissance — apnée de loisir · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/docs/index.html">Documentation</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/docs/index.html">Documentation</a></p>
+<h1>Spécification du graphe de connaissance — apnée de loisir</h1>
+<p class="telechargements"><a href="/docs/spec-graphe.md">Source Markdown</a></p>
+<div class="corps doc"><blockquote>
+<p>Document <strong>écrit à la main</strong>. Il consigne le modèle et, surtout, <strong>les
+décisions et leurs raisons</strong>. Le vocabulaire lui-même est généré :
+voir <a href="/docs/vocabulaire.html">vocabulaire.md</a>. Les conventions de travail sont dans
+<a href="/docs/conventions.html">conventions.md</a>.</p>
+</blockquote>
+<h2 id="1-objet-et-perimetre">1. Objet et périmètre</h2>
+<p>Gérer la connaissance de l'apnée de loisir sur quatre échelles :</p>
+<ol>
+<li><strong>scientifique</strong> — physiologie, physique, mécanismes ;</li>
+<li><strong>FFESSM</strong> — cursus, prérogatives, textes fédéraux ;</li>
+<li><strong>CODEP 91</strong> — déclinaison départementale ;</li>
+<li><strong>le club</strong> — pratique locale, en particulier le <strong>niveau
+   intermédiaire</strong> : les apnéistes titulaires de l'AP ou plus préparant l'ACP.</li>
+</ol>
+<p>L'approche est celle d'un <em>second brain</em> adossé à un <strong>graphe d'ontologie fondé
+sur des triples</strong>.</p>
+<p><strong>Hors périmètre, et c'est une décision :</strong> aucune <strong>personne nommée</strong> n'entre
+dans le graphe. Un apnéiste identifié avec ses performances et ses acquis
+constitue une donnée personnelle — de santé par ricochet — à durée de vie courte,
+qui n'a pas à être mêlée à un corpus de savoir stable destiné à alimenter un
+front web. Le « Qui » est porté par la classe <code>role</code> : <code>encadre-par</code>,
+<code>destine-a</code>. C'est aussi ce qui rend une séance <strong>transmissible</strong> à un autre
+encadrant, qui lit les prérequis d'encadrement au lieu de les deviner.</p>
+<h2 id="2-forme-dun-nud">2. Forme d'un nœud</h2>
+<p>Un nœud = un fichier Markdown. <strong>Le nom de fichier est l'identifiant.</strong></p>
+<p>Le <strong>sujet de tous les triples d'un document est implicitement le nœud que ce
+document représente.</strong> Aucun triple ne peut porter sur un autre sujet. Invariant
+central : <em>chaque nœud est la source de vérité de ses propres assertions</em>. Un
+sujet libre disperserait les faits d'une entité dans N fichiers et rendrait toute
+relecture manuelle illusoire.</p>
+<h3 id="champs-de-frontmatter-liste-fermee">Champs de frontmatter — liste FERMÉE</h3>
+<p>La règle de partage est unique :</p>
+<blockquote>
+<p><strong>Si l'assertion peut être fausse, discutée ou sourcée, c'est un triple.
+Si elle identifie le document, c'est un champ.</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Champ</th>
+<th>Requis</th>
+<th>Portée</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>oui</td>
+<td>toutes</td>
+<td>classe du nœud, valeur unique</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td>oui</td>
+<td>toutes</td>
+<td>libellé affiché, accents autorisés</td>
+</tr>
+<tr>
+<td><code>aliases</code></td>
+<td>non</td>
+<td>toutes</td>
+<td>formes alternatives, sigles</td>
+</tr>
+<tr>
+<td><code>summary</code></td>
+<td>non</td>
+<td>toutes</td>
+<td>une à trois phrases, exploitable en vignette</td>
+</tr>
+<tr>
+<td><code>created</code></td>
+<td>oui</td>
+<td>toutes</td>
+<td>saisie une fois, <strong>immuable</strong></td>
+</tr>
+<tr>
+<td><code>updated</code></td>
+<td>non</td>
+<td>toutes</td>
+<td><strong>écrit par le hook de pre-commit</strong></td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>oui</td>
+<td><code>seance</code>, <code>formation</code></td>
+<td>date de l'occurrence</td>
+</tr>
+<tr>
+<td><code>execution</code></td>
+<td>oui</td>
+<td><code>exercice</code></td>
+<td>notation de bassin, forme autoritative</td>
+</tr>
+<tr>
+<td><code>statut</code></td>
+<td>non</td>
+<td>toutes</td>
+<td>statut éditorial du nœud (<code>provisoire</code>) ; omis = établi</td>
+</tr>
+<tr>
+<td><code>triples</code></td>
+<td>non</td>
+<td>toutes</td>
+<td>les assertions</td>
+</tr>
+</tbody>
+</table>
+<p>La prose longue va dans le <strong>corps Markdown</strong>. Un triple reste une assertion
+atomique et comparable ; y mettre un paragraphe ferait du graphe un entrepôt de
+texte.</p>
+<p><code>type</code> est <strong>unique</strong> : le multi-typage casse la validation des verbes et signale
+presque toujours qu'il manque une classe ou qu'il faut scinder la note.</p>
+<h3 id="forme-dun-triple">Forme d'un triple</h3>
+<pre><code class="language-yaml">triples:
+  - verb: contrainte-pulmonaire      # vocabulaire fermé
+    target: &quot;[[poumon-vide]]&quot;        # wikilink | URL | littéral
+    verification: verifie            # énumération
+    confidence: certain              # énumération
+</code></pre>
+<p>Liste de blocs explicites, <strong>un bloc par triple</strong>. Retenu parce que c'est
+uniforme quel que soit le type de cible, extensible sans migration, et que le
+diff Git reste lisible — modifier une confiance produit une ligne changée, pas
+une ligne réécrite. Les formes compactes (<code>requiert :: [[x]] | verifie | haute</code>)
+saturent dès qu'un attribut s'ajoute et imposent une grammaire maison.</p>
+<h3 id="adossement-dun-triple-a-sa-piece">Adossement d'un triple à sa pièce</h3>
+<p>Un nœud peut citer <strong>plusieurs sources de nature différente</strong> : un exercice
+observé en séance, puis précisé par une élaboration. Adosser chaque triple à
+<em>toutes</em> les sources du nœud rendrait alors les deux indicateurs faux — un
+triple <code>verifie</code> issu de l'observation passerait pour adossé à l'élaboration.</p>
+<p>D'où l'attribut <strong>optionnel</strong> <code>source</code> sur un triple :</p>
+<pre><code class="language-yaml">  - verb: vise
+    target: &quot;[[tolerance-hypercapnie]]&quot;
+    verification: a-verifier
+    confidence: plausible
+    source: &quot;[[transcript-2026-09-24-elaboration-frite-profondeur]]&quot;
+</code></pre>
+<ul>
+<li><strong>Avec l'attribut</strong>, le triple n'est adossé qu'à cette pièce.</li>
+<li><strong>Sans l'attribut</strong>, il l'est à toutes les sources du nœud — le cas courant,
+  quand le nœud n'en a qu'une.</li>
+<li>La pièce citée <strong>doit</strong> figurer parmi les triples <code>source</code> du nœud, qui
+  restent la liste complète des pièces. Contrôle du linter : l'attribut se
+  vérifie en lisant le seul fichier.</li>
+</ul>
+<p>L'attribut s'impose dès qu'un nœud cite une source d'élaboration <strong>et</strong> une
+source qui peut justifier <code>verifie</code>. Le rendre obligatoire partout doublerait
+chaque nœud à source unique, sans rien apporter.</p>
+<h3 id="attributs-qualificatifs-dun-triple">Attributs qualificatifs d'un triple</h3>
+<p>Certains faits ne sont comparables qu'avec leur contexte : la profondeur
+maximale d'un brevet dépend du <strong>cadre</strong> (autonomie relative, autonomie
+complète, encadrement) et parfois du <strong>milieu</strong> (l'ACEL évolue à 20 m en
+autonomie relative, à 15 m en autonomie complète).</p>
+<pre><code class="language-yaml">  - verb: profondeur-max
+    target: &quot;15m&quot;
+    cadre: autonomie-complete     # requis
+    milieu: naturel               # omis si la valeur vaut pour les deux
+    verification: verifie
+    confidence: certain
+</code></pre>
+<p>Un verbe <strong>déclare</strong> les attributs qu'il admet (clé <code>attributs</code> de
+<code>verbes.yaml</code>), chacun borné par une énumération du même nom dans
+<code>enums.yaml</code>. Retenu contre deux alternatives : trois verbes
+(<code>profondeur-autonomie-relative</code>…) auraient multiplié le vocabulaire par le
+nombre de cadres, sans résoudre le milieu ; un verbe nu aurait renvoyé la
+distinction relative / complète en prose, donc hors requête. Le mécanisme reste
+<strong>fermé</strong> : un attribut non déclaré par le verbe est une faute de lint, comme un
+verbe inventé.</p>
+<p><code>execution</code> est un champ et non un triple parce qu'elle <strong>est</strong> la définition du
+nœud : un exercice sans exécution n'existe pas, la chaîne ne peut être ni fausse
+ni « à vérifier ». <code>allure</code> et <code>discipline</code> sont des triples parce qu'elles sont
+révisables — une allure de ressenti se corrige après l'avoir fait nager.</p>
+<h2 id="3-les-deux-indicateurs">3. Les deux indicateurs</h2>
+<p>Ils sont <strong>strictement orthogonaux</strong>, et les confondre est le piège principal :</p>
+<ul>
+<li><code>verification</code> — <strong>état du processus</strong> : ai-je retrouvé et lu la source ?</li>
+<li><code>confidence</code> — <strong>force épistémique</strong> de l'assertion, même parfaitement sourcée.</li>
+</ul>
+<p>C'est la distinction qui compte ici : « l'hyperventilation augmente le risque de
+syncope » est <em>vérifiable et solide</em> ; « 3 inspirations suffisent entre deux 25 m »
+est <em>vérifiable dans un document de club</em> et pourtant <em>faible</em>.</p>
+<p>Trois décisions attachées :</p>
+<ul>
+<li><strong>Défaut <code>a-verifier</code></strong> : la dette est explicite et requêtable. On peut sortir
+  à tout moment la liste de ce qui reste à sourcer — c'est ce qui fait vivre le
+  dispositif au lieu qu'il s'atrophie.</li>
+<li><strong><code>verifie</code> exige un triple <code>source</code> sur le nœud</strong> — ou, pour un nœud à
+  plusieurs sources, l'attribut <code>source</code> du triple (§2) —, contrainte contrôlée par le
+  linter. Sans elle, l'indicateur serait déclaratif et creux.</li>
+<li><strong><code>intrinseque</code> pour les faits constitutifs.</strong> Sur <code>4x25-pv</code>, les triples
+  <code>repetitions → 4</code>, <code>distance-apnee → 25m</code> ou <code>recuperation → 30s</code> se lisent
+  <strong>directement dans <code>execution</code></strong>. Ce ne sont pas des assertions sur le monde
+  mais des lectures du nœud lui-même : aucune source externe ne les adosse, et
+  aucune ne le pourra. Les verser dans <code>a-verifier</code> remplirait la liste de dette
+  de lignes qui ne seront jamais soldées — et une dette qu'on ne peut pas vider
+  est une dette qu'on arrête de regarder. Leur accorder <code>verifie</code> sans source
+  détruirait la garantie sur laquelle repose la traçabilité. D'où une quatrième
+  valeur, <strong>restreinte par le linter</strong> à 9 verbes de transcription et aux nœuds
+  portant un champ transcriptible, pour qu'elle ne devienne pas une échappatoire
+  à l'obligation de sourcer. <code>allure</code> et <code>utilise-materiel</code> en sont exclus : la
+  première est un jugement de ressenti, la seconde une décision d'encadrement.</li>
+<li><strong><code>infirme</code> conserve le triple.</strong> Un savoir réfuté — l'hyperventilation
+  préalable « pour tenir plus longtemps » — doit rester documenté comme erreur,
+  parce que c'est exactement ce qu'il faut déconstruire chez les AP. C'est aussi
+  pourquoi <strong>aucun verbe de contradiction n'existe</strong> : une assertion fausse
+  relève de <code>infirme</code>, pas d'une relation entre deux nœuds.</li>
+</ul>
+<p><code>confidence</code> est un <strong>jugement indépendant</strong> du type de source. La rendre
+déductible serait tentant mais faux : un texte fédéral peut énoncer une
+recommandation pédagogique discutable, un article scientifique peut être isolé et
+fragile. Le modèle doit pouvoir porter « c'est écrit dans le MFA et je n'y crois
+qu'à moitié ».</p>
+<h2 id="4-litteraux-et-grandeurs">4. Littéraux et grandeurs</h2>
+<p>Unité <strong>collée</strong> à la valeur, pour que la lecture brute du fichier reste
+naturelle. Une <strong>seule forme canonique par valeur</strong>, afin que deux triples égaux
+soient littéralement identiques.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Forme</th>
+<th>Exemples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>durée &lt; 60 s</td>
+<td><code>&lt;n&gt;s</code></td>
+<td><code>30s</code>, <code>45s</code></td>
+</tr>
+<tr>
+<td>durée ≥ 60 s</td>
+<td><code>&lt;n&gt;mn&lt;n&gt;s</code>, <code>&lt;n&gt;mn</code> si secondes nulles</td>
+<td><code>1mn45s</code>, <code>4mn</code></td>
+</tr>
+<tr>
+<td>distance</td>
+<td><code>&lt;n&gt;m</code></td>
+<td><code>25m</code>, <code>100m</code></td>
+</tr>
+<tr>
+<td>vitesse</td>
+<td><code>&lt;n&gt;m/s</code></td>
+<td><code>0.6m/s</code></td>
+</tr>
+<tr>
+<td>masse</td>
+<td><code>&lt;n&gt;kg</code></td>
+<td><code>20kg</code></td>
+</tr>
+<tr>
+<td>récupération</td>
+<td><code>&lt;n&gt;s</code> · <code>&lt;n&gt;mn&lt;n&gt;s</code> · <code>&lt;n&gt;inspi</code> · <code>&lt;n&gt;cp</code></td>
+<td><code>30s</code>, <code>4inspi</code>, <code>10cp</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>1.50mn</code> est lisible mais <strong>non canonique</strong> : on écrit <code>1mn30s</code>. La normalisation
+est triviale et vérifiée par le linter.</p>
+<p><strong>Intervalles : des bornes numériques</strong> (<code>vitesse-min</code> / <code>vitesse-max</code>), jamais
+de notation d'approximation. <code>~1 m/s</code> devient <code>0.95m/s</code> / <code>1.05m/s</code>. C'est la
+seule forme comparable et filtrable ; le flou est déjà exprimé par
+<code>confidence: plausible</code>, un champ <code>precision</code> le dupliquerait en moins bien.</p>
+<p><strong>Une borne absente vaut intervalle ouvert</strong>, et non « non renseignée ». Le cas
+est réel : <code>sprint</code> est « l'allure la plus rapide possible <em>par l'apnéiste</em> »,
+donc son plafond est individuel et n'est pas une propriété de l'allure. Inventer
+un chiffre serait mentir ; omettre <code>vitesse-max</code> est la seule écriture juste.</p>
+<h3 id="les-allures-ne-partitionnent-pas-lechelle-des-vitesses">Les allures ne partitionnent pas l'échelle des vitesses</h3>
+<p>Décision explicite : les allures sont des <strong>repères de ressenti, non une
+partition couvrante</strong>. Des zones intermédiaires n'ont aucun nom — un 25 m en
+28 s n'est ni <code>tranquille</code> (31–42 s) ni <code>croisiere</code> (24–26 s), et c'est assumé.</p>
+<p>C'est cohérent avec une classe fondée sur le ressenti : un apnéiste reconnaît
+une allure de croisière, il ne calcule pas une appartenance à un intervalle.
+L'alternative — resserrer les bornes jusqu'à obtenir une partition contiguë —
+aurait rendu décidable la question « quelle allure pour ce temps ? », mais au
+prix de frontières fabriquées, qu'aucune sensation ne justifie.</p>
+<p><strong>Conséquence pour le front web</strong> : il ne doit <strong>jamais</strong> classer une vitesse
+mesurée dans une allure unique. Face à une valeur tombant dans un trou, la
+réponse correcte est « entre <code>tranquille</code> et <code>croisiere</code> », pas un choix
+arbitraire. Un <code>argmin</code> sur la distance aux bornes serait un bug, pas une
+approximation.</p>
+<p><strong>Rien de dérivable n'est stocké.</strong> Ni <code>duree-totale</code>, ni les temps par distance
+d'une allure : ils se déduisent de la vitesse et de la distance. Les stocker
+créerait plusieurs sources de vérité pour un seul fait, avec dérive garantie — le
+jour où une borne est affinée, les temps mentiraient. Le front calcule, et pour
+n'importe quelle distance, 16×25 compris.</p>
+<h2 id="5-exercices-notation-facettes">5. Exercices : notation + facettes</h2>
+<p>L'<code>execution</code> reste <strong>la chaîne telle qu'on l'écrirait au bord du bassin</strong>
+(<code>4x25m PV récup 30s</code>, <code>100m nage + sauvetage mannequin 1mn =&gt; 4mn max</code>). Les
+facettes — discipline, matériel, contrainte pulmonaire, répétitions, distance,
+récupération, allure, intention — sont <strong>déclarées</strong> en triples, non dérivées.</p>
+<p><strong>Aucun parseur de la notation n'est écrit, et c'est délibéré.</strong> Chaque séance
+inventera une variante (<code>départ 1mn45s</code>, <code>mi-bassin</code>, <code>dos vers le bas</code>,
+<code>1xbras+2xjambes</code>) ; on passerait son temps à réparer une grammaire au lieu de
+remplir le catalogue. À l'inverse, du texte libre seul rendrait impossible la
+requête qui compte : « exercices de dynamique, palmes longues, PV, autour de
+4×25 ». Une facette absente <strong>dégrade</strong> la recherche, elle ne la casse pas.</p>
+<p>Quand un exercice ne se plie pas aux facettes, on renseigne ce qui s'applique et
+le reste demeure dans <code>execution</code>. Aucune perte, aucun blocage. Si la notation se
+stabilise un jour, un script pourra pré-remplir les facettes et la validation
+consistera à comparer les deux : la décision reste réversible dans le bon sens.</p>
+<p><strong>Trois durées distinctes</strong>, parce que ce sont trois consignes pédagogiques aux
+effets opposés : <code>duree-apnee</code> (attendue), <code>duree-min</code> (plancher, objectif de
+performance), <code>duree-max</code> (plafond, efficacité ou sécurité — portée : l'exercice
+entier). Les fondre ferait afficher au front une consigne ambiguë, au pire
+dangereuse sur du secourisme.</p>
+<p><strong>Une seule modalité de récupération par exercice.</strong> Les unités <code>s</code>, <code>inspi</code>, <code>cp</code>
+ne sont pas des variantes d'une même grandeur mais des modalités de la même
+fonction : rendre la main à l'apnéiste. D'où un verbe unique <code>recuperation</code>, qui
+garde la récupération comme une seule case comparable.</p>
+<h2 id="6-occurrences-et-contenu-reutilisable">6. Occurrences et contenu réutilisable</h2>
+<p><code>seance</code> et <code>formation</code> sont des <strong>occurrences datées</strong>. Elles portent la date, le
+lieu, les rôles, le retour d'expérience — et <strong>composent</strong> des exercices existants
+par <code>comporte</code>. Le contenu pédagogique (Quoi / Comment / Pourquoi / prérequis) vit
+dans <code>exercice</code>, <code>technique</code>, <code>competence</code>, <code>concept</code>.</p>
+<p>Sans cette séparation, on duplique tout le pédagogique à chaque date et le graphe
+devient un journal illisible en une saison. Le retour d'expérience daté — « la
+pyramide a été trop dure pour les AP frais » — est précisément la donnée de valeur
+qui ne peut vivre que sur l'occurrence.</p>
+<p><strong>Pas de classe <code>modele-seance</code> au départ.</strong> Une séance qui se répète se déclare
+<code>derive-de</code> ; quand trois séances dérivent de la même souche, celle-ci est mûre
+pour être promue en modèle — et on sait alors ce que le modèle doit contenir.
+Créer l'abstraction maintenant, sans exemplaire, c'est figer une structure que la
+pratique contredira.</p>
+<p><code>formation</code> est distincte de <code>seance</code> par le verbe <code>evalue</code> : validation de
+compétences et cadre fédéral qu'un entraînement n'a pas.</p>
+<p><strong>L'ordre de la liste <code>comporte</code> est l'ordre de déroulement.</strong> Aucun index
+numérique : l'échauffement avant le poumon vide n'est pas une opinion, c'est
+l'ordre d'écriture. Un index obligerait à renuméroter à chaque insertion — la
+première friction qui fait abandonner un système. Même principe pour
+<code>conduite-a-tenir</code>.</p>
+<h2 id="7-regles-du-vocabulaire">7. Règles du vocabulaire</h2>
+<ul>
+<li><strong>Vocabulaire FERMÉ</strong>, source de vérité <code>ontologie/*.yaml</code>, document
+  <code>docs/vocabulaire.md</code> <strong>généré</strong>. Un verbe s'ajoute dans le YAML, jamais dans le
+  document : sinon le <code>.md</code> et le linter divergent dès le premier oubli.</li>
+<li><strong>Aucun verbe inverse.</strong> On stocke <code>requiert</code>, jamais <code>est-requis-par</code> ; les
+  relations retour sont calculées à la lecture. Sinon chaque fait existe en deux
+  exemplaires, et le premier oubli rend le graphe incohérent sans que rien ne le
+  signale.</li>
+<li><strong>Un nœud seulement si ça mérite une page.</strong> <code>poumon-vide</code> a un mécanisme, des
+  indications, des risques → nœud. Ce qui n'a rien à raconter reste un littéral.
+  L'<code>allure</code> est devenue une classe précisément parce qu'elle a des attributs
+  mesurables et une doctrine d'emploi.</li>
+<li><strong>Causalité polarisée</strong> (<code>provoque</code> / <code>favorise</code> / <code>previent</code>) plutôt qu'un
+  verbe signé par un attribut : la polarité est l'information critique en
+  sécurité, elle ne doit pas dépendre d'un champ annexe qu'on peut oublier.</li>
+<li><strong><code>sorte-de</code> n'est pas l'instanciation.</strong> La subsomption donne l'héritage et
+  l'interrogation multi-granularité ; « croisière est une allure » se dit par le
+  champ <code>type</code>.</li>
+<li><strong><code>remplace</code> sur les sources</strong> est ce qui empêche le graphe de vieillir
+  silencieusement : quand le MFA change d'édition, les triples <code>verifie</code> adossés à
+  l'édition périmée sont réexaminables en masse.</li>
+</ul>
+<h2 id="8-architecture-medaillon">8. Architecture médaillon</h2>
+<pre><code>ingest/bronze/   capture brute, IMMUABLE, jamais éditée
+ingest/silver/   triples candidats, extraits, normalisés, NON validés
+graphe/          GOLD — le graphe canonique
+</code></pre>
+<ul>
+<li><strong>Bronze</strong> — une capture = un répertoire daté avec <code>source.yaml</code> déclarant
+  l'origine. Jamais modifié : c'est la pièce justificative, et son immuabilité
+  rend <strong>l'extraction rejouable</strong> le jour où le vocabulaire évoluera.</li>
+<li><strong>Silver</strong> — le sas. Extraire d'un PDF ou d'une conversation produit du bruit :
+  verbes approximatifs, doublons, assertions trop larges. Sans couche
+  intermédiaire, ce bruit atterrit dans le graphe. Ici l'erreur est attendue et
+  sans conséquence. Le champ <code>statut</code> (<code>propose</code> / <code>accepte</code> / <code>rejete</code>) garde la
+  mémoire de ce qui a été écarté, pour ne pas réexaminer trois fois la même
+  assertion douteuse.</li>
+<li><strong>Gold</strong> — un triple n'y entre que <strong>promu</strong>, avec sa <code>source</code>, ce qui rend
+  <code>verification: verifie</code> mécaniquement justifiable.</li>
+</ul>
+<p>Le gain réel est la <strong>traçabilité structurelle</strong> : chaque triple du graphe remonte
+à une pièce, au lieu de reposer sur une parole. C'est ce qui rendra le corpus
+défendable devant d'autres encadrants.</p>
+<p><strong>Documents tiers non versionnés.</strong> Les PDF sous droits ne sont pas commités :
+seul leur <code>source.yaml</code> l'est, avec la référence précise (édition, pagination)
+permettant de retrouver la pièce. Traçabilité complète, aucune redistribution.
+Les captures produites par l'auteur — transcripts, notes d'élaboration — sont
+versionnées : elles sont à la fois la pièce et sa production.</p>
+<h3 id="types-de-capture-et-ce-quils-autorisent">Types de capture, et ce qu'ils autorisent</h3>
+<table>
+<thead>
+<tr>
+<th><code>type</code></th>
+<th>Nature</th>
+<th>Peut justifier <code>verifie</code> ?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>document_tiers</code></td>
+<td>œuvre d'autrui</td>
+<td>oui, contenu non versionné</td>
+</tr>
+<tr>
+<td><code>observation</code></td>
+<td>témoignage direct de l'auteur, présent sur place</td>
+<td><strong>oui</strong>, si <code>consulte_le</code></td>
+</tr>
+<tr>
+<td><code>elaboration</code></td>
+<td>savoir produit par le raisonnement ou la discussion</td>
+<td><strong>non, jamais</strong></td>
+</tr>
+<tr>
+<td><code>page_web</code></td>
+<td>page consultée</td>
+<td>oui, avec URL et date</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Élaboration.</strong> Le cas le plus fréquent n'est pas l'extraction mais la
+<strong>production</strong> de savoir par la discussion. Les triples qui en découlent sortent
+en <code>confidence: plausible</code> / <code>verification: a-verifier</code> — <strong>jamais <code>verifie</code></strong>,
+puisque aucune source externe ne les adosse. On obtient un stock explicite de
+« ce que je crois savoir et qu'il reste à confronter aux textes », qui est sans
+doute la partie la plus utile du second brain.</p>
+<p><strong>Observation.</strong> Distincte de l'élaboration, et la distinction est essentielle :
+le <em>raisonnement</em> (« je pense que la croisière tourne autour d'1 m/s ») ne peut
+pas justifier <code>verifie</code>, mais l'<em>observation</em> (« le groupe a dérivé vers la
+croisière ») si. Tu y étais, tu encadrais, ton compte-rendu est la pièce.</p>
+<p>Sans ce type, <strong>tout le carnet de séances serait condamné à <code>a-verifier</code> à
+perpétuité</strong> — soit une dette de six lignes par séance, environ deux cents par
+saison, insolvable autrement que par soi-même. Une dette qu'on ne peut pas
+solder est une dette qu'on cesse de regarder, et l'indicateur perdrait sa
+fonction.</p>
+<p><strong>Toute séance a sa capture.</strong> Une occurrence n'est jamais écrite à la main dans
+<code>graphe/</code> : elle passe par <code>/capture</code> puis <code>/promouvoir</code>. C'est ce qui garantit
+qu'elle est adossée à son compte-rendu — et l'absence de cette règle est
+exactement ce qui a produit la première faute du projet, six triples <code>verifie</code>
+adossés à un transcript qui ne parlait pas de la séance.</p>
+<h2 id="9-partage-entre-le-linter-et-laudit">9. Partage entre le linter et l'audit</h2>
+<p>Deux outils, deux régimes, et une frontière à critère net :</p>
+<blockquote>
+<p><strong>Le linter valide ce qui se décide en lisant <em>un seul fichier</em>, plus le
+schéma. L'audit traite tout ce qui exige de <em>traverser le graphe</em>.</strong></p>
+</blockquote>
+<p><code>tools/lint.py</code> — <strong>bloquant</strong> en pre-commit : parsing du frontmatter, liste
+fermée de champs, champs requis et réservés, identifiant, concordance
+répertoire / <code>type</code>, appartenance des verbes et des classes au vocabulaire,
+énumérations, grammaire et <strong>forme canonique</strong> des littéraux, domaine du verbe,
+cardinalité. Le vocabulaire fermé est le schéma du frontmatter : <code>verb: inventé</code>
+et <code>niveau: intermediaire</code> sont la même faute.</p>
+<p><code>tools/audit.py</code> — <strong>consultatif</strong>, jamais bloquant : intégrité du graphe
+(wikilinks, co-domaine, <code>source</code> requis si <code>verifie</code>), cohérence des sources
+(<code>verifie</code> adossé à une élaboration, capture non consultée, source périmée par
+<code>remplace</code>, source jamais citée), dette de vérification triée par gravité, dette
+de sécurité, candidats silver en attente, vocabulaire mort, nœuds orphelins.</p>
+<p>Pourquoi ce partage : le linter doit rester <strong>sans faux positif</strong>, sinon il sera
+contourné ; l'audit doit pouvoir être <strong>bavard et imparfait</strong>, c'est un tableau
+de bord qu'on lit le dimanche. Rendre l'audit bloquant reproduirait le linter
+sous un autre nom et interdirait de commiter un travail en cours — ce que la
+couche silver est précisément là pour permettre. Et si une faute de frappe sur
+un verbe atterrissait dans l'audit, le rapport mélangerait des coquilles et de
+vraies priorités épistémiques.</p>
+<h2 id="10-ce-qui-nest-pas-encore-decide">10. Ce qui n'est pas encore décidé</h2>
+<ul>
+<li>
+<p><strong>La sécurité fait l'objet d'une session de travail dédiée, non encore tenue.</strong>
+  Les nœuds <code>risque/syncope</code>, <code>technique/sortie-tete-hors-eau</code> et
+  <code>role/binome-de-surveillance</code> portent un bandeau <strong>CONTENU PROVISOIRE — NE PAS
+  ENSEIGNER</strong> : ils ont été rédigés par un LLM de mémoire, sans source. Rien de
+  ce versant ne doit être traité comme référence avant cette session. En
+  particulier, la séquence ordonnée de <code>conduite-a-tenir</code> reste à établir, et la
+  question de savoir s'il faut des nœuds <code>risque</code> distincts pour le bassin et le
+  milieu naturel reste ouverte.</p>
+</li>
+<li>
+<p>Les bornes des allures restent en <code>confidence: plausible</code> /
+  <code>verification: a-verifier</code> : elles sortent de l'expérience d'encadrement, non
+  d'une mesure. Celles de <code>croisiere</code>, <code>rapide</code> et <code>sprint</code> sont <strong>solidaires</strong>
+  (bornes par encadrement) : affiner l'une impose de réexaminer les voisines.</p>
+</li>
+<li>Une <strong>lacune de vocabulaire</strong> est assumée : « la minute au 25 m est parfois
+  vue comme un minimum » (allure <code>tres-lent</code>) n'est portée que par la prose.
+  <code>duree-min</code> a pour domaine <code>exercice</code>, et l'y étendre brouillerait le sens —
+  un plancher est une consigne, pas une propriété d'allure.</li>
+<li>Le <strong>front web</strong> est acté mais non spécifié. Le modèle est conçu pour lui :
+  deux comportements d'affichage suffisent — un en-tête d'identité, et une liste
+  de triples avec leurs indicateurs.</li>
+<li>La promotion d'une souche de séance en <strong>modèle</strong>, le jour où trois séances en
+  dériveront.</li>
+</ul></div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+<script>
+if (document.querySelector("pre.mermaid")) {
+  const s = document.createElement("script");
+  s.src = "/static/vendor/mermaid.min.js";
+  s.onload = () => { mermaid.initialize({ startOnLoad: false, theme: "neutral" }); mermaid.run(); };
+  document.head.appendChild(s);
+}
+</script>
+
+</body>
+</html>

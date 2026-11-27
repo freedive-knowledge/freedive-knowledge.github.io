@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conventions de travail · graphe apnée</title>
+<link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt">
+</head>
+<body>
+<header class="barre">
+  <a class="marque" href="/index.html">Graphe apnée</a>
+  <div class="recherche">
+    <input id="q" type="search" placeholder="Rechercher… (/)" autocomplete="off" aria-label="Rechercher un nœud">
+    <ol id="resultats" hidden></ol>
+  </div>
+  <nav>
+    <a href="/cours/index.html">Cours</a>
+    <a href="/docs/index.html">Documentation</a>
+    <a href="/graphe.html">Graphe global</a>
+    <label class="filtre" title="Masquer les triples ni vérifiés ni intrinsèques">
+      <input id="filtre-verifie" type="checkbox"> Vérifié seulement
+    </label>
+  </nav>
+</header>
+<p class="avertissement">Document de travail personnel, en cours de consolidation : il ne remplace ni le <abbr title="Manuel de formation apnée">MFA</abbr> ni l'encadrement par un moniteur. Vérifiez l'état de chaque information (✓, ?, provisoire).</p>
+<main>
+
+<p class="fil"><a href="/index.html">Accueil</a> › <a href="/docs/index.html">Documentation</a></p>
+<h1>Conventions de travail</h1>
+<p class="telechargements"><a href="/docs/conventions.md">Source Markdown</a></p>
+<div class="corps doc"><blockquote>
+<p>Document écrit à la main. Complète <a href="/docs/spec-graphe.html">spec-graphe.md</a> (le modèle)
+et <a href="/docs/vocabulaire.html">vocabulaire.md</a> (généré).</p>
+</blockquote>
+<h2 id="arborescence">Arborescence</h2>
+<pre><code>ontologie/       schéma exécutable — source de vérité du vocabulaire
+docs/            documentation du projet
+graphe/          les nœuds, un répertoire par classe
+ingest/          bronze (captures) et silver (candidats)
+tools/           linter, générateur, horodatage, installation des hooks
+.venv/           environnement Python local, non versionné
+</code></pre>
+<p><code>ontologie/</code> est <strong>hors de <code>docs/</code></strong> parce que ce n'est pas de la documentation
+mais du schéma exécutable, et <strong>hors de <code>graphe/</code></strong> parce que ce n'est pas un
+nœud. Ne jamais mélanger le méta et l'objet : c'est la façon la plus sûre de
+polluer toute requête ultérieure.</p>
+<h2 id="identifiants">Identifiants</h2>
+<p><strong>Le nom de fichier est l'identifiant.</strong> <code>kebab-case</code>, ASCII <strong>sans accent</strong>,
+<strong>stable et jamais renommé</strong>.</p>
+<pre><code>graphe/cursus/apneiste-piscine.md      →   [[apneiste-piscine]]
+</code></pre>
+<pre><code class="language-yaml">type: cursus
+title: &quot;AP — Apnéiste Piscine&quot;
+aliases: [&quot;AP&quot;, &quot;apneiste piscine&quot;]
+</code></pre>
+<ul>
+<li><strong>Sans accent</strong> : <code>apnéiste</code> et <code>apneiste</code> finiraient par coexister et casser
+  des liens silencieusement. Le coût est nul puisque <code>title</code> et <code>aliases</code> portent
+  la forme correcte pour l'humain.</li>
+<li><strong>Identifiant ≠ titre</strong> : c'est l'indirection qui permet de renommer « AP » le
+  jour où la FFESSM change l'intitulé du brevet, <strong>sans toucher un seul lien</strong>.
+  Dans un corpus dont le vocabulaire fédéral bouge, elle paiera.</li>
+<li><strong>Occurrences préfixées par la date ISO</strong> :
+  <code>graphe/seance/2026-09-22-pre-acp-dynamique.md</code>. La date est intrinsèque à
+  l'occurrence : tri, filtrage et recherche fonctionnent sans outil. Le linter
+  vérifie que le préfixe et le champ <code>date</code> concordent.</li>
+<li><strong>Le répertoire est un miroir du champ <code>type</code></strong>, jamais une information
+  concurrente. Reclasser un nœud = un <code>git mv</code>.</li>
+</ul>
+<h2 id="lecture-de-la-notation-de-bassin">Lecture de la notation de bassin</h2>
+<p>Conventions de lecture de <code>execution</code>, telles qu'on les pratique au bord du
+bassin (revue du 2026-09-27) :</p>
+<ul>
+<li><strong>Poumons pleins par défaut.</strong> Si rien n'est indiqué, l'apnée se fait poumons
+  pleins : le triple <code>contrainte-pulmonaire → [[poumons-pleins]]</code> est alors une
+  lecture de l'exécution, donc <code>intrinseque</code>.</li>
+<li><strong>Précision au demi-bassin.</strong> Dans un bassin de 25 m, les distances se comptent
+  par multiples de 12,5 m (<code>37.5m</code>, <code>62.5m</code>) ; une précision plus fine n'a pas
+  de sens au bord.</li>
+<li><strong>La récupération part de l'arrivée au bord.</strong> Dans <code>retour au bord + R 1mn</code>,
+  le temps de retour n'est pas décompté : l'apnéiste ne peut pas le chronométrer.
+  La récupération effective est donc plus longue que la valeur notée.</li>
+</ul>
+<h2 id="workflow-dingestion">Workflow d'ingestion</h2>
+<p>Deux commandes, <strong>un seul point de contrôle humain</strong>.</p>
+<h3 id="capture"><code>/capture</code></h3>
+<p>Prend une entrée (fichier, URL, ou la conversation en cours), écrit la capture en
+<strong>bronze</strong> avec son <code>source.yaml</code>, puis en extrait les triples candidats en
+<strong>silver</strong> avec <code>statut: propose</code>. <strong>Ne touche jamais <code>graphe/</code>.</strong></p>
+<p>L'extraction est délibérément <strong>généreuse</strong> : mieux vaut un candidat en trop, que
+l'on rejette d'un mot, qu'un fait perdu.</p>
+<h3 id="promouvoir"><code>/promouvoir</code></h3>
+<p>Présente les candidats d'un lot silver, groupés par nœud cible, avec pour chacun
+le verbe, la cible, la confiance proposée et l'extrait de bronze qui le justifie.
+Après acceptation, les triples partent en <code>graphe/</code> — création ou mise à jour du
+nœud — et leur <code>statut</code> passe à <code>accepte</code>, ce qui garde en silver la trace de la
+décision.</p>
+<p><strong>Le point de contrôle est à la promotion, pas à la capture</strong> : c'est le seul
+endroit où le jugement humain est irremplaçable — décider qu'une assertion entre
+dans le corpus de référence. Plus tôt, on arbitrerait sur du bruit d'extraction ;
+plus tard, il serait trop tard.</p>
+<p><strong>Deux commandes séparées</strong> parce que les fondre supprimerait le sas, donc tout
+l'intérêt de silver. Séparées, on peut capturer dix sources un soir et promouvoir
+tranquillement le dimanche — ce qui correspond à la réalité d'un projet bénévole
+mené à côté d'un emploi.</p>
+<h3 id="regle-non-negociable">Règle non négociable</h3>
+<blockquote>
+<p><strong>Aucune promotion automatique.</strong> Le graphe contient des assertions de
+sécurité. Un LLM qui s'auto-valide sur des faits de sécurité en apnée est
+précisément ce qu'il ne faut pas construire.</p>
+</blockquote>
+<h2 id="etendre-le-vocabulaire">Étendre le vocabulaire</h2>
+<ol>
+<li>Éditer <code>ontologie/verbes.yaml</code> (ou <code>classes.yaml</code>, <code>enums.yaml</code>) — en
+   renseignant <code>description</code>, et <code>contre_exemple</code> dès qu'un verbe voisin existe.</li>
+<li>Régénérer : <code>.venv/bin/python tools/gen_vocab.py</code></li>
+<li>Relancer le lint : <code>.venv/bin/python tools/lint.py</code></li>
+<li>Commiter le YAML <strong>et</strong> le document généré ensemble.</li>
+</ol>
+<p>Le lint est <strong>bloquant</strong> en pre-commit. Un lint consultatif serait ignoré au
+troisième avertissement ; bloquant, il force à passer par le YAML, donc toute
+extension du vocabulaire reste documentée par construction.</p>
+<h2 id="outillage">Outillage</h2>
+<pre><code class="language-sh">python3 -m venv .venv &amp;&amp; .venv/bin/pip install pyyaml   # une fois
+sh tools/install-hooks.sh                               # une fois, après clonage
+
+.venv/bin/python tools/lint.py                   # valide tout le graphe
+.venv/bin/python tools/lint.py graphe/exercice/  # valide un sous-ensemble
+.venv/bin/python tools/gen_vocab.py              # régénère docs/vocabulaire.md
+.venv/bin/python tools/gen_vocab.py --check      # échoue si le doc est périmé
+</code></pre>
+<p>Python sans dépendance au-delà de <code>pyyaml</code> : disponible partout, adapté au
+traitement de fichiers texte, aucune toolchain à installer pour lancer un lint.</p>
+<p>Le hook de pre-commit enchaîne : horodatage de <code>updated</code>, vérification que le
+vocabulaire généré est à jour, puis lint du graphe.</p>
+<p><code>updated</code> est <strong>écrit par le hook</strong>, jamais à la main : maintenue manuellement,
+elle dériverait systématiquement. La donnée existe déjà dans l'historique git ;
+le hook ne fait que la matérialiser dans le frontmatter pour que le front web la
+consomme sans lire l'historique. <code>created</code> est saisie une fois et immuable.</p>
+<h2 id="audit">Audit</h2>
+<pre><code class="language-sh">.venv/bin/python tools/audit.py                    # rapport complet
+.venv/bin/python tools/audit.py --section securite # une section
+</code></pre>
+<p>Sections : <code>integrite</code>, <code>sources</code>, <code>dette</code>, <code>securite</code>, <code>silver</code>, <code>vocabulaire</code>,
+<code>orphelins</code>. <strong>Consultatif, sortie toujours 0.</strong></p>
+<p><code>securite</code> est la section à lire en priorité : un savoir de sécurité non sourcé
+finit enseigné au bord du bassin. <code>dette</code> est triée par gravité — un triple
+<code>a-verifier</code> / <code>certain</code> affirme fort sans référence, il passe avant un
+<code>a-verifier</code> / <code>incertain</code>.</p>
+<h2 id="ce-que-verifie-le-linter">Ce que vérifie le linter</h2>
+<ul>
+<li><code>type</code> présent, dans le vocabulaire, cohérent avec le répertoire d'accueil ;</li>
+<li>champs du frontmatter dans la <strong>liste fermée</strong>, champs requis présents, champs
+  réservés (<code>execution</code>, <code>date</code>) sur les bonnes classes ; <code>statut</code> dans son
+  énumération ;</li>
+<li>identifiant ASCII kebab-case ; concordance préfixe de date / champ <code>date</code> ;</li>
+<li>verbes dans le vocabulaire, <strong>domaine</strong> et <strong>co-domaine</strong> respectés,
+  <strong>cardinalité</strong> respectée, contrainte de même classe pour <code>sorte-de</code> ;</li>
+<li>littéraux conformes à leur grammaire et à leur <strong>forme canonique</strong> (une durée
+  ≥ 60 s écrite en secondes est rejetée avec la forme attendue) ;</li>
+<li><code>verification</code> et <code>confidence</code> dans leurs énumérations ;</li>
+<li>attributs qualificatifs d'un triple (<code>cadre</code>, <code>milieu</code>…) : admis seulement
+  si le verbe les déclare, requis s'ils sont marqués tels, valeur dans
+  l'énumération ;</li>
+<li>attribut <code>source</code> d'un triple : wikilink désignant l'un des triples <code>source</code>
+  du même nœud ;</li>
+<li><code>intrinseque</code> réservé aux 9 verbes de transcription, sur un nœud portant un
+  champ transcriptible.</li>
+</ul>
+<p>Ce qu'il ne vérifie <strong>pas</strong>, par construction — tout cela exige d'ouvrir d'autres
+fichiers, et relève de <code>tools/audit.py</code> : résolution des wikilinks, co-domaine,
+<code>source</code> requis si <code>verifie</code>, cohérence des sources.</p></div>
+
+</main>
+<footer class="legende">
+  <span><b>Confiance</b> :
+    <span class="triple conf-certain"><span class="cible"><span class="litteral">certain</span></span></span> · <span class="triple conf-probable"><span class="cible"><span class="litteral">probable</span></span></span> · <span class="triple conf-plausible"><span class="cible"><span class="litteral">plausible</span></span></span> · <span class="triple conf-incertain"><span class="cible"><span class="litteral">incertain</span></span></span>
+  </span>
+  <span><b>Vérification</b> :
+    <span class="icone verif-verifie">✓</span> vérifié ·
+    <span class="icone verif-intrinseque">≡</span> intrinsèque ·
+    <span class="icone verif-a-verifier">?</span> à vérifier ·
+    <span class="icone verif-infirme">✗</span> <s>infirmé</s>
+  </span>
+  <span><span class="manquant">rouge</span> : nœud manquant</span>
+  <span class="licence">© François Sarradin et contributeurs · contenu sous <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr" rel="license">CC BY-SA 4.0</a>, sauf images tierces créditées · <a href="/llms.txt">llms.txt</a></span>
+</footer>
+<script src="/static/vendor/minisearch.min.js"></script>
+<script src="/static/app.js"></script>
+
+<script>
+if (document.querySelector("pre.mermaid")) {
+  const s = document.createElement("script");
+  s.src = "/static/vendor/mermaid.min.js";
+  s.onload = () => { mermaid.initialize({ startOnLoad: false, theme: "neutral" }); mermaid.run(); };
+  document.head.appendChild(s);
+}
+</script>
+
+</body>
+</html>

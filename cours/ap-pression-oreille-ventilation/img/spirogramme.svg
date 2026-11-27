@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 440" width="1100" height="440" role="img" aria-label="Volumes pulmonaires d'un adulte : volume résiduel 1,5 L, réserve expiratoire 1,5 L, volume courant 0,5 L, réserve inspiratoire 2,5 L ; capacité vitale 4,5 L, capacité pulmonaire totale 6 L ; à 6 m, 6 L deviennent 3,75 L">
+<g font-family="Arial, Helvetica, sans-serif" fill="#24454D">
+<!-- échelle : 140 px par litre, de x=180 (0 L) à x=1020 (6 L) -->
+<text x="160" y="140" text-anchor="end" font-size="24" font-weight="bold">Surface</text>
+<text x="160" y="166" text-anchor="end" font-size="17" font-style="italic" fill="#5F7378">poumons pleins</text>
+<rect x="180" y="110" width="210" height="80" fill="#24454D"/>
+<rect x="390" y="110" width="210" height="80" fill="#3D6E79"/>
+<rect x="600" y="110" width="70" height="80" fill="#F08237"/>
+<rect x="670" y="110" width="350" height="80" fill="#94CEC8"/>
+<text x="285" y="145" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">volume résiduel</text>
+<text x="285" y="172" text-anchor="middle" font-size="19" fill="#FFFFFF">1,5 L</text>
+<text x="495" y="145" text-anchor="middle" font-size="19" font-weight="bold" fill="#FFFFFF">réserve expiratoire</text>
+<text x="495" y="172" text-anchor="middle" font-size="19" fill="#FFFFFF">1,5 L</text>
+<text x="845" y="145" text-anchor="middle" font-size="19" font-weight="bold">réserve inspiratoire</text>
+<text x="845" y="172" text-anchor="middle" font-size="19">2,5 L</text>
+<line x1="635" y1="104" x2="635" y2="70" stroke="#F08237" stroke-width="2"/>
+<text x="635" y="40" text-anchor="middle" font-size="19" font-weight="bold" fill="#F08237">volume courant</text>
+<text x="635" y="64" text-anchor="middle" font-size="19" fill="#F08237">0,5 L (au repos)</text>
+<!-- accolades -->
+<path d="M390 202 v10 h630 v-10" fill="none" stroke="#3D6E79" stroke-width="2"/>
+<text x="705" y="236" text-anchor="middle" font-size="19"><tspan font-weight="bold">capacité vitale</tspan> 4,5 L</text>
+<path d="M180 248 v10 h840 v-10" fill="none" stroke="#24454D" stroke-width="2"/>
+<text x="600" y="282" text-anchor="middle" font-size="19"><tspan font-weight="bold">capacité pulmonaire totale</tspan> 6 L</text>
+<!-- à 6 m -->
+<text x="160" y="370" text-anchor="end" font-size="24" font-weight="bold">6 m</text>
+<text x="160" y="396" text-anchor="end" font-size="17" font-style="italic" fill="#5F7378">1,6 bar</text>
+<rect x="180" y="330" width="525" height="80" fill="#3D6E79"/>
+<rect x="705" y="330" width="315" height="80" fill="none" stroke="#5F7378" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="442" y="378" text-anchor="middle" font-size="26" font-weight="bold" fill="#FFFFFF">3,75 L</text>
+<text x="862" y="366" text-anchor="middle" font-size="19" fill="#5F7378">comprimé par l'eau</text>
+<text x="862" y="392" text-anchor="middle" font-size="19" fill="#5F7378">− 2,25 L</text>
+</g></svg>
